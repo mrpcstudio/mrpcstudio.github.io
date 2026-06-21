@@ -27,7 +27,10 @@
             <div class="p-4 space-y-4">
                 <div class="flex justify-between text-sm text-gray-500 px-1 border-b pb-2 mb-2">
                     <span>总题库共 {{ db.length }} 章节</span>
-                    <button @click="clearStorage" class="text-red-400 hover:text-red-600">清除本地数据</button>
+                    <div class="flex items-center gap-2">
+                        <button @click="clearHistory" class="text-amber-500 hover:text-amber-700">清除历史错题</button>
+                        <button @click="clearStorage" class="text-red-400 hover:text-red-600">清除本地数据</button>
+                    </div>
                 </div>
 
                 <div v-for="(chap, idx) in db" :key="idx" class="bg-white rounded-xl shadow-sm p-4 border border-gray-100">
@@ -170,26 +173,32 @@
 
             <!-- 答题卡浮层 -->
             <div v-if="showAnswerCard" class="fixed inset-0 z-50 flex items-center justify-center bg-black/40" @click.self="showAnswerCard = false">
-                <div class="bg-white rounded-2xl w-80 max-h-[70vh] overflow-y-auto shadow-2xl p-5 mx-4" @click.stop>
-                    <div class="flex items-center justify-between mb-4">
+                <div class="bg-white rounded-2xl w-80 max-h-[80vh] flex flex-col shadow-2xl mx-4" @click.stop>
+                    <div class="flex items-center justify-between p-4 border-b shrink-0">
                         <h3 class="font-bold text-gray-800 text-lg">答题卡</h3>
                         <button @click="showAnswerCard = false" class="text-gray-400 hover:text-gray-600 p-1 rounded-lg hover:bg-gray-100">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                         </button>
                     </div>
-                    <div class="grid grid-cols-5 gap-2">
+                    <div class="overflow-y-auto p-3 space-y-1 flex-1 min-h-0">
                         <div v-for="(status, idx) in answerStatus" :key="idx"
                             @click="jumpToQuestion(idx)"
-                            class="aspect-square rounded-xl flex items-center justify-center text-sm font-bold cursor-pointer transition duration-150"
-                            :class="getAnswerCardClass(idx)"
+                            class="flex items-center px-3 py-2.5 rounded-lg cursor-pointer transition border-l-4"
+                            :class="getAnswerCardRowClass(idx)"
                         >
-                            {{ idx + 1 }}
+                            <span class="w-7 h-7 flex items-center justify-center rounded-full text-xs font-bold mr-3 shrink-0"
+                                :class="getAnswerCardDotClass(status)"
+                            >{{ idx + 1 }}</span>
+                            <span class="text-sm text-gray-700">第 {{ idx + 1 }} 题</span>
+                            <span class="ml-auto text-xs font-medium" :class="getAnswerCardStatusClass(status)">
+                                {{ status === true ? '✓ 答对' : status === false ? '✗ 答错' : '— 未答' }}
+                            </span>
                         </div>
                     </div>
-                    <div class="flex items-center justify-center space-x-4 mt-4 pt-3 border-t border-gray-100 text-xs text-gray-400">
-                        <span class="flex items-center"><span class="w-3 h-3 rounded bg-green-500 mr-1.5"></span>答对</span>
-                        <span class="flex items-center"><span class="w-3 h-3 rounded bg-red-500 mr-1.5"></span>答错</span>
-                        <span class="flex items-center"><span class="w-3 h-3 rounded bg-gray-200 mr-1.5"></span>未答</span>
+                    <div class="flex items-center justify-center space-x-5 p-3 border-t shrink-0 text-xs text-gray-400">
+                        <span class="flex items-center"><span class="w-2.5 h-2.5 rounded-full bg-blue-500 mr-1.5"></span>答对</span>
+                        <span class="flex items-center"><span class="w-2.5 h-2.5 rounded-full bg-orange-500 mr-1.5"></span>答错</span>
+                        <span class="flex items-center"><span class="w-2.5 h-2.5 rounded-full bg-gray-300 mr-1.5"></span>未答</span>
                     </div>
                 </div>
             </div>
@@ -539,6 +548,12 @@
                         StorageManager.set(StorageKey, storage.value);
                     }
                 };
+                const clearHistory = () => {
+                    if(confirm('确定要清除所有历史错题吗？（不会影响当前错题本）')) {
+                        storage.value.history = {};
+                        StorageManager.set(StorageKey, storage.value);
+                    }
+                };
 
                 const toggleAnswerCard = () => {
                     showAnswerCard.value = !showAnswerCard.value;
@@ -555,13 +570,25 @@
                     }
                 };
 
-                const getAnswerCardClass = (idx) => {
+                const getAnswerCardRowClass = (idx) => {
                     const status = answerStatus.value[idx];
                     const isCurrent = idx === currentQIndex.value;
-                    const ring = 'ring-2 ring-blue-400 ring-offset-2';
-                    if (status === true) return 'bg-green-500 text-white' + (isCurrent ? ' ' + ring : '');
-                    if (status === false) return 'bg-red-500 text-white' + (isCurrent ? ' ' + ring : '');
-                    return 'bg-gray-100 text-gray-600 hover:bg-gray-200' + (isCurrent ? ' ' + ring : '');
+                    let cls = 'border-l-4 ';
+                    if (status === true) cls += 'bg-blue-50 border-blue-500 hover:bg-blue-100';
+                    else if (status === false) cls += 'bg-orange-50 border-orange-500 hover:bg-orange-100';
+                    else cls += 'bg-gray-50 border-gray-300 hover:bg-gray-100';
+                    if (isCurrent) cls += ' ring-2 ring-blue-300 ring-offset-1';
+                    return cls;
+                };
+                const getAnswerCardDotClass = (status) => {
+                    if (status === true) return 'bg-blue-500 text-white';
+                    if (status === false) return 'bg-orange-500 text-white';
+                    return 'bg-gray-200 text-gray-500';
+                };
+                const getAnswerCardStatusClass = (status) => {
+                    if (status === true) return 'text-blue-600';
+                    if (status === false) return 'text-orange-600';
+                    return 'text-gray-400';
                 };
 
                 watch(currentQIndex, (newIdx) => {
@@ -577,7 +604,7 @@
                     userAnswer, hasSubmitted, isCorrect, submitAnswer, toggleOption,
                     getOptionClass, formatUserAnswer, nextQuestion, prevQuestion,
                     exitQuiz, isReviewData, isSubmitDisabled, mode, modeName, getMistakeCount, getHistoryCount,
-                    clearStorage, showAnswerCard, answerStatus, toggleAnswerCard, jumpToQuestion, getAnswerCardClass, getDisplayAnswer
+                    clearStorage, clearHistory, showAnswerCard, answerStatus, toggleAnswerCard, jumpToQuestion, getAnswerCardRowClass, getAnswerCardDotClass, getAnswerCardStatusClass, getDisplayAnswer
                 };
             }
         }
