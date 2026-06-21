@@ -193,6 +193,10 @@
                             <span class="ml-auto text-xs font-medium" :class="getAnswerCardStatusClass(status)">
                                 {{ status === true ? '✓ 答对' : status === false ? '✗ 答错' : '— 未答' }}
                             </span>
+                            <button v-if="mode === 'history'" @click.stop="removeFromHistory(idx)"
+                                class="ml-2 p-1.5 rounded-lg text-gray-400 hover:text-red-500 hover:bg-red-50 transition" title="移出历史错题">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                            </button>
                         </div>
                     </div>
                     <div class="flex items-center justify-center space-x-5 p-3 border-t shrink-0 text-xs text-gray-400">
@@ -554,6 +558,25 @@
                         StorageManager.set(StorageKey, storage.value);
                     }
                 };
+                const removeFromHistory = (idx) => {
+                    if (mode.value !== 'history') return;
+                    const q = currentQuiz.value[idx];
+                    if (!q) return;
+                    if (!confirm(`确定要将第 ${idx + 1} 题移出历史错题吗？`)) return;
+                    const chapHistory = storage.value.history[q.chapterIdx];
+                    if (chapHistory) {
+                        chapHistory[q.type] = chapHistory[q.type].filter(id => id !== q.id);
+                        StorageManager.set(StorageKey, storage.value);
+                    }
+                    currentQuiz.value.splice(idx, 1);
+                    answerStatus.value.splice(idx, 1);
+                    if (currentQIndex.value >= currentQuiz.value.length) {
+                        currentQIndex.value = Math.max(0, currentQuiz.value.length - 1);
+                    }
+                    if (currentQuiz.value.length === 0) {
+                        showAnswerCard.value = false;
+                    }
+                };
 
                 const toggleAnswerCard = () => {
                     showAnswerCard.value = !showAnswerCard.value;
@@ -604,7 +627,7 @@
                     userAnswer, hasSubmitted, isCorrect, submitAnswer, toggleOption,
                     getOptionClass, formatUserAnswer, nextQuestion, prevQuestion,
                     exitQuiz, isReviewData, isSubmitDisabled, mode, modeName, getMistakeCount, getHistoryCount,
-                    clearStorage, clearHistory, showAnswerCard, answerStatus, toggleAnswerCard, jumpToQuestion, getAnswerCardRowClass, getAnswerCardDotClass, getAnswerCardStatusClass, getDisplayAnswer
+                    clearStorage, clearHistory, removeFromHistory, showAnswerCard, answerStatus, toggleAnswerCard, jumpToQuestion, getAnswerCardRowClass, getAnswerCardDotClass, getAnswerCardStatusClass, getDisplayAnswer
                 };
             }
         }
