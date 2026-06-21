@@ -486,7 +486,7 @@
 
                 const formatUserAnswer = () => {
                     if (!userAnswer.value || userAnswer.value.length === 0) return '未作答';
-                    if (Array.isArray(userAnswer.value)) return Array.from(userAnswer.value).sort().map(k => getDisplayLabel(k)).join('');
+                    if (Array.isArray(userAnswer.value)) return Array.from(userAnswer.value).map(k => getDisplayLabel(k)).sort().join('');
                     return getDisplayLabel(userAnswer.value);
                 };
 
@@ -501,7 +501,7 @@
                     const q = currentQ.value;
                     const origAns = q.original.answer;
                     const ansList = Array.isArray(origAns) ? origAns : [origAns];
-                    return ansList.map(a => getDisplayLabel(a)).join('');
+                    return ansList.map(a => getDisplayLabel(a)).sort().join('');
                 };
 
                 const nextQuestion = () => {
