@@ -219,7 +219,7 @@
                         return JSON.parse(decodeURIComponent(c.substring(nameEQ.length, c.length)));
                     }
                 }
-                return { progress: {}, mistakes: {} };
+                return { progress: {}, mistakes: {}, answerStatus: {} };
             }
         };
 
@@ -242,7 +242,7 @@
                 const hasSubmitted = ref(false);
                 const isCorrect = ref(false); // submitted state flag
                 
-                const storage = ref(StorageManager.get(StorageKey) || { progress: {}, mistakes: {} });
+                const storage = ref(StorageManager.get(StorageKey) || { progress: {}, mistakes: {}, answerStatus: {} });
 
                 const showAnswerCard = ref(false);
                 const answerStatus = ref([]);
@@ -309,7 +309,19 @@
                     }
                     
                     currentQuiz.value = questions;
-                    answerStatus.value = new Array(questions.length).fill(null);
+                    // 从存储恢复答题卡状态
+                    const savedStatus = storage.value.answerStatus?.[chapterIdx] || {};
+                    if (m === 'mistakes') {
+                        answerStatus.value = questions.map(q => {
+                            if (savedStatus[q.id] === true) return true;
+                            return false;
+                        });
+                    } else {
+                        answerStatus.value = questions.map(q => {
+                            if (savedStatus[q.id] !== undefined) return savedStatus[q.id];
+                            return null;
+                        });
+                    }
                     if (m === 'review' && questions.length > 0) {
                         answerStatus.value[0] = true;
                     }
@@ -360,6 +372,11 @@
                     }
                     
                     answerStatus.value[currentQIndex.value] = isCorrect.value;
+
+                    // 持久化答题卡状态
+                    if (!storage.value.answerStatus) storage.value.answerStatus = {};
+                    if (!storage.value.answerStatus[q.chapterIdx]) storage.value.answerStatus[q.chapterIdx] = {};
+                    storage.value.answerStatus[q.chapterIdx][q.id] = isCorrect.value;
 
                     // 记录错题或移出
                     let chapMistakes = storage.value.mistakes[q.chapterIdx];
@@ -456,7 +473,7 @@
 
                 const clearStorage = () => {
                     if(confirm('确定要清除所有进度和错题本吗？')) {
-                        storage.value = { progress: {}, mistakes: {} };
+                        storage.value = { progress: {}, mistakes: {}, answerStatus: {} };
                         StorageManager.set(StorageKey, storage.value);
                     }
                 };
