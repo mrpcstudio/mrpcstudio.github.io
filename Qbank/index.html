@@ -18,7 +18,7 @@
     <div id="app" v-cloak class="max-w-md mx-auto h-screen bg-gray-100 flex flex-col relative shadow-xl overflow-hidden">
         
         <!-- 首页 - 章节选择 -->
-        <div v-if="activeView === 'home'" class="flex-1 flex flex-col overflow-y-auto">
+        <div v-if="activeView === 'home'" class="flex-1 flex flex-col overflow-y-auto min-h-0">
             <div class="bg-blue-600 text-white p-4 text-center sticky top-0 z-10 shadow-md">
                 <h1 class="text-xl font-bold">刷题宝典</h1>
                 <p class="text-xs text-blue-200 mt-1">本地静态题库版</p>
@@ -58,7 +58,7 @@
         </div>
 
         <!-- 答题视图 -->
-        <div v-else-if="activeView === 'quiz'" class="flex-1 flex flex-col bg-white">
+        <div v-else-if="activeView === 'quiz'" class="flex-1 flex flex-col bg-white min-h-0">
             <!-- Header -->
             <div class="flex items-center justify-between p-4 border-b bg-blue-600 text-white shadow-sm z-10 shrink-0">
                 <button @click="exitQuiz" class="flex items-center text-white px-2 py-1 -ml-2 rounded hover:bg-blue-700">
@@ -73,7 +73,7 @@
             </div>
 
             <!-- Question & Options Area -->
-            <div class="flex-1 overflow-y-auto w-full">
+            <div class="flex-1 overflow-y-auto w-full min-h-0">
                 <div v-if="currentQuiz.length > 0" class="p-5 pb-24">
                     <!-- 题干 -->
                     <div class="mb-5">
@@ -331,6 +331,9 @@
                     if (m === 'sequence') {
                         const prog = storage.value.progress[`chap_${chapterIdx}`] || 0;
                         currentQIndex.value = Math.min(prog, questions.length - 1);
+                    } else if (m === 'review') {
+                        const prog = storage.value.progress[`review_chap_${chapterIdx}`] || 0;
+                        currentQIndex.value = Math.min(prog, questions.length - 1);
                     } else {
                         currentQIndex.value = 0;
                     }
@@ -390,8 +393,9 @@
                     }
                     storage.value.mistakes[q.chapterIdx] = chapMistakes;
                     
-                    if (mode.value === 'sequence') {
-                        storage.value.progress[`chap_${q.chapterIdx}`] = currentQIndex.value;
+                    if (mode.value === 'sequence' || mode.value === 'review') {
+                        const p = mode.value === 'sequence' ? `chap_${q.chapterIdx}` : `review_chap_${q.chapterIdx}`;
+                        storage.value.progress[p] = currentQIndex.value;
                     }
                     StorageManager.set(StorageKey, storage.value);
                 };
@@ -448,20 +452,22 @@
                     if (currentQIndex.value < currentQuiz.value.length - 1) {
                         currentQIndex.value++;
                         initUserAnswer();
-                        if (mode.value === 'sequence') {
-                            storage.value.progress[`chap_${currentChapterIndex.value}`] = currentQIndex.value;
+                        if (mode.value === 'sequence' || mode.value === 'review') {
+                            const p = mode.value === 'sequence' ? `chap_${currentChapterIndex.value}` : `review_chap_${currentChapterIndex.value}`;
+                            storage.value.progress[p] = currentQIndex.value;
                             StorageManager.set(StorageKey, storage.value);
                         }
                     }
                 };
-                
+
                 const prevQuestion = () => {
                     if (currentQIndex.value > 0) {
                         currentQIndex.value--;
                         initUserAnswer();
                         // 取消在回退时存进度，以免污染最高进度，但驾考宝典中确实回退后进度即为当前题
-                        if (mode.value === 'sequence') {
-                            storage.value.progress[`chap_${currentChapterIndex.value}`] = currentQIndex.value;
+                        if (mode.value === 'sequence' || mode.value === 'review') {
+                            const p = mode.value === 'sequence' ? `chap_${currentChapterIndex.value}` : `review_chap_${currentChapterIndex.value}`;
+                            storage.value.progress[p] = currentQIndex.value;
                             StorageManager.set(StorageKey, storage.value);
                         }
                     }
@@ -486,8 +492,9 @@
                     currentQIndex.value = idx;
                     showAnswerCard.value = false;
                     initUserAnswer();
-                    if (mode.value === 'sequence') {
-                        storage.value.progress[`chap_${currentChapterIndex.value}`] = idx;
+                    if (mode.value === 'sequence' || mode.value === 'review') {
+                        const p = mode.value === 'sequence' ? `chap_${currentChapterIndex.value}` : `review_chap_${currentChapterIndex.value}`;
+                        storage.value.progress[p] = idx;
                         StorageManager.set(StorageKey, storage.value);
                     }
                 };
