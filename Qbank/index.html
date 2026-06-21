@@ -53,6 +53,12 @@
                             错题本 <span class="ml-1 text-xs px-1 bg-red-200 rounded-full" v-if="getMistakeCount(idx) > 0">{{ getMistakeCount(idx) }}</span>
                         </button>
                     </div>
+                    <div class="mt-2">
+                        <button @click="enterQuiz(idx, 'history')" class="flex items-center justify-center bg-amber-50 hover:bg-amber-100 text-amber-700 rounded-lg py-2 text-sm font-medium transition w-full">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            历史错题 <span class="ml-1 text-xs px-1 bg-amber-200 rounded-full" v-if="getHistoryCount(idx) > 0">{{ getHistoryCount(idx) }}</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -219,7 +225,7 @@
                         return JSON.parse(decodeURIComponent(c.substring(nameEQ.length, c.length)));
                     }
                 }
-                return { progress: {}, mistakes: {}, answerStatus: {} };
+                return { progress: {}, mistakes: {}, answerStatus: {}, history: {} };
             }
         };
 
@@ -242,7 +248,7 @@
                 const hasSubmitted = ref(false);
                 const isCorrect = ref(false); // submitted state flag
                 
-                const storage = ref(StorageManager.get(StorageKey) || { progress: {}, mistakes: {}, answerStatus: {} });
+                const storage = ref(StorageManager.get(StorageKey) || { progress: {}, mistakes: {}, answerStatus: {}, history: {} });
 
                 const showAnswerCard = ref(false);
                 const answerStatus = ref([]);
@@ -261,6 +267,12 @@
                     const m = storage.value.mistakes[chapIdx];
                     if (!m) return 0;
                     return m.single_choice.length + m.multiple_choice.length;
+                };
+
+                const getHistoryCount = (chapIdx) => {
+                    const h = storage.value.history?.[chapIdx];
+                    if (!h) return 0;
+                    return h.single_choice.length + h.multiple_choice.length;
                 };
 
                 const enterQuiz = (chapterIdx, m) => {
@@ -296,6 +308,26 @@
                                 if (chapMistakes.multiple_choice.includes(q.id)) questions.push(processQ(q, 'multiple_choice'));
                             });
                         }
+                    } else if (m === 'history') {
+                        // 首次使用自动从当前错题本迁移
+                        if (!storage.value.history) storage.value.history = {};
+                        if (!storage.value.history[chapterIdx]) {
+                            storage.value.history[chapterIdx] = JSON.parse(JSON.stringify(
+                                storage.value.mistakes[chapterIdx] || { single_choice: [], multiple_choice: [] }
+                            ));
+                            StorageManager.set(StorageKey, storage.value);
+                        }
+                        const chapHistory = storage.value.history[chapterIdx];
+                        if (chap.single_choice) {
+                            chap.single_choice.forEach(q => {
+                                if (chapHistory.single_choice.includes(q.id)) questions.push(processQ(q, 'single_choice'));
+                            });
+                        }
+                        if (chap.multiple_choice) {
+                            chap.multiple_choice.forEach(q => {
+                                if (chapHistory.multiple_choice.includes(q.id)) questions.push(processQ(q, 'multiple_choice'));
+                            });
+                        }
                     } else {
                         if (chap.single_choice) chap.single_choice.forEach(q => questions.push(processQ(q, 'single_choice')));
                         if (chap.multiple_choice) chap.multiple_choice.forEach(q => questions.push(processQ(q, 'multiple_choice')));
@@ -306,14 +338,14 @@
                     }
                     
                     if (questions.length === 0) {
-                        alert(m === 'mistakes' ? '此章节没有错题！' : '本章节暂无题目');
+                        alert(m === 'mistakes' ? '此章节没有错题！' : m === 'history' ? '此章节没有历史错题！' : '本章节暂无题目');
                         return;
                     }
                     
                     currentQuiz.value = questions;
                     // 从存储恢复答题卡状态
                     const savedStatus = storage.value.answerStatus?.[chapterIdx] || {};
-                    if (m === 'mistakes') {
+                    if (m === 'mistakes' || m === 'history') {
                         answerStatus.value = questions.map(q => {
                             if (savedStatus[q.id] === true) return true;
                             return false;
@@ -395,6 +427,14 @@
                     }
                     storage.value.mistakes[q.chapterIdx] = chapMistakes;
                     
+                    // 记录历史错题（答对不移除，仅累积不错题）
+                    if (!isCorrect.value) {
+                        if (!storage.value.history) storage.value.history = {};
+                        if (!storage.value.history[q.chapterIdx]) storage.value.history[q.chapterIdx] = { single_choice: [], multiple_choice: [] };
+                        if (!storage.value.history[q.chapterIdx][q.type].includes(q.id)) {
+                            storage.value.history[q.chapterIdx][q.type].push(q.id);
+                        }
+                    }
                     if (mode.value === 'sequence' || mode.value === 'review') {
                         const p = mode.value === 'sequence' ? `chap_${q.chapterIdx}` : `review_chap_${q.chapterIdx}`;
                         storage.value.progress[p] = currentQIndex.value;
@@ -495,7 +535,7 @@
 
                 const clearStorage = () => {
                     if(confirm('确定要清除所有进度和错题本吗？')) {
-                        storage.value = { progress: {}, mistakes: {}, answerStatus: {} };
+                        storage.value = { progress: {}, mistakes: {}, answerStatus: {}, history: {} };
                         StorageManager.set(StorageKey, storage.value);
                     }
                 };
@@ -536,7 +576,7 @@
                     db, activeView, enterQuiz, currentQuiz, currentQIndex, currentQ,
                     userAnswer, hasSubmitted, isCorrect, submitAnswer, toggleOption,
                     getOptionClass, formatUserAnswer, nextQuestion, prevQuestion,
-                    exitQuiz, isReviewData, isSubmitDisabled, mode, modeName, getMistakeCount,
+                    exitQuiz, isReviewData, isSubmitDisabled, mode, modeName, getMistakeCount, getHistoryCount,
                     clearStorage, showAnswerCard, answerStatus, toggleAnswerCard, jumpToQuestion, getAnswerCardClass, getDisplayAnswer
                 };
             }
