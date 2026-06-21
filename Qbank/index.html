@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>刷题宝典</title>
+    <!-- 引入 Vue 3 和 TailwindCSS 以实现响应式界面和交互 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- 引入经过打包的本地静态 JSON 数据题库 -->
+    <script src="data.js"></script>
+    <style>
+        body { background-color: #f3f4f6; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; -webkit-tap-highlight-color: transparent; }
+        [v-cloak] { display: none; }
+    </style>
+</head>
+<body>
+    <div id="app" v-cloak class="max-w-md mx-auto min-h-screen bg-gray-100 flex flex-col relative shadow-xl overflow-hidden">
+        
+        <!-- 首页 - 章节选择 -->
+        <div v-if="activeView === 'home'" class="flex-1 flex flex-col overflow-y-auto">
+            <div class="bg-blue-600 text-white p-4 text-center sticky top-0 z-10 shadow-md">
+                <h1 class="text-xl font-bold">刷题宝典</h1>
+                <p class="text-xs text-blue-200 mt-1">本地静态题库版</p>
+            </div>
+            
+            <div class="p-4 space-y-4">
+                <div class="flex justify-between text-sm text-gray-500 px-1 border-b pb-2 mb-2">
+                    <span>总题库共 {{ db.length }} 章节</span>
+                    <button @click="clearStorage" class="text-red-400 hover:text-red-600">清除本地数据</button>
+                </div>
+
+                <div v-for="(chap, idx) in db" :key="idx" class="bg-white rounded-xl shadow-sm p-4 border border-gray-100">
+                    <div class="mb-3">
+                        <div class="text-sm text-blue-500 font-bold">{{ chap.chapter }}</div>
+                        <div class="text-gray-800 font-bold leading-tight">{{ chap.title }}</div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <button @click="enterQuiz(idx, 'sequence')" class="flex items-center justify-center bg-blue-50 hover:bg-blue-100 text-blue-600 rounded-lg py-2 text-sm font-medium transition">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path></svg>
+                            顺序刷题
+                        </button>
+                        <button @click="enterQuiz(idx, 'random')" class="flex items-center justify-center bg-green-50 hover:bg-green-100 text-green-600 rounded-lg py-2 text-sm font-medium transition">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                            随机练习
+                        </button>
+                        <button @click="enterQuiz(idx, 'review')" class="flex items-center justify-center bg-purple-50 hover:bg-purple-100 text-purple-600 rounded-lg py-2 text-sm font-medium transition">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                            带答案复习
+                        </button>
+                        <button @click="enterQuiz(idx, 'mistakes')" class="flex items-center justify-center bg-red-50 hover:bg-red-100 text-red-600 rounded-lg py-2 text-sm font-medium transition">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                            错题本 <span class="ml-1 text-xs px-1 bg-red-200 rounded-full" v-if="getMistakeCount(idx) > 0">{{ getMistakeCount(idx) }}</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 答题视图 -->
+        <div v-else-if="activeView === 'quiz'" class="flex-1 flex flex-col bg-white">
+            <!-- Header -->
+            <div class="flex items-center justify-between p-4 border-b bg-blue-600 text-white shadow-sm z-10 shrink-0">
+                <button @click="exitQuiz" class="flex items-center text-white px-2 py-1 -ml-2 rounded hover:bg-blue-700">
+                    <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>返回
+                </button>
+                <div class="font-bold text-center flex-1">
+                    {{ modeName }} ({{ currentQIndex + 1 }}/{{ currentQuiz.length }})
+                </div>
+                <!-- 预留同样宽度的空间来居中标题 -->
+                <div class="w-12"></div>
+            </div>
+
+            <!-- Question & Options Area -->
+            <div class="flex-1 overflow-y-auto w-full">
+                <div v-if="currentQuiz.length > 0" class="p-5 pb-24">
+                    <!-- 题干 -->
+                    <div class="mb-5">
+                        <span :class="currentQ.type === 'single_choice' ? 'bg-blue-100 text-blue-700' : 'bg-orange-100 text-orange-700'" class="inline-block px-2 py-0.5 text-xs font-bold rounded mr-2 align-middle">
+                            {{ currentQ.type === 'single_choice' ? '单选' : '多选' }}
+                        </span>
+                        <span class="text-gray-800 text-lg leading-relaxed font-medium align-middle">
+                            {{ currentQ.original.question }}
+                        </span>
+                    </div>
+
+                    <!-- 选项列表（随机打乱） -->
+                    <div class="space-y-3">
+                        <div v-for="opt in currentQ.options" :key="opt.key" 
+                            @click="toggleOption(opt.key)"
+                            class="p-4 border-[1.5px] rounded-xl cursor-pointer transition flex items-start"
+                            :class="getOptionClass(opt.key)"
+                        >
+                            <!-- 选项ABCD标识 (即乱序后的原选项字母) -->
+                            <div class="font-bold text-gray-500 mr-3 mt-0.5 min-w-[1.5rem]">{{ opt.key }}.</div>
+                            <div class="text-gray-700 grow">{{ opt.text }}</div>
+                        </div>
+                    </div>
+
+                    <!-- 确认提交按钮 (仅限于多选，且未提交时显示) -->
+                    <div v-if="!isReviewData && !hasSubmitted && currentQ.type === 'multiple_choice'" class="mt-8">
+                        <button @click="submitAnswer" 
+                            :disabled="isSubmitDisabled"
+                            class="w-full bg-blue-600 text-white font-bold py-3.5 rounded-xl shadow-md disabled:bg-gray-300 disabled:shadow-none transition-colors">
+                            确认提交
+                        </button>
+                    </div>
+
+                    <!-- 结果与解析 -->
+                    <div v-if="isReviewData || hasSubmitted" class="mt-8 bg-gray-50 rounded-xl p-5 border border-gray-100 relative">
+                        <div class="absolute -top-3 left-4 bg-gray-200 text-gray-600 rounded-full px-3 py-0.5 text-xs font-bold border border-gray-300">
+                            解析与答案
+                        </div>
+                        
+                        <div class="flex items-center mb-3 mt-1">
+                            <span class="text-gray-500 font-bold mr-2 text-sm">正确答案</span>
+                            <span class="text-green-600 font-bold text-lg">
+                                {{ Array.isArray(currentQ.original.answer) ? currentQ.original.answer.join('') : currentQ.original.answer }}
+                            </span>
+                        </div>
+                        
+                        <div v-if="!isReviewData" class="flex items-center mb-4">
+                            <span class="text-gray-500 font-bold mr-2 text-sm">您的答案</span>
+                            <span :class="isCorrect ? 'text-green-600' : 'text-red-500'" class="font-bold text-lg">
+                                {{ formatUserAnswer() }}
+                            </span>
+                            <!-- 如果答错则红字提示已加入错题本 -->
+                            <span v-if="!isCorrect && mode !== 'mistakes'" class="ml-auto text-xs text-red-500 bg-red-100 px-2 py-1 rounded-full">
+                                已记入错题本
+                            </span>
+                            <span v-if="isCorrect && mode === 'mistakes'" class="ml-auto text-xs text-green-500 bg-green-100 px-2 py-1 rounded-full">
+                                答对，将移出错题本
+                            </span>
+                        </div>
+                        
+                        <div class="pt-4 border-t border-gray-200">
+                            <p class="text-gray-600 text-sm leading-relaxed whitespace-pre-wrap">{{ currentQ.original.analysis }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div v-else class="flex flex-col items-center justify-center h-full text-gray-500">
+                    <svg class="w-16 h-16 mb-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <p>当前模式没有题目，请返回上一页。</p>
+                </div>
+            </div>
+
+            <!-- Footer Navigation -->
+            <div class="bg-white border-t border-gray-200 p-3 flex justify-between shrink-0 drop-shadow-[0_-2px_10px_rgba(0,0,0,0.05)] relative z-10 w-full">
+                <button @click="prevQuestion" 
+                    :disabled="currentQIndex === 0"
+                    class="px-5 py-2.5 rounded-lg bg-gray-100 text-gray-700 font-medium disabled:opacity-40 disabled:bg-gray-50 transition active:bg-gray-200">
+                    上一题
+                </button>
+                <div class="flex items-center justify-center text-sm font-bold text-gray-400">
+                    {{ currentQIndex + 1 }} / {{ currentQuiz.length > 0 ? currentQuiz.length : 0 }}
+                </div>
+                <button @click="nextQuestion" 
+                    :disabled="currentQIndex === currentQuiz.length - 1"
+                    class="px-5 py-2.5 rounded-lg bg-blue-100 text-blue-700 font-medium disabled:opacity-40 disabled:bg-blue-50 transition active:bg-blue-200">
+                    下一题
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --------- 存储管理 ---------
+        // 为了遵循用户“前端单机静态、并使用cookie”的描述，这里将优先尝试 localStorage（因为在 file:// 协议本地打开时 Cookie 往往无法写入），
+        // 如果环境受限则降级使用 cookie 作为保底。
+        const StorageKey = "qbank_history_v1";
+        const StorageManager = {
+            set: function(name, value) {
+                const strData = JSON.stringify(value);
+                try {
+                    localStorage.setItem(name, strData);
+                } catch(e) {
+                    document.cookie = name + "=" + encodeURIComponent(strData) + "; path=/; max-age=31536000";
+                }
+            },
+            get: function(name) {
+                try {
+                    const ls = localStorage.getItem(name);
+                    if (ls) return JSON.parse(ls);
+                } catch(e) {}
+                
+                // Fallback to cookie
+                let nameEQ = name + "=";
+                let ca = document.cookie.split(';');
+                for(let i=0; i < ca.length; i++) {
+                    let c = ca[i].trim();
+                    if (c.indexOf(nameEQ) === 0) {
+                        return JSON.parse(decodeURIComponent(c.substring(nameEQ.length, c.length)));
+                    }
+                }
+                return { progress: {}, mistakes: {} };
+            }
+        };
+
+        const { createApp, ref, computed, watch } = Vue;
+
+        const App = {
+            setup() {
+                // 如果 qbankData 未定义，给出提示保护
+                const dbData = typeof qbankData !== 'undefined' ? qbankData : [];
+                const db = ref(dbData);
+                const activeView = ref('home');
+                const currentChapterIndex = ref(null);
+                const mode = ref('sequence');
+                
+                const currentQuiz = ref([]);
+                const currentQIndex = ref(0);
+                
+                // 用户当前答案: 单选字符串，多选数组
+                const userAnswer = ref(null);
+                const hasSubmitted = ref(false);
+                const isCorrect = ref(false); // submitted state flag
+                
+                const storage = ref(StorageManager.get(StorageKey) || { progress: {}, mistakes: {} });
+
+                const modeName = computed(() => {
+                    const map = {
+                        sequence: '顺序刷题',
+                        random: '随机练习',
+                        review: '带答案复习',
+                        mistakes: '错题本'
+                    };
+                    return map[mode.value];
+                });
+
+                const getMistakeCount = (chapIdx) => {
+                    const m = storage.value.mistakes[chapIdx];
+                    if (!m) return 0;
+                    return m.single_choice.length + m.multiple_choice.length;
+                };
+
+                const enterQuiz = (chapterIdx, m) => {
+                    currentChapterIndex.value = chapterIdx;
+                    mode.value = m;
+                    let questions = [];
+                    const chap = db.value[chapterIdx];
+                    
+                    if(!storage.value.mistakes[chapterIdx]) {
+                        storage.value.mistakes[chapterIdx] = { single_choice: [], multiple_choice: [] };
+                    }
+                    
+                    // 打乱选项并包装问题的辅助函数
+                    const processQ = (q, type) => {
+                        let opts = Object.entries(q.options).map(([k, v]) => ({ key: k, text: v }));
+                        // 打乱选项，使得每次展示的选项顺序是随机的 (例如：B，D，A，C)
+                        // 避免用户将答案和图形位置机械关联，从而起到有效复习作用。
+                        opts = opts.sort(() => Math.random() - 0.5);
+                        return { chapterIdx, type, id: q.id, original: q, options: opts };
+                    }
+                    
+                    if (m === 'mistakes') {
+                        const chapMistakes = storage.value.mistakes[chapterIdx];
+                        if (chap.single_choice) {
+                            chap.single_choice.forEach(q => {
+                                if (chapMistakes.single_choice.includes(q.id)) questions.push(processQ(q, 'single_choice'));
+                            });
+                        }
+                        if (chap.multiple_choice) {
+                            chap.multiple_choice.forEach(q => {
+                                if (chapMistakes.multiple_choice.includes(q.id)) questions.push(processQ(q, 'multiple_choice'));
+                            });
+                        }
+                    } else {
+                        if (chap.single_choice) chap.single_choice.forEach(q => questions.push(processQ(q, 'single_choice')));
+                        if (chap.multiple_choice) chap.multiple_choice.forEach(q => questions.push(processQ(q, 'multiple_choice')));
+                        
+                        if (m === 'random') {
+                            questions = questions.sort(() => Math.random() - 0.5);
+                        }
+                    }
+                    
+                    if (questions.length === 0) {
+                        alert(m === 'mistakes' ? '此章节没有错题！' : '本章节暂无题目');
+                        return;
+                    }
+                    
+                    currentQuiz.value = questions;
+                    userAnswer.value = null;
+                    hasSubmitted.value = false;
+                    
+                    if (m === 'sequence') {
+                        const prog = storage.value.progress[`chap_${chapterIdx}`] || 0;
+                        currentQIndex.value = Math.min(prog, questions.length - 1);
+                    } else {
+                        currentQIndex.value = 0;
+                    }
+                    
+                    activeView.value = 'quiz';
+                    initUserAnswer();
+                };
+
+                const initUserAnswer = () => {
+                    if (currentQuiz.value.length === 0) return;
+                    const q = currentQuiz.value[currentQIndex.value];
+                    userAnswer.value = q.type === 'multiple_choice' ? [] : null;
+                    hasSubmitted.value = false;
+                    isCorrect.value = false;
+                };
+
+                const currentQ = computed(() => currentQuiz.value[currentQIndex.value] || null);
+                const isReviewData = computed(() => mode.value === 'review');
+
+                const isSubmitDisabled = computed(() => {
+                    if (!currentQ.value) return true;
+                    if (currentQ.value.type === 'single_choice') return !userAnswer.value;
+                    return userAnswer.value.length === 0;
+                });
+
+                const submitAnswer = () => {
+                    if (hasSubmitted.value) return;
+                    hasSubmitted.value = true;
+                    
+                    const q = currentQ.value;
+                    
+                    // 判断正误
+                    if (q.type === 'single_choice') {
+                        isCorrect.value = userAnswer.value === q.original.answer;
+                    } else {
+                        const ans = q.original.answer; // e.g. ["A", "B", "C"]
+                        const userAns = Array.from(userAnswer.value).sort();
+                        isCorrect.value = ans.length === userAns.length && ans.every((v, i) => v === userAns[i]);
+                    }
+                    
+                    // 记录错题或移出
+                    let chapMistakes = storage.value.mistakes[q.chapterIdx];
+                    if (!isCorrect.value) {
+                        if (!chapMistakes[q.type].includes(q.id)) {
+                            chapMistakes[q.type].push(q.id);
+                        }
+                    } else {
+                        // 如果答对，则从错题本移出 (不管是不是复习模式。如果是在错题本做对了，顺便移出)
+                        chapMistakes[q.type] = chapMistakes[q.type].filter(id => id !== q.id);
+                    }
+                    storage.value.mistakes[q.chapterIdx] = chapMistakes;
+                    
+                    if (mode.value === 'sequence') {
+                        storage.value.progress[`chap_${q.chapterIdx}`] = currentQIndex.value;
+                    }
+                    StorageManager.set(StorageKey, storage.value);
+                };
+
+                const toggleOption = (key) => {
+                    if (isReviewData.value || hasSubmitted.value) return;
+                    
+                    if (currentQ.value.type === 'single_choice') {
+                        userAnswer.value = key;
+                        // 驾考宝典习惯：单选直接自动提交看答案
+                        submitAnswer();
+                    } else {
+                        if (userAnswer.value.includes(key)) {
+                            userAnswer.value = userAnswer.value.filter(k => k !== key);
+                        } else {
+                            userAnswer.value.push(key);
+                        }
+                    }
+                };
+
+                const getOptionClass = (key) => {
+                    if (!currentQ.value) return '';
+                    
+                    const qAns = currentQ.value.original.answer;
+                    const isCorrectAns = Array.isArray(qAns) ? qAns.includes(key) : qAns === key;
+                        
+                    // 复习模式，直接标绿正确答案
+                    if (isReviewData.value) {
+                        return isCorrectAns ? 'bg-green-50 border-green-500 shadow-sm' : 'bg-white border-gray-200';
+                    }
+
+                    // 提交后的颜色判定
+                    if (hasSubmitted.value) {
+                        const isSelected = Array.isArray(userAnswer.value) ? userAnswer.value.includes(key) : userAnswer.value === key;
+
+                        if (isCorrectAns && isSelected) return 'bg-green-50 border-green-500 shadow-sm';
+                        if (isCorrectAns && !isSelected) return 'bg-green-50 border-green-500 shadow-sm'; // 标出正确但未选的
+                        if (!isCorrectAns && isSelected) return 'bg-red-50 border-red-500 opacity-80'; // 标出错误选的
+                        return 'bg-gray-50 border-gray-200 opacity-50';
+                    }
+
+                    // 正常做题时的选中状态
+                    const isSelected = Array.isArray(userAnswer.value) ? userAnswer.value.includes(key) : userAnswer.value === key;
+                    return isSelected ? 'bg-blue-50 border-blue-500 shadow-sm' : 'bg-white border-gray-200 hover:border-blue-300';
+                };
+
+                const formatUserAnswer = () => {
+                    if (!userAnswer.value || userAnswer.value.length === 0) return '未作答';
+                    if (Array.isArray(userAnswer.value)) return Array.from(userAnswer.value).sort().join('');
+                    return userAnswer.value;
+                };
+
+                const nextQuestion = () => {
+                    if (currentQIndex.value < currentQuiz.value.length - 1) {
+                        currentQIndex.value++;
+                        initUserAnswer();
+                        if (mode.value === 'sequence') {
+                            storage.value.progress[`chap_${currentChapterIndex.value}`] = currentQIndex.value;
+                            StorageManager.set(StorageKey, storage.value);
+                        }
+                    }
+                };
+                
+                const prevQuestion = () => {
+                    if (currentQIndex.value > 0) {
+                        currentQIndex.value--;
+                        initUserAnswer();
+                        // 取消在回退时存进度，以免污染最高进度，但驾考宝典中确实回退后进度即为当前题
+                        if (mode.value === 'sequence') {
+                            storage.value.progress[`chap_${currentChapterIndex.value}`] = currentQIndex.value;
+                            StorageManager.set(StorageKey, storage.value);
+                        }
+                    }
+                };
+
+                const exitQuiz = () => {
+                    activeView.value = 'home';
+                };
+
+                const clearStorage = () => {
+                    if(confirm('确定要清除所有进度和错题本吗？')) {
+                        storage.value = { progress: {}, mistakes: {} };
+                        StorageManager.set(StorageKey, storage.value);
+                    }
+                };
+
+                return {
+                    db, activeView, enterQuiz, currentQuiz, currentQIndex, currentQ, 
+                    userAnswer, hasSubmitted, isCorrect, submitAnswer, toggleOption, 
+                    getOptionClass, formatUserAnswer, nextQuestion, prevQuestion, 
+                    exitQuiz, isReviewData, isSubmitDisabled, mode, modeName, getMistakeCount,
+                    clearStorage
+                };
+            }
+        }
+        createApp(App).mount('#app');
+    </script>
+</body>
+</html>
