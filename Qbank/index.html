@@ -92,8 +92,8 @@
                             class="p-4 border-[1.5px] rounded-xl cursor-pointer transition flex items-start"
                             :class="getOptionClass(opt.key)"
                         >
-                            <!-- 选项ABCD标识 (即乱序后的原选项字母) -->
-                            <div class="font-bold text-gray-500 mr-3 mt-0.5 min-w-[1.5rem]">{{ opt.key }}.</div>
+                            <!-- 选项标签固定 A B C D 顺序显示 -->
+                            <div class="font-bold text-gray-500 mr-3 mt-0.5 min-w-[1.5rem]">{{ opt.label }}.</div>
                             <div class="text-gray-700 grow">{{ opt.text }}</div>
                         </div>
                     </div>
@@ -116,7 +116,7 @@
                         <div class="flex items-center mb-3 mt-1">
                             <span class="text-gray-500 font-bold mr-2 text-sm">正确答案</span>
                             <span class="text-green-600 font-bold text-lg">
-                                {{ Array.isArray(currentQ.original.answer) ? currentQ.original.answer.join('') : currentQ.original.answer }}
+                                {{ getDisplayAnswer() }}
                             </span>
                         </div>
                         
@@ -276,9 +276,11 @@
                     // 打乱选项并包装问题的辅助函数
                     const processQ = (q, type) => {
                         let opts = Object.entries(q.options).map(([k, v]) => ({ key: k, text: v }));
-                        // 打乱选项，使得每次展示的选项顺序是随机的 (例如：B，D，A，C)
-                        // 避免用户将答案和图形位置机械关联，从而起到有效复习作用。
+                        // 打乱选项内容顺序，避免用户将答案和位置机械关联
                         opts = opts.sort(() => Math.random() - 0.5);
+                        // 标签始终按 A B C D 顺序显示
+                        const labels = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
+                        opts = opts.map((o, i) => ({ ...o, label: labels[i] || o.key }));
                         return { chapterIdx, type, id: q.id, original: q, options: opts };
                     }
                     
@@ -444,8 +446,22 @@
 
                 const formatUserAnswer = () => {
                     if (!userAnswer.value || userAnswer.value.length === 0) return '未作答';
-                    if (Array.isArray(userAnswer.value)) return Array.from(userAnswer.value).sort().join('');
-                    return userAnswer.value;
+                    if (Array.isArray(userAnswer.value)) return Array.from(userAnswer.value).sort().map(k => getDisplayLabel(k)).join('');
+                    return getDisplayLabel(userAnswer.value);
+                };
+
+                const getDisplayLabel = (key) => {
+                    if (!currentQ.value) return key;
+                    const opt = currentQ.value.options.find(o => o.key === key);
+                    return opt ? opt.label : key;
+                };
+
+                const getDisplayAnswer = () => {
+                    if (!currentQ.value) return '';
+                    const q = currentQ.value;
+                    const origAns = q.original.answer;
+                    const ansList = Array.isArray(origAns) ? origAns : [origAns];
+                    return ansList.map(a => getDisplayLabel(a)).join('');
                 };
 
                 const nextQuestion = () => {
@@ -521,7 +537,7 @@
                     userAnswer, hasSubmitted, isCorrect, submitAnswer, toggleOption,
                     getOptionClass, formatUserAnswer, nextQuestion, prevQuestion,
                     exitQuiz, isReviewData, isSubmitDisabled, mode, modeName, getMistakeCount,
-                    clearStorage, showAnswerCard, answerStatus, toggleAnswerCard, jumpToQuestion, getAnswerCardClass
+                    clearStorage, showAnswerCard, answerStatus, toggleAnswerCard, jumpToQuestion, getAnswerCardClass, getDisplayAnswer
                 };
             }
         }
