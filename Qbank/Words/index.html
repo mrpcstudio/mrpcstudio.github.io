@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>单词短语练习</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 15px;
+        }
+        .stat-item {
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        .stat-item span {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        .btn-primary {
+            background: #4CAF50;
+            color: white;
+        }
+        .btn-primary:hover {
+            background: #45a049;
+            transform: translateY(-2px);
+        }
+        .btn-secondary {
+            background: #2196F3;
+            color: white;
+        }
+        .btn-secondary:hover {
+            background: #0b7dda;
+            transform: translateY(-2px);
+        }
+        .btn-warning {
+            background: #ff9800;
+            color: white;
+        }
+        .btn-warning:hover {
+            background: #e68900;
+            transform: translateY(-2px);
+        }
+        .btn-danger {
+            background: #f44336;
+            color: white;
+        }
+        .btn-danger:hover {
+            background: #da190b;
+            transform: translateY(-2px);
+        }
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+        }
+        .unit-selector {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .unit-btn {
+            padding: 8px 16px;
+            border: 2px solid #667eea;
+            background: white;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        .unit-btn:hover {
+            background: #667eea;
+            color: white;
+        }
+        .unit-btn.active {
+            background: #667eea;
+            color: white;
+        }
+        .question-area {
+            text-align: center;
+            padding: 20px;
+        }
+        .chinese-text {
+            font-size: 1.8em;
+            color: #333;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        .input-area {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        .word-input {
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            font-size: 1.2em;
+            text-align: center;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+        .word-input:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+        }
+        .word-input.correct {
+            border-color: #4CAF50;
+            background: #e8f5e9;
+        }
+        .word-input.wrong {
+            border-color: #f44336;
+            background: #ffebee;
+        }
+        .feedback {
+            font-size: 1.3em;
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 10px;
+            display: none;
+        }
+        .feedback.correct {
+            background: #e8f5e9;
+            color: #2e7d32;
+            display: block;
+        }
+        .feedback.wrong {
+            background: #ffebee;
+            color: #c62828;
+            display: block;
+        }
+        .answer-reveal {
+            margin-top: 10px;
+            font-size: 1.1em;
+            color: #666;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4CAF50, #8BC34A);
+            transition: width 0.3s ease;
+        }
+        .wrong-list {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .wrong-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            transition: background 0.3s ease;
+        }
+        .wrong-item:hover {
+            background: #f5f5f5;
+        }
+        .wrong-item .chinese {
+            font-weight: 500;
+            color: #333;
+        }
+        .wrong-item .english {
+            color: #666;
+            font-style: italic;
+        }
+        .wrong-item .count {
+            background: #f44336;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.9em;
+        }
+        .delete-btn {
+            background: none;
+            border: none;
+            color: #999;
+            cursor: pointer;
+            font-size: 1.2em;
+            padding: 5px;
+        }
+        .delete-btn:hover {
+            color: #f44336;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal.show {
+            display: flex;
+        }
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .modal-header h2 {
+            color: #333;
+        }
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            cursor: pointer;
+            color: #999;
+        }
+        .close-btn:hover {
+            color: #333;
+        }
+        .import-area {
+            width: 100%;
+            height: 200px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            font-family: monospace;
+            resize: vertical;
+        }
+        .mode-selector {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .mode-btn {
+            padding: 10px 25px;
+            border: 2px solid #667eea;
+            background: white;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        .mode-btn:hover, .mode-btn.active {
+            background: #667eea;
+            color: white;
+        }
+        .empty-state {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+        }
+        .empty-state svg {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+            opacity: 0.5;
+        }
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+            .chinese-text {
+                font-size: 1.4em;
+            }
+            .word-input {
+                font-size: 1em;
+                padding: 8px;
+            }
+            .stats {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>单词短语练习</h1>
+            <div class="stats">
+                <div class="stat-item">正确: <span id="correctCount">0</span></div>
+                <div class="stat-item">错误: <span id="wrongCount">0</span></div>
+                <div class="stat-item">进度: <span id="progressText">0/0</span></div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button class="btn btn-primary" onclick="startPractice()">开始练习</button>
+            <button class="btn btn-secondary" onclick="showWrongList()">错题本</button>
+            <button class="btn btn-warning" onclick="exportData()">导出数据</button>
+            <button class="btn btn-secondary" onclick="showImportModal()">导入数据</button>
+        </div>
+
+        <div class="card">
+            <div class="unit-selector" id="unitSelector"></div>
+            <div class="mode-selector">
+                <button class="mode-btn active" onclick="setMode('all')" id="modeAll">全部单元</button>
+                <button class="mode-btn" onclick="setMode('wrong')" id="modeWrong">错题练习</button>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressBar" style="width: 0%"></div>
+            </div>
+            <div class="question-area" id="questionArea">
+                <p style="color: #999; font-size: 1.2em;">点击"开始练习"按钮开始答题</p>
+            </div>
+        </div>
+
+        <div class="card" id="wrongListCard" style="display: none;">
+            <h2 style="margin-bottom: 20px; color: #333;">错题本</h2>
+            <div class="wrong-list" id="wrongList"></div>
+        </div>
+    </div>
+
+    <!-- 导入模态框 -->
+    <div class="modal" id="importModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>导入数据</h2>
+                <button class="close-btn" onclick="closeImportModal()">&times;</button>
+            </div>
+            <p style="margin-bottom: 15px; color: #666;">请粘贴导出的数据：</p>
+            <textarea class="import-area" id="importArea" placeholder="粘贴导出的JSON数据..."></textarea>
+            <div style="margin-top: 20px; display: flex; gap: 10px;">
+                <button class="btn btn-primary" onclick="importData()">确认导入</button>
+                <button class="btn btn-secondary" onclick="closeImportModal()">取消</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 导出模态框 -->
+    <div class="modal" id="exportModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>导出数据</h2>
+                <button class="close-btn" onclick="closeExportModal()">&times;</button>
+            </div>
+            <p style="margin-bottom: 15px; color: #666;">复制以下数据保存：</p>
+            <textarea class="import-area" id="exportArea" readonly></textarea>
+            <div style="margin-top: 20px;">
+                <button class="btn btn-primary" onclick="copyExportData()">复制到剪贴板</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    // 单词短语题库
+    const vocabulary = [
+        // UNIT 1
+        { unit: "UNIT 1", chinese: "人力资源", english: "human resources" },
+        { unit: "UNIT 1", chinese: "实体门店", english: "physical store" },
+        { unit: "UNIT 1", chinese: "猎头公司", english: "headhunting firm" },
+        { unit: "UNIT 1", chinese: "职业发展前景", english: "career prospects" },
+        { unit: "UNIT 1", chinese: "传统一对一面试", english: "traditional one-on-one interview" },
+        { unit: "UNIT 1", chinese: "毕业生管培生项目", english: "graduate trainee scheme" },
+        { unit: "UNIT 1", chinese: "全职固定岗位/正式编制工作", english: "permanent job" },
+        { unit: "UNIT 1", chinese: "超出现有预算", english: "exceed current budget" },
+        { unit: "UNIT 1", chinese: "洽谈合同", english: "negotiate contracts" },
+        { unit: "UNIT 1", chinese: "大客户", english: "major clients" },
+
+        // UNIT 2
+        { unit: "UNIT 2", chinese: "商务社交礼仪", english: "networking etiquette" },
+        { unit: "UNIT 2", chinese: "办公室规章制度", english: "office protocol" },
+        { unit: "UNIT 2", chinese: "冷落同事", english: "ignore colleagues" },
+        { unit: "UNIT 2", chinese: "招聘中介公司", english: "a recruitment firm" },
+        { unit: "UNIT 2", chinese: "对……投资；投入(资源、精力)", english: "invest in" },
+        { unit: "UNIT 2", chinese: "名片", english: "business card" },
+        { unit: "UNIT 2", chinese: "着装规范", english: "dress code" },
+        { unit: "UNIT 2", chinese: "互利共赢", english: "mutual benefit" },
+        { unit: "UNIT 2", chinese: "首席财务官/首席执行官(CFO/CEO)", english: "chief financial/executive officer" },
+        { unit: "UNIT 2", chinese: "职场霸凌者", english: "a workplace bully" },
+
+        // UNIT 3
+        { unit: "UNIT 3", chinese: "公开上市股份有限公司(PLC)", english: "public limited company" },
+        { unit: "UNIT 3", chinese: "证券交易所", english: "stock exchange" },
+        { unit: "UNIT 3", chinese: "新兴热门高科技企业", english: "trendy new high-tech company" },
+        { unit: "UNIT 3", chinese: "有形资产 / 无形资产", english: "tangible/ intangible assets" },
+        { unit: "UNIT 3", chinese: "自由职业者", english: "freelance workers" },
+        { unit: "UNIT 3", chinese: "风险投资家", english: "venture capitalist" },
+        { unit: "UNIT 3", chinese: "初创企业", english: "start-ups" },
+        { unit: "UNIT 3", chinese: "合资企业", english: "joint venture" },
+        { unit: "UNIT 3", chinese: "外包(分包)业务", english: "subcontract out" },
+        { unit: "UNIT 3", chinese: "新闻稿", english: "press release" },
+
+        // UNIT 4
+        { unit: "UNIT 4", chinese: "战略目标", english: "strategic objectives" },
+        { unit: "UNIT 4", chinese: "副总裁", english: "vice president" },
+        { unit: "UNIT 4", chinese: "核心特质、核心属性", english: "core attributes" },
+        { unit: "UNIT 4", chinese: "签约；注册报名", english: "sign up" },
+        { unit: "UNIT 4", chinese: "生产周期", english: "production cycles" },
+        { unit: "UNIT 4", chinese: "运营计划", english: "operational plan" },
+        { unit: "UNIT 4", chinese: "行业准入壁垒", english: "entry barrier" },
+        { unit: "UNIT 4", chinese: "投资回报率(ROI)", english: "returns on investment" },
+        { unit: "UNIT 4", chinese: "战略落地/战略执行", english: "strategy implementation" },
+        { unit: "UNIT 4", chinese: "优化流程", english: "optimise procedures" },
+
+        // UNIT 5
+        { unit: "UNIT 5", chinese: "营销组合(4P理论)", english: "marketing mix" },
+        { unit: "UNIT 5", chinese: "网络营销", english: "e-marketing" },
+        { unit: "UNIT 5", chinese: "支付溢价；多花钱购买优质产品", english: "pay a premium" },
+        { unit: "UNIT 5", chinese: "广告代理商", english: "advertising agency" },
+        { unit: "UNIT 5", chinese: "塑造专业形象", english: "project a professional image" },
+        { unit: "UNIT 5", chinese: "换位思考，站在客户角度", english: "put yourself in the shoes of customers" },
+        { unit: "UNIT 5", chinese: "目标客户、目标受众", english: "target customers/audience" },
+        { unit: "UNIT 5", chinese: "拓展业务、多元化经营", english: "branch out" },
+        { unit: "UNIT 5", chinese: "情感诉求(广告营销术语)", english: "emotional appeal" },
+        { unit: "UNIT 5", chinese: "按期完成、赶截止日期", english: "meet the deadline" },
+
+        // UNIT 7
+        { unit: "UNIT 7", chinese: "纸质平面广告", english: "print advert" },
+        { unit: "UNIT 7", chinese: "店内陈列展示", english: "in-store display" },
+        { unit: "UNIT 7", chinese: "植入式广告、产品植入", english: "product placement" },
+        { unit: "UNIT 7", chinese: "产品演示", english: "product demonstration" },
+        { unit: "UNIT 7", chinese: "特惠活动、特价优惠", english: "special offers" },
+        { unit: "UNIT 7", chinese: "代言品牌", english: "endorse a brand" },
+        { unit: "UNIT 7", chinese: "赞助活动", english: "sponsor an event" },
+        { unit: "UNIT 7", chinese: "拍摄商业广告片", english: "make a commercial" },
+        { unit: "UNIT 7", chinese: "从众式广告(利用大众跟风心理的宣传)", english: "bandwagon advertising" },
+        { unit: "UNIT 7", chinese: "模糊搪塞的修饰词、规避责任的含糊话术(广告营销贬义术语)", english: "weasel words" }
+    ];
+    </script>
+    <script>
+        // 状态管理
+        let currentMode = 'all';
+        let selectedUnits = [];
+        let currentQuestions = [];
+        let currentIndex = 0;
+        let correctCount = 0;
+        let wrongCount = 0;
+        let wrongAnswers = {};
+
+        // 本地存储操作（优先使用localStorage，降级到cookie，兼容file://协议）
+        function saveData(name, value) {
+            const strData = JSON.stringify(value);
+            try {
+                localStorage.setItem(name, strData);
+                return true;
+            } catch (e) {
+                // localStorage不可用时降级到cookie
+                try {
+                    document.cookie = name + "=" + encodeURIComponent(strData) + "; path=/; max-age=31536000";
+                    return true;
+                } catch (e2) {
+                    console.error('保存数据失败:', e2);
+                    return false;
+                }
+            }
+        }
+
+        function loadData(name) {
+            try {
+                const value = localStorage.getItem(name);
+                if (value) {
+                    return JSON.parse(value);
+                }
+            } catch (e) {
+                // localStorage不可用，继续尝试cookie
+            }
+
+            // 降级到cookie读取
+            try {
+                let nameEQ = name + "=";
+                let ca = document.cookie.split(';');
+                for (let i = 0; i < ca.length; i++) {
+                    let c = ca[i].trim();
+                    if (c.indexOf(nameEQ) === 0) {
+                        return JSON.parse(decodeURIComponent(c.substring(nameEQ.length, c.length)));
+                    }
+                }
+                return null;
+            } catch (e) {
+                console.error('读取数据失败:', e);
+                return null;
+            }
+        }
+
+        // 保存当前练习会话
+        function saveSession() {
+            if (currentQuestions.length === 0) return;
+            saveData('practiceSession', {
+                currentMode: currentMode,
+                selectedUnits: selectedUnits,
+                currentQuestions: currentQuestions,
+                currentIndex: currentIndex,
+                correctCount: correctCount,
+                wrongCount: wrongCount
+            });
+        }
+
+        // 加载练习会话（刷新恢复用）
+        function loadSession() {
+            const session = loadData('practiceSession');
+            if (session && session.currentQuestions && session.currentQuestions.length > 0) {
+                currentMode = session.currentMode;
+                selectedUnits = session.selectedUnits || [];
+                currentQuestions = session.currentQuestions;
+                currentIndex = session.currentIndex;
+                correctCount = session.correctCount || 0;
+                wrongCount = session.wrongCount || 0;
+                // 恢复模式 UI
+                document.getElementById('modeAll').classList.toggle('active', currentMode === 'all');
+                document.getElementById('modeWrong').classList.toggle('active', currentMode === 'wrong');
+                if (currentMode === 'wrong') {
+                    document.getElementById('unitSelector').style.display = 'none';
+                }
+                // 恢复单元选中状态
+                document.querySelectorAll('.unit-btn').forEach(btn => {
+                    if (selectedUnits.includes(btn.dataset.unit)) {
+                        btn.classList.add('active');
+                    }
+                });
+                updateStats();
+                showQuestion();
+                return true;
+            }
+            return false;
+        }
+
+        // 清除练习会话
+        function clearSession() {
+            saveData('practiceSession', null);
+        }
+
+        // 初始化
+        function init() {
+            loadWrongAnswers();
+            renderUnitSelector();
+            // 尝试恢复上次未完成的练习
+            if (!loadSession()) {
+                updateStats();
+            }
+        }
+
+        // 渲染单元选择器
+        function renderUnitSelector() {
+            const container = document.getElementById('unitSelector');
+            const units = [...new Set(vocabulary.map(v => v.unit))];
+            container.innerHTML = units.map(unit => 
+                `<button class="unit-btn" onclick="toggleUnit('${unit}')" data-unit="${unit}">${unit}</button>`
+            ).join('');
+        }
+
+        // 切换单元选择
+        function toggleUnit(unit) {
+            const btn = document.querySelector(`[data-unit="${unit}"]`);
+            btn.classList.toggle('active');
+            const index = selectedUnits.indexOf(unit);
+            if (index > -1) {
+                selectedUnits.splice(index, 1);
+            } else {
+                selectedUnits.push(unit);
+            }
+        }
+
+        // 设置模式
+        function setMode(mode) {
+            currentMode = mode;
+            document.getElementById('modeAll').classList.toggle('active', mode === 'all');
+            document.getElementById('modeWrong').classList.toggle('active', mode === 'wrong');
+            
+            if (mode === 'wrong') {
+                document.getElementById('unitSelector').style.display = 'none';
+            } else {
+                document.getElementById('unitSelector').style.display = 'flex';
+            }
+        }
+
+        // 开始练习
+        function startPractice() {
+            correctCount = 0;
+            wrongCount = 0;
+            currentIndex = 0;
+            clearSession(); // 清除上次未完成的练习记录
+            
+            if (currentMode === 'wrong') {
+                currentQuestions = Object.keys(wrongAnswers).map(key => {
+                    const [unit, chinese] = key.split('|||');
+                    return vocabulary.find(v => v.unit === unit && v.chinese === chinese);
+                }).filter(v => v);
+                
+                if (currentQuestions.length === 0) {
+                    alert('错题本为空！');
+                    return;
+                }
+            } else {
+                if (selectedUnits.length === 0) {
+                    alert('请至少选择一个单元！');
+                    return;
+                }
+                currentQuestions = vocabulary.filter(v => selectedUnits.includes(v.unit));
+            }
+            
+            // 随机打乱顺序
+            currentQuestions = shuffleArray([...currentQuestions]);
+
+            updateStats();
+            showQuestion();
+            saveSession(); // 刚开题就保存，防刷新后空白
+        }
+
+        // 打乱数组
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        // 显示题目
+        function showQuestion() {
+            if (currentIndex >= currentQuestions.length) {
+                showResult();
+                return;
+            }
+
+            const question = currentQuestions[currentIndex];
+            const words = question.english.split(' ');
+            
+            let html = `
+                <div class="chinese-text">${question.chinese}</div>
+                <div class="input-area">
+            `;
+            
+            words.forEach((word, index) => {
+                const width = Math.max(word.length * 15 + 30, 60);
+                html += `<input type="text" class="word-input" 
+                    data-index="${index}" 
+                    data-word="${word}"
+                    data-length="${word.length}"
+                    style="width: ${width}px"
+                    placeholder="${word.length}字母"
+                    onkeydown="handleKeyDown(event, ${index}, ${words.length})"
+                    oninput="handleInput(event, ${index}, ${words.length})">`;
+            });
+            
+            html += `
+                </div>
+                <div class="feedback" id="feedback"></div>
+            `;
+            
+            document.getElementById('questionArea').innerHTML = html;
+            document.getElementById('progressBar').style.width = `${(currentIndex / currentQuestions.length) * 100}%`;
+            document.getElementById('progressText').textContent = `${currentIndex + 1}/${currentQuestions.length}`;
+            
+            // 聚焦第一个输入框
+            document.querySelector('.word-input')?.focus();
+        }
+
+        // 处理键盘事件
+        function handleKeyDown(event, index, total) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                checkAnswer();
+            } else if (event.key === 'Tab' && !event.shiftKey) {
+                event.preventDefault();
+                const inputs = document.querySelectorAll('.word-input');
+                if (index < inputs.length - 1) {
+                    inputs[index + 1].focus();
+                }
+            } else if (event.key === 'Backspace' && event.target.value === '') {
+                // 空输入框按退格键跳到上一个
+                event.preventDefault();
+                const inputs = document.querySelectorAll('.word-input');
+                if (index > 0) {
+                    inputs[index - 1].focus();
+                }
+            }
+        }
+
+        // 处理输入事件，自动跳转到下一个输入框
+        function handleInput(event, index, total) {
+            const input = event.target;
+            const expectedLength = parseInt(input.dataset.length);
+            const currentLength = input.value.length;
+            
+            // 当输入达到目标长度时自动跳转到下一个
+            if (currentLength >= expectedLength) {
+                const inputs = document.querySelectorAll('.word-input');
+                if (index < inputs.length - 1) {
+                    inputs[index + 1].focus();
+                    inputs[index + 1].select();
+                } else {
+                    // 最后一个输入框，自动提交答案
+                    checkAnswer();
+                }
+            }
+        }
+
+        // 检查答案
+        function checkAnswer() {
+            const inputs = document.querySelectorAll('.word-input');
+            const question = currentQuestions[currentIndex];
+            const words = question.english.split(' ');
+            
+            let allCorrect = true;
+            let userAnswers = [];
+            
+            inputs.forEach((input, index) => {
+                const userWord = input.value.trim().toLowerCase();
+                const correctWord = words[index].toLowerCase();
+                userAnswers.push(input.value.trim());
+                
+                if (userWord === correctWord) {
+                    input.classList.remove('wrong');
+                    input.classList.add('correct');
+                } else {
+                    input.classList.remove('correct');
+                    input.classList.add('wrong');
+                    allCorrect = false;
+                }
+                input.disabled = true;
+            });
+            
+            const feedback = document.getElementById('feedback');
+            if (allCorrect) {
+                correctCount++;
+                feedback.className = 'feedback correct';
+                feedback.innerHTML = '✓ 正确！';
+                
+                // 如果是错题，从错题本移除
+                const key = `${question.unit}|||${question.chinese}`;
+                if (wrongAnswers[key]) {
+                    delete wrongAnswers[key];
+                    saveWrongAnswers();
+                }
+            } else {
+                wrongCount++;
+                feedback.className = 'feedback wrong';
+                feedback.innerHTML = `✗ 错误！正确答案：<strong>${question.english}</strong>`;
+                
+                // 添加到错题本
+                const key = `${question.unit}|||${question.chinese}`;
+                if (!wrongAnswers[key]) {
+                    wrongAnswers[key] = {
+                        unit: question.unit,
+                        chinese: question.chinese,
+                        english: question.english,
+                        count: 0
+                    };
+                }
+                wrongAnswers[key].count++;
+                wrongAnswers[key].lastWrong = new Date().toISOString();
+                saveWrongAnswers();
+            }
+            
+            updateStats();
+            saveSession(); // 保存当前进度，刷新后可恢复
+
+            // 2秒后下一题
+            setTimeout(() => {
+                currentIndex++;
+                showQuestion();
+            }, 2000);
+        }
+
+        // 显示结果
+        function showResult() {
+            const total = correctCount + wrongCount;
+            const accuracy = total > 0 ? Math.round((correctCount / total) * 100) : 0;
+            
+            document.getElementById('questionArea').innerHTML = `
+                <div style="text-align: center; padding: 40px;">
+                    <h2 style="color: #333; margin-bottom: 20px;">练习完成！</h2>
+                    <p style="font-size: 1.3em; color: #666; margin-bottom: 10px;">
+                        正确: <span style="color: #4CAF50; font-weight: bold;">${correctCount}</span> | 
+                        错误: <span style="color: #f44336; font-weight: bold;">${wrongCount}</span>
+                    </p>
+                    <p style="font-size: 1.5em; color: #333; margin-bottom: 20px;">
+                        正确率: <span style="color: #667eea; font-weight: bold;">${accuracy}%</span>
+                    </p>
+                    <button class="btn btn-primary" onclick="startPractice()">再来一次</button>
+                </div>
+            `;
+            document.getElementById('progressBar').style.width = '100%';
+            clearSession(); // 练习完成，清除进度缓存
+        }
+
+        // 更新统计
+        function updateStats() {
+            document.getElementById('correctCount').textContent = correctCount;
+            document.getElementById('wrongCount').textContent = wrongCount;
+            document.getElementById('progressText').textContent = 
+                currentQuestions.length > 0 ? `${currentIndex + 1}/${currentQuestions.length}` : '0/0';
+        }
+
+        // 保存错题
+        function saveWrongAnswers() {
+            saveData('wrongAnswers', wrongAnswers);
+        }
+
+        // 加载错题
+        function loadWrongAnswers() {
+            const saved = loadData('wrongAnswers');
+            if (saved) {
+                wrongAnswers = saved;
+            }
+        }
+
+        // 显示错题列表
+        function showWrongList() {
+            const card = document.getElementById('wrongListCard');
+            const list = document.getElementById('wrongList');
+            
+            const wrongItems = Object.values(wrongAnswers);
+            
+            if (wrongItems.length === 0) {
+                list.innerHTML = `
+                    <div class="empty-state">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                        <p>太棒了！没有错题</p>
+                    </div>
+                `;
+            } else {
+                list.innerHTML = wrongItems.map(item => `
+                    <div class="wrong-item">
+                        <div>
+                            <div class="chinese">${item.chinese}</div>
+                            <div class="english">${item.english}</div>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <span class="count">${item.count}次</span>
+                            <button class="delete-btn" onclick="deleteWrong('${item.unit}', '${item.chinese.replace(/'/g, "\\'")}')">×</button>
+                        </div>
+                    </div>
+                `).join('');
+            }
+            
+            card.style.display = 'block';
+        }
+
+        // 删除错题
+        function deleteWrong(unit, chinese) {
+            const key = `${unit}|||${chinese}`;
+            delete wrongAnswers[key];
+            saveWrongAnswers();
+            showWrongList();
+        }
+
+        // 导出数据
+        function exportData() {
+            const data = {
+                wrongAnswers: wrongAnswers,
+                exportDate: new Date().toISOString()
+            };
+            document.getElementById('exportArea').value = JSON.stringify(data, null, 2);
+            document.getElementById('exportModal').classList.add('show');
+        }
+
+        // 复制导出数据
+        function copyExportData() {
+            const textarea = document.getElementById('exportArea');
+            textarea.select();
+            document.execCommand('copy');
+            alert('已复制到剪贴板！');
+        }
+
+        // 显示导入模态框
+        function showImportModal() {
+            document.getElementById('importModal').classList.add('show');
+        }
+
+        // 关闭导入模态框
+        function closeImportModal() {
+            document.getElementById('importModal').classList.remove('show');
+            document.getElementById('importArea').value = '';
+        }
+
+        // 关闭导出模态框
+        function closeExportModal() {
+            document.getElementById('exportModal').classList.remove('show');
+        }
+
+        // 导入数据
+        function importData() {
+            try {
+                const data = JSON.parse(document.getElementById('importArea').value);
+                if (data.wrongAnswers) {
+                    wrongAnswers = { ...wrongAnswers, ...data.wrongAnswers };
+                    saveWrongAnswers();
+                    alert('导入成功！');
+                    closeImportModal();
+                    showWrongList();
+                } else {
+                    alert('数据格式不正确！');
+                }
+            } catch (e) {
+                alert('导入失败，请检查数据格式！');
+            }
+        }
+
+        // 页面加载完成后初始化
+        init();
+    </script>
+</body>
+</html>
