@@ -205,6 +205,16 @@ function toggleView() {
     updateSortOptions();
     document.getElementById('searchBrand').value = '';
     document.getElementById('searchCatalog').value = '';
+    // 交换 placeholder：类目视图中 searchBrand 搜类目，searchCatalog 搜品牌
+    const sb = document.getElementById('searchBrand');
+    const sc = document.getElementById('searchCatalog');
+    if (viewMode === 'category') {
+        sb.placeholder = '🔍 搜索类目...';
+        sc.placeholder = '🏷️ 搜索品牌...';
+    } else {
+        sb.placeholder = '🔍 搜索品牌...';
+        sc.placeholder = '📂 搜索类目...';
+    }
     applyFilters();
 }
 
