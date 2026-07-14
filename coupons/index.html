@@ -124,8 +124,8 @@ body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif
 </div>
 
 <div class="controls">
-    <input class="search-box" type="text" id="searchBrand" placeholder="🔍 搜索品牌..." oninput="applyFilters()">
-    <input class="search-box" type="text" id="searchCatalog" placeholder="📂 搜索类目..." oninput="applyFilters()" style="flex:0.6;min-width:120px;">
+    <input class="search-box" type="text" id="searchBrand" placeholder="🔍 搜索类目..." oninput="applyFilters()">
+    <input class="search-box" type="text" id="searchCatalog" placeholder="🏷️ 搜索品牌..." oninput="applyFilters()" style="flex:0.6;min-width:120px;">
     <select class="filter-select" id="filterDiscount" onchange="applyFilters()">
         <option value="">全部优惠</option>
         <option value="满16减15">满16减15</option>
@@ -139,7 +139,7 @@ body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif
     </select>
     <select class="filter-select" id="sortBy" onchange="applyFilters()">
     </select>
-    <button class="sort-btn" id="viewToggle" onclick="toggleView()">📋 类目视图</button>
+    <button class="sort-btn" id="viewToggle" onclick="toggleView()">🏷️ 品牌视图</button>
     <span class="badge" id="countBadge">0</span>
 </div>
 
@@ -159,7 +159,7 @@ let brands = EMBEDDED_DATA.brands;
 let categories = EMBEDDED_DATA.categories;
 let currentBrandId = null;
 let currentCategory = null;
-let viewMode = 'brand'; // 'brand' or 'category'
+let viewMode = 'category'; // 'brand' or 'category'
 
 // 提前计算每个类目有多少品牌
 const catBrandCount = {};
