@@ -1,0 +1,53 @@
+{
+  "meta": { "id": "demo", "title": "Demo验证" },
+  "chapters": [{
+    "id": "demo_chapter",
+    "title": "验证章节",
+    "scenes": [
+      {
+        "id": "scene_1",
+        "bgLabel": "教室",
+        "nodes": [
+          { "id": "n1", "type": "narration", "content": "【占位】北平，1937年夏。你接到第一项任务。", "nextNodeId": "n2" },
+          { "id": "n2", "type": "dialogue", "speaker": "联络员", "content": "同志，组织需要你回家探亲，相机了解社会动态。", "effects": [{"stat":"conviction","change":1}], "nextNodeId": "n3" },
+          { "id": "n3", "type": "choice", "content": "你如何回应？",
+            "choices": [
+              { "text": "坚定接受任务", "effects":[{"stat":"conviction","change":2}], "nextNodeId":"n4" },
+              { "text": "犹豫询问风险", "effects":[{"stat":"conviction","change":-1},{"stat":"suspicion","change":1}], "nextNodeId":"n4" }
+            ]
+          },
+          { "id": "n4", "type": "narration", "content": "【占位】你收拾行李，准备离校。", "nextNodeId": "condition_check" },
+          { "id": "condition_check", "type": "condition", "condition": { "stat":"conviction", "operator":">=", "value":6, "passNodeId":"ending_good", "failNodeId":"ending_bad" } },
+          { "id": "ending_good", "type": "ending", "endingType":"firm", "endingDescription":"信念坚定，踏上了征途。" },
+          { "id": "ending_bad", "type": "ending", "endingType":"wavering", "endingDescription":"信念不足，你在半路退缩了。" }
+        ]
+      },
+      {
+        "id": "scene_2",
+        "bgLabel": "火车站",
+        "nodes": [
+          { "id": "s2n1", "type": "narration", "content": "【占位】前门火车站，军警林立。", "nextNodeId": "s2n2" },
+          { "id": "s2n2", "type": "choice", "content": "排队时你注意到什么？",
+            "choices": [
+              { "text": "观察前方检查流程", "effects":[{"stat":"insight","change":2}], "nextNodeId":"s2n3" },
+              { "text": "低头不语，尽快通过", "nextNodeId":"s2n3" }
+            ]
+          },
+          { "id": "s2n3", "type": "dialogue", "speaker": "军警", "content": "箱子打开！", "nextNodeId": "s2n4" },
+          { "id": "s2n4", "type": "choice", "content": "箱子里有一本《大众哲学》",
+            "choices": [
+              { "text": "说这是课本", "effects":[{"stat":"suspicion","change":-2}], "nextNodeId":"s2n5" },
+              { "text": "紧张沉默", "effects":[{"stat":"suspicion","change":5}], "nextNodeId":"s2n5" }
+            ]
+          },
+          { "id": "s2n5", "type": "narration", "content": "【占位】你通过了检查。/ 被带到了审讯室。", "nextNodeId": "s2_ending" },
+          { "id": "s2_ending", "type": "condition", "condition": { "stat":"suspicion", "operator":">=", "value":30, "passNodeId":"ending_caught", "failNodeId":"ending_pass" } },
+          { "id": "ending_caught", "type": "ending", "endingType":"caught", "endingDescription":"被捕。怀疑值过高。" },
+          { "id": "ending_pass", "type": "narration", "content": "【占位】你顺利登车，踏上南下之路。", "nextNodeId": "scene_2_complete" },
+          { "id": "scene_2_complete", "type": "action", "effects":[], "nextNodeId":"scene_2_done" },
+          { "id": "scene_2_done", "type": "ending", "endingType":"safe", "endingDescription":"安全通过车站，继续旅程。" }
+        ]
+      }
+    ]
+  }]
+}
