@@ -1,0 +1,181 @@
+﻿{
+    "id":  "chapter1",
+    "title":  "第一回·烽火骤起·失联",
+    "scenes":  [
+                   {
+                       "id":  "ch4_scene",
+                       "bgLabel":  "scene1_home",
+                       "nodes":  [
+                                     {
+                                         "id":  "ch4_intro",
+                                         "type":  "narration",
+                                         "content":  "你回到武昌家中。",
+                                         "nextNodeId":  "ch4_father"
+                                     },
+                                     {
+                                         "id":  "ch4_father",
+                                         "type":  "dialogue",
+                                         "speaker":  "父亲",
+                                         "content":  "（手持报纸，头也不抬）卢沟桥响了枪，你在大学没掺和别的事吧？",
+                                         "nextNodeId":  "ch4_father_choice"
+                                     },
+                                     {
+                                         "id":  "ch4_father_choice",
+                                         "type":  "choice",
+                                         "content":  "如何回答父亲？",
+                                         "choices":  [
+                                                         {
+                                                             "text":  "就是读书上课。",
+                                                             "effects":  [
+                                                                             {
+                                                                                 "stat":  "trust_father",
+                                                                                 "change":  5
+                                                                             }
+                                                                         ],
+                                                             "nextNodeId":  "ch4_mother"
+                                                         },
+                                                         {
+                                                             "text":  "参加过抗日读书会。",
+                                                             "effects":  [
+                                                                             {
+                                                                                 "stat":  "trust_father",
+                                                                                 "change":  -5
+                                                                             }
+                                                                         ],
+                                                             "nextNodeId":  "ch4_mother"
+                                                         },
+                                                         {
+                                                             "text":  "国家快亡了，还能安心读书？",
+                                                             "effects":  [
+                                                                             {
+                                                                                 "stat":  "conviction",
+                                                                                 "change":  2
+                                                                             }
+                                                                         ],
+                                                             "nextNodeId":  "ch4_mother"
+                                                         },
+                                                         {
+                                                             "text":  "沉默",
+                                                             "effects":  [
+                                                                             {
+                                                                                 "stat":  "trust_father",
+                                                                                 "change":  -2
+                                                                             }
+                                                                         ],
+                                                             "nextNodeId":  "ch4_mother"
+                                                         }
+                                                     ]
+                                     },
+                                     {
+                                         "id":  "ch4_mother",
+                                         "type":  "narration",
+                                         "content":  "深夜。母亲敲门，端着一碗莲子羹。",
+                                         "nextNodeId":  "ch4_mother_choice"
+                                     },
+                                     {
+                                         "id":  "ch4_mother_choice",
+                                         "type":  "choice",
+                                         "content":  "如何应对母亲？",
+                                         "choices":  [
+                                                         {
+                                                             "text":  "开门，强装镇定",
+                                                             "effects":  [
+                                                                             {
+                                                                                 "stat":  "worry",
+                                                                                 "change":  -2
+                                                                             }
+                                                                         ],
+                                                             "nextNodeId":  "ch4_news"
+                                                         },
+                                                         {
+                                                             "text":  "问\"北平同学会不会出事\"",
+                                                             "effects":  [
+                                                                             {
+                                                                                 "stat":  "worry",
+                                                                                 "change":  5
+                                                                             },
+                                                                             {
+                                                                                 "stat":  "conviction",
+                                                                                 "change":  2
+                                                                             }
+                                                                         ],
+                                                             "nextNodeId":  "ch4_news"
+                                                         }
+                                                     ]
+                                     },
+                                     {
+                                         "id":  "ch4_news",
+                                         "type":  "narration",
+                                         "content":  "报上看到学校南迁消息，你心中一动——如果能去临时大学，也许能找到组织。\n\n辗转寄来的同学信：\"平津已陷，我辈已随校南迁。若见此信，可速来。\"",
+                                         "nextNodeId":  "ch4_talk"
+                                     },
+                                     {
+                                         "id":  "ch4_talk",
+                                         "type":  "dialogue",
+                                         "speaker":  "父亲",
+                                         "content":  "（推门进来）你这半个月心神不宁，有什么打算？",
+                                         "nextNodeId":  "ch4_talk_choice"
+                                     },
+                                     {
+                                         "id":  "ch4_talk_choice",
+                                         "type":  "choice",
+                                         "content":  "如何对父亲说？",
+                                         "choices":  [
+                                                         {
+                                                             "text":  "想去继续读书。",
+                                                             "effects":  [
+                                                                             {
+                                                                                 "stat":  "trust_father",
+                                                                                 "change":  5
+                                                                             }
+                                                                         ],
+                                                             "inventoryChanges":  {
+                                                                                      "add":  [
+                                                                                                  "travel_money"
+                                                                                              ]
+                                                                                  },
+                                                             "nextNodeId":  "ch4_farewell"
+                                                         },
+                                                         {
+                                                             "text":  "想去找同学抗日。",
+                                                             "effects":  [
+                                                                             {
+                                                                                 "stat":  "conviction",
+                                                                                 "change":  5
+                                                                             }
+                                                                         ],
+                                                             "inventoryChanges":  {
+                                                                                      "add":  [
+                                                                                                  "travel_money"
+                                                                                              ]
+                                                                                  },
+                                                             "nextNodeId":  "ch4_farewell"
+                                                         },
+                                                         {
+                                                             "text":  "不告而别",
+                                                             "effects":  [
+                                                                             {
+                                                                                 "stat":  "trust_father",
+                                                                                 "change":  -5
+                                                                             }
+                                                                         ],
+                                                             "nextNodeId":  "ch4_farewell"
+                                                         }
+                                                     ]
+                                     },
+                                     {
+                                         "id":  "ch4_farewell",
+                                         "type":  "narration",
+                                         "content":  "你深深鞠躬，接过布包，登上南下轮船。汽笛长鸣，武昌在视野中渐渐模糊。【获得状态：父母的牵挂】",
+                                         "nextNodeId":  "chapter1_end"
+                                     },
+                                     {
+                                         "id":  "chapter1_end",
+                                         "type":  "ending",
+                                         "endingType":  "chapter_complete",
+                                         "endingDescription":  "第一回结束：你告别父母，踏上前往长沙的旅程。"
+                                     }
+                                 ]
+                   }
+               ]
+}

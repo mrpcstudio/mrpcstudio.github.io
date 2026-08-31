@@ -1,0 +1,30 @@
+﻿{
+    "meta":  {
+                 "id":  "tempered_1937",
+                 "title":  "淬火1937",
+                 "version":  "1.0.0"
+             },
+    "initialStats":  {
+                         "suspicion":  0,
+                         "insight":  3,
+                         "conviction":  5,
+                         "trust_father":  0,
+                         "trust_org":  0,
+                         "worry":  0
+                     },
+    "initialInventory":  [
+
+                         ],
+    "chapters":  [
+                     {
+                         "id":  "prologue",
+                         "title":  "序幕·入党与北平离校",
+                         "file":  "01_序幕-入党与离校.json"
+                     },
+                     {
+                         "id":  "chapter1",
+                         "title":  "第一回·烽火骤起·失联",
+                         "file":  "02_第一回-烽火骤起.json"
+                     }
+                 ]
+}
