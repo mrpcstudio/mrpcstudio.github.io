@@ -1,0 +1,11 @@
+{
+  "id": "chapter4",
+  "title": "第四回·暗流试锋·西北征途",
+  "scenes": [{ "id": "ch4_scene", "bgLabel": "", "nodes": [
+    { "id": "ch4_intro", "type": "narration", "content": "列车向西北驶去，陌生人的盘问成为新的考验。", "nextNodeId": "ch4_choice" },
+    { "id": "ch4_choice", "type": "choice", "content": "面对试探，你如何应对？", "choices": [
+      { "text": "保持沉默并观察", "effects": [{ "stat": "insight", "change": 1 }], "nextNodeId": "ch4_end" },
+      { "text": "用服务团身份自然回答", "effects": [{ "stat": "trust_org", "change": 1 }], "nextNodeId": "ch4_end" }] },
+    { "id": "ch4_end", "type": "ending", "endingType": "chapter_complete", "endingDescription": "模板章节结束：西北征途将在后续版本展开。" }
+  ]}]
+}

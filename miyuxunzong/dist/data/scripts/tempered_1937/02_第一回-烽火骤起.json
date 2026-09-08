@@ -5,18 +5,19 @@
                    {
                        "id":  "ch4_scene",
                        "bgLabel":  "scene1_home",
-                       "nodes":  [
+                       "nodes": [
                                      {
                                          "id":  "ch4_intro",
                                          "type":  "narration",
-                                         "content":  "你回到武昌家中。",
+                                         "content":  "【回到武昌家中】",
                                          "nextNodeId":  "ch4_father"
                                      },
                                      {
                                          "id":  "ch4_father",
                                          "type":  "dialogue",
                                          "speaker":  "父亲",
-                                         "content":  "（手持报纸，头也不抬）卢沟桥响了枪，你在大学没掺和别的事吧？",
+                                         "figure":  { "id":  "fuqin", "position":  "center" },
+                                         "content":  "（声音发沉，像在审案，又像在压着担忧）卢沟桥响了枪，北平怕是要乱。你在清华那半年……就只是读书？",
                                          "nextNodeId":  "ch4_father_choice"
                                      },
                                      {
@@ -25,156 +26,1069 @@
                                          "content":  "如何回答父亲？",
                                          "choices":  [
                                                          {
-                                                             "text":  "就是读书上课。",
+                                                             "text":  "没什么，就是读书上课。",
                                                              "effects":  [
                                                                              {
-                                                                                 "stat":  "trust_father",
-                                                                                 "change":  5
+                                                                                 "stat":  "homeTrust",
+                                                                                 "change":  4
+                                                                             },
+                                                                             {
+                                                                                 "stat":  "worry",
+                                                                                 "change":  -1
                                                                              }
                                                                          ],
-                                                             "nextNodeId":  "ch4_mother"
+                                                             "nextNodeId":  "ch4_choice1_a"
                                                          },
                                                          {
                                                              "text":  "参加过抗日读书会。",
                                                              "effects":  [
                                                                              {
-                                                                                 "stat":  "trust_father",
-                                                                                 "change":  -5
+                                                                                 "stat":  "homeTrust",
+                                                                                 "change":  3
+                                                                             },
+                                                                             {
+                                                                                 "stat":  "worry",
+                                                                                 "change":  2
                                                                              }
                                                                          ],
-                                                             "nextNodeId":  "ch4_mother"
+                                                             "nextNodeId":  "ch4_choice1_b"
                                                          },
                                                          {
                                                              "text":  "国家快亡了，还能安心读书？",
                                                              "effects":  [
                                                                              {
+                                                                                 "stat":  "homeTrust",
+                                                                                 "change":  -2
+                                                                             },
+                                                                             {
+                                                                                 "stat":  "worry",
+                                                                                 "change":  4
+                                                                             },
+                                                                             {
                                                                                  "stat":  "conviction",
-                                                                                 "change":  2
+                                                                                 "change":  1
                                                                              }
                                                                          ],
-                                                             "nextNodeId":  "ch4_mother"
+                                                             "nextNodeId":  "ch4_choice1_c"
                                                          },
                                                          {
                                                              "text":  "沉默",
                                                              "effects":  [
                                                                              {
-                                                                                 "stat":  "trust_father",
-                                                                                 "change":  -2
+                                                                                 "stat":  "homeTrust",
+                                                                                 "change":  -1
+                                                                             },
+                                                                             {
+                                                                                 "stat":  "worry",
+                                                                                 "change":  3
                                                                              }
                                                                          ],
-                                                             "nextNodeId":  "ch4_mother"
+                                                             "nextNodeId":  "ch4_choice1_d"
                                                          }
                                                      ]
                                      },
                                      {
-                                         "id":  "ch4_mother",
-                                         "type":  "narration",
-                                         "content":  "深夜。母亲敲门，端着一碗莲子羹。",
-                                         "nextNodeId":  "ch4_mother_choice"
+                                         "id":  "ch4_choice1_a",
+                                         "type":  "dialogue",
+                                         "speaker":  "父亲",
+                                         "figure":  { "id":  "fuqin", "position":  "center" },
+                                         "content":  "（轻轻点头，指尖在报纸边沿摩挲了两下）那就好。乱世里，安心读书就是本分。",
+                                         "nextNodeId":  "ch5_mother"
                                      },
                                      {
-                                         "id":  "ch4_mother_choice",
+                                         "id":  "ch4_choice1_b",
+                                         "type":  "dialogue",
+                                         "speaker":  "父亲",
+                                         "figure":  { "id":  "fuqin", "position":  "center" },
+                                         "content":  "（眉头猛地一蹙，压低声音）胡闹！这种事是能挂在嘴边的？",
+                                         "nextNodeId":  "ch4_choice1_b1"
+                                     },
+                                     {
+                                         "id":  "ch4_choice1_b1",
+                                         "type":  "dialogue",
+                                         "speaker":  "父亲",
+                                         "figure":  { "id":  "fuqin", "position":  "center" },
+                                         "content":  "（顿了顿，语气缓下来）……不过，你肯跟我说实话，也算没白养。",
+                                         "nextNodeId":  "ch5_mother"
+                                     },
+                                     {
+                                         "id":  "ch4_choice1_c",
+                                         "type":  "narration",
+                                         "content":  "母亲在厨房听见，心头一紧",
+                                         "nextNodeId":  "ch4_choice1_c1"
+                                     },
+                                     {
+                                         "id":  "ch4_choice1_c1",
+                                         "type":  "dialogue",
+                                         "speaker":  "父亲",
+                                         "figure":  { "id":  "fuqin", "position":  "center" },
+                                         "content":  "（沉默了很久，最后叹出一口气）话是这么说。但世道凶险，你凡事留个心眼。",
+                                         "nextNodeId":  "ch5_mother"
+                                     },
+                                     {
+                                         "id":  "ch4_choice1_d",
+                                         "type":  "dialogue",
+                                         "speaker":  "父亲",
+                                         "figure":  { "id":  "fuqin", "position":  "center" },
+                                         "content":  "（盯着你看了几息，没再追问，只是把报纸叠好放在桌角）",
+                                         "nextNodeId":  "ch4_choice1_d1"
+                                     },
+                                     {
+                                         "id":  "ch4_choice1_d1",
+                                         "type":  "dialogue",
+                                         "speaker":  "父亲",
+                                         "figure":  { "id":  "fuqin", "position":  "center" },
+                                         "content":  "（起身时手掌在你肩上按了一下，没说话，但那一按很重）",
+                                         "nextNodeId":  "ch4_choice1_d2"
+                                     },
+                                     {
+                                         "id":  "ch4_choice1_d2",
+                                         "type":  "dialogue",
+                                         "speaker":  "母亲",
+                                         "figure":  { "id":  "muqin", "position":  "center" },
+                                         "content":  "（从厨房端着绿豆汤出来，目光在父子之间来回扫了一下，什么也没问，只把汤碗轻轻推到你面前）",
+                                         "nextNodeId":  "ch5_mother"
+                                     }
+                                ]
+                    },
+                    {
+                       "id":  "ch5_scene",
+                       "bgLabel":  "scene1_room",
+                       "nodes":  [                 
+                                     {
+                                         "id":  "ch5_mother",
+                                         "type":  "narration",
+                                         "content":  "深夜。母亲敲门，端着一碗莲子羹。",
+                                         "nextNodeId":  "ch5_mother1"
+                                     },
+                                     {
+                                         "id":  "ch5_mother1",
+                                         "type":  "dialogue",
+                                         "speaker":  "母亲",
+                                         "figure":  { "id":  "muqin", "position":  "center" },
+                                         "content":  "儿啊，还没睡吧？娘熬了点莲子羹，安神的……起来喝一口？",
+                                         "nextNodeId":  "ch5_mother_choice"
+                                     },
+                                     {
+                                         "id":  "ch5_mother_choice",
                                          "type":  "choice",
                                          "content":  "如何应对母亲？",
                                          "choices":  [
                                                          {
-                                                             "text":  "开门，强装镇定",
+                                                             "text":  "（开门，强装镇定）我没事，您别担心。",
                                                              "effects":  [
                                                                              {
                                                                                  "stat":  "worry",
-                                                                                 "change":  -2
-                                                                             }
-                                                                         ],
-                                                             "nextNodeId":  "ch4_news"
-                                                         },
-                                                         {
-                                                             "text":  "问\"北平同学会不会出事\"",
-                                                             "effects":  [
-                                                                             {
-                                                                                 "stat":  "worry",
-                                                                                 "change":  5
-                                                                             },
-                                                                             {
-                                                                                 "stat":  "conviction",
                                                                                  "change":  2
                                                                              }
                                                                          ],
-                                                             "nextNodeId":  "ch4_news"
+                                                             "nextNodeId":  "ch5_choice2_a"
+                                                         },
+                                                         {
+                                                             "text":  "妈，你说北平的同学……会不会出事？",
+                                                             "effects":  [
+                                                                             {
+                                                                                 "stat":  "worry",
+                                                                                 "change":  3
+                                                                             },
+                                                                             {
+                                                                                 "stat":  "conviction",
+                                                                                 "change":  1
+                                                                             }
+                                                                         ],
+                                                             "nextNodeId":  "ch5_choice2_b"
+                                                         },
+                                                         {
+                                                             "text":  "我想回北平去。",
+                                                             "effects":  [
+                                                                             {
+                                                                                 "stat":  "worry",
+                                                                                 "change":  4
+                                                                             },
+                                                                             {
+                                                                                 "stat":  "homeTrust",
+                                                                                 "change":  -1
+                                                                             }
+                                                                         ],
+                                                             "nextNodeId":  "ch5_choice2_c"
                                                          }
                                                      ]
                                      },
                                      {
-                                         "id":  "ch4_news",
-                                         "type":  "narration",
-                                         "content":  "报上看到学校南迁消息，你心中一动——如果能去临时大学，也许能找到组织。\n\n辗转寄来的同学信：\"平津已陷，我辈已随校南迁。若见此信，可速来。\"",
-                                         "nextNodeId":  "ch4_talk"
+                                         "id":  "ch5_choice2_a",
+                                         "type":  "dialogue",
+                                         "speaker":  "母亲",
+                                         "figure":  { "id":  "muqin", "position":  "center" },
+                                         "content":  "（端着碗进来，坐在床沿看着你一口一口喝完，伸手理了理你的被角，忽然说）你在北平是不是有要好的同学？娘见你天天等信……",
+                                         "nextNodeId":  "ch5_choice2_a1"
                                      },
                                      {
-                                         "id":  "ch4_talk",
+                                         "id":  "ch5_choice2_a1",
+                                         "type":  "dialogue",
+                                         "speaker":  "母亲",
+                                         "figure":  { "id":  "muqin", "position":  "center" },
+                                         "content":  "（没逼你回答，只是把空碗接过去）快睡吧，明早给你做酒酿圆子。",
+                                         "nextNodeId":  "ch6_newspaper"
+                                     },
+                                     {
+                                         "id":  "ch5_choice2_b",
+                                         "type":  "dialogue",
+                                         "speaker":  "母亲",
+                                         "figure":  { "id":  "muqin", "position":  "center" },
+                                         "content":  "（手一抖，碗里的羹荡了一下）",
+                                         "nextNodeId":  "ch5_choice2_b1"
+                                     },
+                                     {
+                                         "id":  "ch5_choice2_b1",
+                                         "type":  "dialogue",
+                                         "speaker":  "母亲",
+                                         "figure":  { "id":  "muqin", "position":  "center" },
+                                         "content":  "（放下碗，伸手轻轻抱住你的头，声音哽在喉咙里）不会的，都是好孩子……",
+                                         "nextNodeId":  "ch6_newspaper"
+                                     },
+                                     {
+                                         "id":  "ch5_choice2_c",
+                                         "type":  "dialogue",
+                                         "speaker":  "母亲",
+                                         "figure":  { "id":  "muqin", "position":  "center" },
+                                         "content":  "（把碗放下，没接话，过了半晌，才开口，声音很轻）北平现在炮响着。你去了，娘连一封信往哪儿寄都不知道。",
+                                         "nextNodeId":  "ch5_choice2_c1"
+                                     },
+                                     {
+                                         "id":  "ch5_choice2_c1",
+                                         "type":  "dialogue",
+                                         "speaker":  "母亲",
+                                         "figure":  { "id":  "muqin", "position":  "center" },
+                                         "content":  "（没再看你，起身走了出去）",
+                                         "nextNodeId":  "ch6_newspaper"
+                                     }
+                                ]
+                    },
+                    {
+                       "id":  "ch6_scene",
+                       "bgLabel":  "scene1_street",
+                       "nodes":  [
+                                    {
+                                         "id":  "ch6_newspaper",
+                                         "type":  "narration",
+                                         "content":  "【你在街头报摊买了一份《大公报》，角落简讯栏一行小字：“国立清华、北大、南开三校南迁长沙，合组临时大学，11月1日开学。”】",
+                                         "nextNodeId":  "ch6_newspaper1"
+                                     },
+                                     {
+                                         "id":  "ch6_newspaper1",
+                                         "type":  "narration",
+                                         "content":  "【你攥着报纸的手指微微收紧。你默默记下“长沙韭菜园圣经学院旧址”，将报纸折好收进贴身口袋。】",
+                                         "nextNodeId":  "ch6_newspaper2"
+                                     },
+                                     {
+                                         "id":  "ch6_newspaper2",
+                                         "type":  "narration",
+                                         "content":  "【系统提示：关键情报已收录。长沙，将成为你下一站的方向。】",
+                                         "nextNodeId":  "ch7_letter"
+                                     }
+                                ]
+                    },
+                    {
+                       "id":  "ch7_scene",
+                       "bgLabel":  "scene1_letter",
+                       "nodes":  [
+                                    {
+                                         "id":  "ch7_letter",
+                                         "type":  "narration",
+                                         "content":  "【巷口邮差送来一封信，信封上只有“武昌家中亲启”五字，字迹潦草，纸角沾着水渍。内容极短，无署名无地址：“平津已陷，我辈随校南迁长沙临时大学。不知你平安否。盼君至。保重。”】",
+                                         "nextNodeId":  "ch7_letter1"
+                                     },
+                                     {
+                                         "id":  "ch7_letter1",
+                                         "type":  "narration",
+                                         "content":  "【你认出是同学的手迹。没有署名，没有地址，但给了你一个方向：长沙。】",
+                                         "nextNodeId":  "ch7_letter2"
+                                     },
+                                     {
+                                         "id":  "ch7_letter2",
+                                         "type":  "narration",
+                                         "content":  "【获得道具：无名同学来信（指向长沙）】",
+                                         "nextNodeId":  "ch8_background",
+                                         "inventoryChanges": {
+                                            "add": ["item_classmate_letter"]
+                                        }
+                                     }
+                                ]
+                    },
+                    {
+                       "id":  "ch8_scene",
+                       "bgLabel":  "scene1_nightroom",
+                       "nodes":  [
+                                    {
+                                         "id":  "ch8_background",
+                                         "type":  "narration",
+                                         "content":  "【晚饭后，父亲叫住正要回房的你。他坐在藤椅上，手里捏着一封信——你认出来，那是你藏在枕下的同学来信，被他翻到了。】",
+                                         "nextNodeId":  "ch8_talk"
+                                     },
+                                     {
+                                         "id":  "ch8_talk",
                                          "type":  "dialogue",
                                          "speaker":  "父亲",
-                                         "content":  "（推门进来）你这半个月心神不宁，有什么打算？",
-                                         "nextNodeId":  "ch4_talk_choice"
+                                         "figure":  { "id":  "fuqin", "position":  "center" },
+                                         "content":  "（把信放在桌面上，没有发火，声音平得像一潭死水）你要去长沙。对不对？",
+                                         "nextNodeId":  "ch8_talkbg"
                                      },
                                      {
-                                         "id":  "ch4_talk_choice",
+                                         "id":  "ch8_talkbg",
+                                         "type":  "narration",
+                                         "content":  "【空气凝住，你知道，这是最后摊牌的时刻】",
+                                         "nextNodeId":  "ch8_talk_choice"
+                                     },
+                                     {
+                                         "id":  "ch8_talk_choice",
                                          "type":  "choice",
                                          "content":  "如何对父亲说？",
                                          "choices":  [
                                                          {
-                                                             "text":  "想去继续读书。",
+                                                             "text":  "我想去长沙，继续读书。三校南迁了，我不想辍学。",
                                                              "effects":  [
                                                                              {
-                                                                                 "stat":  "trust_father",
-                                                                                 "change":  5
+                                                                                 "stat":  "homeTrust",
+                                                                                 "change":  3
+                                                                             },
+                                                                             {
+                                                                                 "stat":  "worry",
+                                                                                 "change":  -1
                                                                              }
                                                                          ],
-                                                             "inventoryChanges":  {
-                                                                                      "add":  [
-                                                                                                  "travel_money"
-                                                                                              ]
-                                                                                  },
-                                                             "nextNodeId":  "ch4_farewell"
+                                                             "nextNodeId":  "ch8_choice3_a"
                                                          },
                                                          {
-                                                             "text":  "想去找同学抗日。",
+                                                             "text":  "我想去找同学，参加抗日。长沙临时大学里有我的同路人。",
                                                              "effects":  [
                                                                              {
                                                                                  "stat":  "conviction",
+                                                                                 "change":  1
+                                                                             },
+                                                                             {
+                                                                                 "stat":  "worry",
+                                                                                 "change":  4
+                                                                             },
+                                                                             {
+                                                                                 "stat":  "homeTrust",
+                                                                                 "change":  2
+                                                                             }
+                                                                         ],
+                                                             "nextNodeId":  "ch8_choice3_b"
+                                                         },
+                                                         {
+                                                             "text":  "（承认信是自己收的，但拒绝说出全部计划）我有必须去的理由，但现在不能跟您说",
+                                                             "effects":  [
+                                                                             {
+                                                                                 "stat":  "conviction",
+                                                                                 "change":  1
+                                                                             },
+                                                                             {
+                                                                                 "stat":  "worry",
+                                                                                 "change":  3
+                                                                             },
+                                                                             {
+                                                                                 "stat":  "homeTrust",
                                                                                  "change":  5
                                                                              }
                                                                          ],
-                                                             "inventoryChanges":  {
-                                                                                      "add":  [
-                                                                                                  "travel_money"
-                                                                                              ]
-                                                                                  },
-                                                             "nextNodeId":  "ch4_farewell"
-                                                         },
-                                                         {
-                                                             "text":  "不告而别",
-                                                             "effects":  [
-                                                                             {
-                                                                                 "stat":  "trust_father",
-                                                                                 "change":  -5
-                                                                             }
-                                                                         ],
-                                                             "nextNodeId":  "ch4_farewell"
+                                                             "nextNodeId":  "ch8_choice3_c"
                                                          }
                                                      ]
+
                                      },
                                      {
-                                         "id":  "ch4_farewell",
-                                         "type":  "narration",
-                                         "content":  "你深深鞠躬，接过布包，登上南下轮船。汽笛长鸣，武昌在视野中渐渐模糊。【获得状态：父母的牵挂】",
-                                         "nextNodeId":  "chapter1_end"
+                                         "id":  "ch8_choice3_a",
+                                         "type":  "dialogue",
+                                         "speaker":  "父亲",
+                                         "figure":  { "id":  "fuqin", "position":  "center" },
+                                         "content":  "（靠在椅背上，闭了一下眼，再睁开时，目光里的锐利消退了大半）读书是正事。武昌的学校都停了，你不能这么耗着。",
+                                         "nextNodeId":  "ch9_background"
                                      },
                                      {
-                                         "id":  "chapter1_end",
-                                         "type":  "ending",
-                                         "endingType":  "chapter_complete",
-                                         "endingDescription":  "第一回结束：你告别父母，踏上前往长沙的旅程。"
+                                         "id":  "ch8_choice3_b",
+                                         "type":  "dialogue",
+                                         "speaker":  "父亲",
+                                         "figure":  { "id":  "fuqin", "position":  "center" },
+                                         "content":  "（猛地拍了一下桌子）你一个学生，能干什么！",
+                                         "nextNodeId":  "ch8_choice3_b1"
+                                     },
+                                     {
+                                         "id":  "ch8_choice3_b1",
+                                         "type":  "dialogue",
+                                         "speaker":  "父亲",
+                                         "figure":  { "id":  "fuqin", "position":  "center" },
+                                         "content":  "（盯着你一动不动、毫不回避的眼睛，最后声音哑了下去）……你像你爷爷。他当年参加辛亥革命，也是这个眼神。",
+                                         "nextNodeId":  "ch9_background"
+                                     },
+                                     {
+                                         "id":  "ch8_choice3_c",
+                                         "type":  "dialogue",
+                                         "speaker":  "父亲",
+                                         "figure":  { "id":  "fuqin", "position":  "center" },
+                                         "content":  "（看了你很久）有些事情不能在庭上说。",
+                                         "nextNodeId":  "ch8_choice3_c1"
+                                     },
+                                     {
+                                         "id":  "ch8_choice3_c1",
+                                         "type":  "dialogue",
+                                         "speaker":  "父亲",
+                                         "figure":  { "id":  "fuqin", "position":  "center" },
+                                         "content":  "（收起那封信，还给你）别走歪道。活着回来。",
+                                         "nextNodeId":  "ch9_background"
                                      }
+                                ]
+                    },
+                    {
+                       "id":  "ch9_scene",
+                       "bgLabel":  "scene1_room",
+                       "nodes":  [
+                                    {
+                                         "id":  "ch9_background",
+                                         "type":  "narration",
+                                         "content":  "【夜深了。母亲坐在你房间里，借着油灯替你缝包袱上的破口。父亲在书房里写字，偶尔传来墨锭磨砚的声响。】",
+                                         "nextNodeId":  "ch9_background1"
+                                     },
+                                     {
+                                         "id":  "ch9_background1",
+                                         "type":  "narration",
+                                         "content":  "【系统提示：这是离别前的最后一次互动，也是结算前夜。你的行为将最终影响次日收到的“离场物资包”】",
+                                         "nextNodeId":  "ch9_talk"
+                                     },
+                                     {
+                                         "id":  "ch9_talk",
+                                         "type":  "dialogue",
+                                         "speaker":  "母亲",
+                                         "figure":  { "id":  "muqin", "position":  "center" },
+                                         "content":  "（一边穿针，一边看似随意地问）儿啊……明天走，东西娘都给你收拾好了。你跟你爹说了那么多，就没话跟娘说？",
+                                         "nextNodeId":  "ch9_choice"
+                                     },
+                                     {
+                                         "id":  "ch9_choice",
+                                         "type":  "choice",
+                                         "content":  "如何对母亲说？",
+                                         "choices":  [
+                                                         {
+                                                             "text":  "（坐到母亲身边，帮她理线团）妈，我到了长沙就写信。",
+                                                             "effects":  [
+                                                                             {
+                                                                                 "stat":  "homeTrust",
+                                                                                 "change":  3
+                                                                             },
+                                                                             {
+                                                                                 "stat":  "worry",
+                                                                                 "change":  3
+                                                                             }
+                                                                         ],
+                                                             "nextNodeId":  "ch9_choice4_a"
+                                                         },
+                                                         {
+                                                             "text":  "（轻轻抱住母亲的肩膀）妈，您放心，我会照顾自己。",
+                                                             "effects":  [
+                                                                             {
+                                                                                 "stat":  "worry",
+                                                                                 "change":  5
+                                                                             }
+                                                                        ],
+                                                             "nextNodeId":  "ch9_choice4_b"
+                                                         },
+                                                         {
+                                                             "text":  "沉默着，只是把母亲缝好的包袱拿过来，自己又检查了一遍针脚",
+                                                             "effects":  [
+                                                                             {
+                                                                                 "stat":  "worry",
+                                                                                 "change":  2
+                                                                             },
+                                                                             {
+                                                                                 "stat":  "homeTrust",
+                                                                                 "change":  2
+                                                                             }
+                                                                         ],
+                                                             "nextNodeId":  "ch9_choice4_c"
+                                                         }
+                                                     ]
+
+                                     },
+                                     {
+                                         "id":  "ch9_choice4_a",
+                                         "type":  "dialogue",
+                                         "speaker":  "母亲",
+                                         "figure":  { "id":  "muqin", "position":  "center" },
+                                         "content":  "（手顿了一下，针扎进手指，她没吭声，只在围裙上擦了擦血珠）好。娘不识字，你写给你爹，让你爹念给我听。",
+                                         "nextNodeId":  "ch9_choice4_a1"
+                                     },
+                                     {
+                                         "id":  "ch9_choice4_a1",
+                                         "type":  "dialogue",
+                                         "speaker":  "母亲",
+                                         "figure":  { "id":  "muqin", "position":  "center" },
+                                         "content":  "（把包袱系紧，又松开，重新系了一遍，比方才更紧）",
+                                         "nextNodeId":  "ch10_background"
+                                     },
+                                     {
+                                         "id":  "ch9_choice4_b",
+                                         "type":  "dialogue",
+                                         "speaker":  "母亲",
+                                         "figure":  { "id":  "muqin", "position":  "center" },
+                                         "content":  "（僵了一瞬，然后把脸偏过去，借着油灯的光掩饰发红的眼眶）你从小就不会撒娇，忽然这么一下，娘受不了。",
+                                         "nextNodeId":  "ch10_background"
+                                     },
+                                     {
+                                         "id":  "ch9_choice4_c",
+                                         "type":  "dialogue",
+                                         "speaker":  "母亲",
+                                         "figure":  { "id":  "muqin", "position":  "center" },
+                                         "content":  "（看着你笨拙地翻看包袱里子，忽然笑了）跟你爹一样，闷葫芦。",
+                                         "nextNodeId":  "ch10_background"
+                                     }
+                                ]
+                    },
+                    {
+                       "id":  "ch10_scene",
+                       "bgLabel":  "scene1_wharf",
+                       "nodes":  [
+                                    {
+                                         "id":  "ch10_background",
+                                         "type":  "narration",
+                                         "content":  "【武昌码头。江风裹着秋凉，轮船汽笛一声长一声短。父亲站着，母亲站在他半步之后，手里攥着一条帕子。】",
+                                         "nextNodeId":  "ch10_talk1"
+                                     },
+                                     {
+                                         "id":  "ch10_talk1",
+                                         "type":  "dialogue",
+                                         "speaker":  "父亲",
+                                         "figure":  { "id":  "fuqin", "position":  "center" },
+                                         "content":  "（把一只沉甸甸的布包交到你手上）拿着。",
+                                         "nextNodeId":  "ch10_talk2"
+                                     },
+                                     {
+                                         "id":  "ch10_talk2",
+                                         "type":  "dialogue",
+                                         "speaker":  "母亲",
+                                         "figure":  { "id":  "muqin", "position":  "center" },
+                                         "content":  "（上前一步，帮你把包袱带子又紧了紧，低声说） 路上饿了就吃，别省。",
+                                         "nextNodeId":  "ch10_talk3"
+                                     },
+                                     {
+                                         "id":  "ch10_talk3",
+                                         "type":  "dialogue",
+                                         "speaker":  "父亲",
+                                         "figure":  { "id":  "fuqin", "position":  "center" },
+                                         "content":  "（把布包交到你手里时，手指在你手腕上扣了一瞬，松开）武昌的法院，永远有个你的位置。累了就回来。",
+                                         "nextNodeId":  "ch10_talk4"
+                                     },
+                                     {
+                                         "id":  "ch10_talk4",
+                                         "type":  "dialogue",
+                                         "speaker":  "母亲",
+                                         "figure":  { "id":  "muqin", "position":  "center" },
+                                         "content":  "（在你登船时，忽然追了两步，被父亲拉住）",
+                                         "nextNodeId":  "ch10_talk5"
+                                     },
+                                     {
+                                         "id":  "ch10_talk5",
+                                         "type":  "dialogue",
+                                         "speaker":  "母亲",
+                                         "figure":  { "id":  "muqin", "position":  "center" },
+                                         "content":  "（没喊你的名字，只朝着船舷方向做了一个双手合十的动作，很快又放下，像怕被人看见）",
+                                         "nextNodeId":  "ch10_talk6"
+                                     },
+                                     {
+                                         "id":  "ch10_talk6",
+                                         "type":  "dialogue",
+                                         "speaker":  "你",
+                                         "figure":  { "id":  "player", "position":  "center" },
+                                         "content":  "（站在船尾，武昌城的轮廓在江雾里渐渐化开，两个并立的身影越来越小，直到变成江岸上两个不动的黑点）",
+                                         "nextNodeId":  "ch10_talk7"
+                                     },
+                                     {
+                                         "id":  "ch10_talk7",
+                                         "type":  "dialogue",
+                                         "speaker":  "你",
+                                         "figure":  { "id":  "player", "position":  "center" },
+                                         "content":  "（摸了摸母亲给你的包袱，转回身，面朝下游）",
+                                         "nextNodeId":  "ch10_system1"
+                                     },
+                                     {
+                                         "id":  "ch10_system1",
+                                         "type":  "narration",
+                                         "content":  "【1937年10月底。你告别父母，登上了南下的轮船】",
+                                         "nextNodeId":  "ch10_system2"
+                                     },
+                                     {
+                                         "id":  "ch10_system2",
+                                         "type":  "narration",
+                                         "content":  "【父亲给了你通往“社会”的钥匙，母亲给了你留在这世上的一根线】",
+                                         "nextNodeId":  "ch10_system3"
+                                     },
+                                     {
+                                         "id":  "ch10_system3",
+                                         "type":  "narration",
+                                         "content":  "【你不知道长沙等待你的是什么，但你摸到父母给的包袱，忽然觉得，这一路再怎么难，也还能撑下去】",
+                                         "nextNodeId":  "ch11_settle_start"
+                                     }
+                                ]
+                    },
+
+                    {
+                       "id":  "ch11_scene",
+                       "bgLabel":  "scene1_black",
+                       "nodes":  [
+
+
+
+
+
+{
+    "id": "ch11_settle_start",
+    "type": "narration",
+    "content": "【阶段结算：离别武昌】\n依据你与父母相处的全部选择，整理启程行囊。",
+    "nextNodeId": "ch11_cond_father_10"
+},
+{
+    "id": "ch11_cond_father_10",
+    "type": "condition",
+    "condition": {
+        "stat": "homeTrust",
+        "operator": ">=",
+        "value": 10,
+        "passNodeId": "ch4_cond_mother_13_f10",
+        "failNodeId": "ch4_cond_father_7"
+    }
+},
+{
+    "id":"ch4_cond_mother_13_f10",
+    "type":"condition",
+    "condition":{
+        "stat":"worry",
+        "operator":">=",
+        "value":13,
+        "passNodeId":"ch4_settle_f10_m13",
+        "failNodeId":"ch4_cond_mother_10_f10"
+    }
+},
+{
+    "id":"ch4_cond_mother_10_f10",
+    "type":"condition",
+    "condition":{
+        "stat":"worry",
+        "operator":">=",
+        "value":10,
+        "passNodeId":"ch4_settle_f10_m10",
+        "failNodeId":"ch4_cond_mother_7_f10"
+    }
+},
+{
+    "id":"ch4_cond_mother_7_f10",
+    "type":"condition",
+    "condition":{
+        "stat":"worry",
+        "operator":">=",
+        "value":7,
+        "passNodeId":"ch4_settle_f10_m7",
+        "failNodeId":"ch4_cond_mother_4_f10"
+    }
+},
+{
+    "id":"ch4_cond_mother_4_f10",
+    "type":"condition",
+    "condition":{
+        "stat":"worry",
+        "operator":">=",
+        "value":4,
+        "passNodeId":"ch4_settle_f10_m4",
+        "failNodeId":"ch4_settle_f10_m0"
+    }
+},
+{
+    "id":"ch4_settle_f10_m13",
+    "type":"narration",
+    "content":"【离别武昌结算】\n父亲：家信值较高，获得银元10块、武昌地方法院空白介绍信。\n母亲：牵挂极高，干粮×5，金疮药、奎宁药片、慈母锦囊。\n【永久状态解锁：父母的牵挂】",
+    "effects": [
+        {
+            "type":"setFlag",
+            "flag":"flag_parent_care",
+            "value":true
+        }
+    ],
+    "inventoryChanges":{
+        "add":["silver_10","item_court_letter","dryfood_5","item_medicine_gold","item_medicine_quinine","item_mother_bag"]
+    },
+    "nextNodeId":"ch_end_chapter1"
+},
+{
+    "id":"ch4_settle_f10_m10",
+    "type":"narration",
+    "content":"【离别武昌结算】\n父亲：家信值较高，获得银元10块、武昌地方法院空白介绍信。\n母亲：牵挂值10‑12，干粮×4，奎宁药片、护身符。\n【永久状态解锁：父母的牵挂】",
+    "effects": [
+        {
+            "type":"setFlag",
+            "flag":"flag_parent_care",
+            "value":true
+        }
+    ],
+    "inventoryChanges":{
+        "add":["silver_10","item_court_letter","dryfood_4","item_medicine_quinine","item_talisman"]
+    },
+    "nextNodeId":"ch_end_chapter1"
+},
+{
+    "id":"ch4_settle_f10_m7",
+    "type":"narration",
+    "content":"【离别武昌结算】\n父亲：家信值较高，获得银元10块、武昌地方法院空白介绍信。\n母亲：牵挂值7‑9，干粮×3，金疮药、平安扣布囊。\n【永久状态解锁：父母的牵挂】",
+    "effects": [
+        {
+            "type":"setFlag",
+            "flag":"flag_parent_care",
+            "value":true
+        }
+    ],
+    "inventoryChanges":{
+        "add":["silver_10","item_court_letter","dryfood_3","item_medicine_gold","item_safe_pouch"]
+    },
+    "nextNodeId":"ch_end_chapter1"
+},
+{
+    "id":"ch4_settle_f10_m4",
+    "type":"narration",
+    "content":"【离别武昌结算】\n父亲：家信值较高，获得银元10块、武昌地方法院空白介绍信。\n母亲：牵挂值4‑6，干粮×3，金疮药。\n【永久状态解锁：父母的牵挂】",
+    "effects": [
+        {
+            "type":"setFlag",
+            "flag":"flag_parent_care",
+            "value":true
+        }
+    ],
+    "inventoryChanges":{
+        "add":["silver_10","item_court_letter","dryfood_3","item_medicine_gold"]
+    },
+    "nextNodeId":"ch_end_chapter1"
+},
+{
+    "id":"ch4_settle_f10_m0",
+    "type":"narration",
+    "content":"【离别武昌结算】\n父亲：家信值较高，获得银元10块、武昌地方法院空白介绍信。\n母亲：牵挂值0‑4，干粮×2。\n【永久状态解锁：父母的牵挂】",
+    "effects": [
+        {
+            "type":"setFlag",
+            "flag":"flag_parent_care",
+            "value":true
+        }
+    ],
+    "inventoryChanges":{
+        "add":["silver_10","item_court_letter","dryfood_2"]
+    },
+    "nextNodeId":"ch_end_chapter1"
+},
+{
+    "id": "ch4_cond_father_7",
+    "type": "condition",
+    "condition": {
+        "stat": "homeTrust",
+        "operator": ">=",
+        "value":7,
+        "passNodeId":"ch4_cond_mother_13_f7",
+        "failNodeId":"ch4_cond_father_4"
+    }
+},
+{
+    "id":"ch4_cond_mother_13_f7",
+    "type":"condition",
+    "condition":{"stat":"worry","operator":">=", "value":13,"passNodeId":"ch4_settle_f7_m13","failNodeId":"ch4_cond_mother_10_f7"}
+},
+{
+    "id":"ch4_cond_mother_10_f7",
+    "type":"condition",
+    "condition":{"stat":"worry","operator":">=", "value":10,"passNodeId":"ch4_settle_f7_m10","failNodeId":"ch4_cond_mother_7_f7"}
+},
+{
+    "id":"ch4_cond_mother_7_f7",
+    "type":"condition",
+    "condition":{"stat":"worry","operator":">=", "value":7,"passNodeId":"ch4_settle_f7_m7","failNodeId":"ch4_cond_mother_4_f7"}
+},
+{
+    "id":"ch4_cond_mother_4_f7",
+    "type":"condition",
+    "condition":{"stat":"worry","operator":">=", "value":4,"passNodeId":"ch4_settle_f7_m4","failNodeId":"ch4_settle_f7_m0"}
+},
+{
+    "id":"ch4_settle_f7_m13",
+    "type":"narration",
+    "content":"【离别武昌结算】\n父亲：家信值7‑9，银元8块、汉口商会王掌柜地址。\n母亲：牵挂极高，干粮×5，金疮药、奎宁药片、慈母锦囊。\n【永久状态解锁：父母的牵挂】",
+    "effects": [
+        {
+            "type":"setFlag",
+            "flag":"flag_parent_care",
+            "value":true
+        }
+    ],
+    "inventoryChanges":{"add":["silver_8","item_wang_address","dryfood_5","item_medicine_gold","item_medicine_quinine","item_mother_bag"]},
+    "nextNodeId":"ch_end_chapter1"
+},
+{
+    "id":"ch4_settle_f7_m10",
+    "type":"narration",
+    "content":"【离别武昌结算】\n父亲：家信值7‑9，银元8块、汉口商会王掌柜地址。\n母亲：牵挂值10‑12，干粮×4，奎宁药片、护身符。\n【永久状态解锁：父母的牵挂】",
+    "effects": [
+        {
+            "type":"setFlag",
+            "flag":"flag_parent_care",
+            "value":true
+        }
+    ],
+    "inventoryChanges":{"add":["silver_8","item_wang_address","dryfood_4","item_medicine_quinine","item_talisman"]},
+    "nextNodeId":"ch_end_chapter1"
+},
+{
+    "id":"ch4_settle_f7_m7",
+    "type":"narration",
+    "content":"【离别武昌结算】\n父亲：家信值7‑9，银元8块、汉口商会王掌柜地址。\n母亲：牵挂值7‑9，干粮×3，金疮药、平安扣布囊。\n【永久状态解锁：父母的牵挂】",
+    "effects": [
+        {
+            "type":"setFlag",
+            "flag":"flag_parent_care",
+            "value":true
+        }
+    ],
+    "inventoryChanges":{"add":["silver_8","item_wang_address","dryfood_3","item_medicine_gold","item_safe_pouch"]},
+    "nextNodeId":"ch_end_chapter1"
+},
+{
+    "id":"ch4_settle_f7_m4",
+    "type":"narration",
+    "content":"【离别武昌结算】\n父亲：家信值7‑9，银元8块、汉口商会王掌柜地址。\n母亲：牵挂值4‑6，干粮×3，金疮药。\n【永久状态解锁：父母的牵挂】",
+    "effects": [
+        {
+            "type":"setFlag",
+            "flag":"flag_parent_care",
+            "value":true
+        }
+    ],
+    "inventoryChanges":{"add":["silver_8","item_wang_address","dryfood_3","item_medicine_gold"]},
+    "nextNodeId":"ch_end_chapter1"
+},
+{
+    "id":"ch4_settle_f7_m0",
+    "type":"narration",
+    "content":"【离别武昌结算】\n父亲：家信值7‑9，银元8块、汉口商会王掌柜地址。\n母亲：牵挂值0‑4，干粮×2。\n【永久状态解锁：父母的牵挂】",
+    "effects": [
+        {
+            "type":"setFlag",
+            "flag":"flag_parent_care",
+            "value":true
+        }
+    ],
+    "inventoryChanges":{"add":["silver_8","item_wang_address","dryfood_2"]},
+    "nextNodeId":"ch_end_chapter1"
+},
+{
+    "id": "ch4_cond_father_4",
+    "type": "condition",
+    "condition": {
+        "stat": "homeTrust",
+        "operator": ">=",
+        "value":4,
+        "passNodeId":"ch4_cond_mother_13_f4",
+        "failNodeId":"ch4_cond_father_0"
+    }
+},
+{
+    "id":"ch4_cond_mother_13_f4",
+    "type":"condition",
+    "condition":{"stat":"worry","operator":">=", "value":13,"passNodeId":"ch4_settle_f4_m13","failNodeId":"ch4_cond_mother_10_f4"}
+},
+{
+    "id":"ch4_cond_mother_10_f4",
+    "type":"condition",
+    "condition":{"stat":"worry","operator":">=", "value":10,"passNodeId":"ch4_settle_f4_m10","failNodeId":"ch4_cond_mother_7_f4"}
+},
+{
+    "id":"ch4_cond_mother_7_f4",
+    "type":"condition",
+    "condition":{"stat":"worry","operator":">=", "value":7,"passNodeId":"ch4_settle_f4_m7","failNodeId":"ch4_cond_mother_4_f4"}
+},
+{
+    "id":"ch4_cond_mother_4_f4",
+    "type":"condition",
+    "condition":{"stat":"worry","operator":">=", "value":4,"passNodeId":"ch4_settle_f4_m4","failNodeId":"ch4_settle_f4_m0"}
+},
+{
+    "id":"ch4_settle_f4_m13",
+    "type":"narration",
+    "content":"【离别武昌结算】\n父亲：家信值4‑6，银元5块、父亲手写平安信。\n母亲：牵挂极高，干粮×5，金疮药、奎宁药片、慈母锦囊。\n【永久状态解锁：父母的牵挂】",
+    "effects": [
+        {
+            "type":"setFlag",
+            "flag":"flag_parent_care",
+            "value":true
+        }
+    ],
+    "inventoryChanges":{"add":["silver_5","item_father_safe_letter","dryfood_5","item_medicine_gold","item_medicine_quinine","item_mother_bag"]},
+    "nextNodeId":"ch_end_chapter1"
+},
+{
+    "id":"ch4_settle_f4_m10",
+    "type":"narration",
+    "content":"【离别武昌结算】\n父亲：家信值4‑6，银元5块、父亲手写平安信。\n母亲：牵挂值10‑12，干粮×4，奎宁药片、护身符。\n【永久状态解锁：父母的牵挂】",
+    "effects": [
+        {
+            "type":"setFlag",
+            "flag":"flag_parent_care",
+            "value":true
+        }
+    ],
+    "inventoryChanges":{"add":["silver_5","item_father_safe_letter","dryfood_4","item_medicine_quinine","item_talisman"]},
+    "nextNodeId":"ch_end_chapter1"
+},
+{
+    "id":"ch4_settle_f4_m7",
+    "type":"narration",
+    "content":"【离别武昌结算】\n父亲：家信值4‑6，银元5块、父亲手写平安信。\n母亲：牵挂值7‑9，干粮×3，金疮药、平安扣布囊。\n【永久状态解锁：父母的牵挂】",
+    "effects": [
+        {
+            "type":"setFlag",
+            "flag":"flag_parent_care",
+            "value":true
+        }
+    ],
+    "inventoryChanges":{"add":["silver_5","item_father_safe_letter","dryfood_3","item_medicine_gold","item_safe_pouch"]},
+    "nextNodeId":"ch_end_chapter1"
+},
+{
+    "id":"ch4_settle_f4_m4",
+    "type":"narration",
+    "content":"【离别武昌结算】\n父亲：家信值4‑6，银元5块、父亲手写平安信。\n母亲：牵挂值4‑6，干粮×3，金疮药。\n【永久状态解锁：父母的牵挂】",
+    "effects": [
+        {
+            "type":"setFlag",
+            "flag":"flag_parent_care",
+            "value":true
+        }
+    ],
+    "inventoryChanges":{"add":["silver_5","item_father_safe_letter","dryfood_3","item_medicine_gold"]},
+    "nextNodeId":"ch_end_chapter1"
+},
+{
+    "id":"ch4_settle_f4_m0",
+    "type":"narration",
+    "content":"【离别武昌结算】\n父亲：家信值4‑6，银元5块、父亲手写平安信。\n母亲：牵挂值0‑4，干粮×2。\n【永久状态解锁：父母的牵挂】",
+    "effects": [
+        {
+            "type":"setFlag",
+            "flag":"flag_parent_care",
+            "value":true
+        }
+    ],
+    "inventoryChanges":{"add":["silver_5","item_father_safe_letter","dryfood_2"]},
+    "nextNodeId":"ch_end_chapter1"
+},
+{
+    "id": "ch4_cond_father_0",
+    "type": "condition",
+    "condition": {
+        "stat": "worry",
+        "operator": ">=",
+        "value":13,
+        "passNodeId":"ch4_settle_f0_m13",
+        "failNodeId":"ch4_cond_mother_10_f0"
+    }
+},
+{
+    "id":"ch4_cond_mother_10_f0",
+    "type":"condition",
+    "condition":{"stat":"worry","operator":">=", "value":10,"passNodeId":"ch4_settle_f0_m10","failNodeId":"ch4_cond_mother_7_f0"}
+},
+{
+    "id":"ch4_cond_mother_7_f0",
+    "type":"condition",
+    "condition":{"stat":"worry","operator":">=", "value":7,"passNodeId":"ch4_settle_f0_m7","failNodeId":"ch4_cond_mother_4_f0"}
+},
+{
+    "id":"ch4_cond_mother_4_f0",
+    "type":"condition",
+    "condition":{"stat":"worry","operator":">=", "value":4,"passNodeId":"ch4_settle_f0_m4","failNodeId":"ch4_settle_f0_m0"}
+},
+{
+    "id":"ch4_settle_f0_m13",
+    "type":"narration",
+    "content":"【离别武昌结算】\n父亲：家信值0‑3，银元2块，无特殊文书。\n母亲：牵挂极高，干粮×5，金疮药、奎宁药片、慈母锦囊。\n【永久状态解锁：父母的牵挂】",
+    "effects": [
+        {
+            "type":"setFlag",
+            "flag":"flag_parent_care",
+            "value":true
+        }
+    ],
+    "inventoryChanges":{"add":["silver_2","dryfood_5","item_medicine_gold","item_medicine_quinine","item_mother_bag"]},
+    "nextNodeId":"ch_end_chapter1"
+},
+{
+    "id":"ch4_settle_f0_m10",
+    "type":"narration",
+    "content":"【离别武昌结算】\n父亲：家信值0‑3，银元2块，无特殊文书。\n母亲：牵挂值10‑12，干粮×4，奎宁药片、护身符。\n【永久状态解锁：父母的牵挂】",
+    "effects": [
+        {
+            "type":"setFlag",
+            "flag":"flag_parent_care",
+            "value":true
+        }
+    ],
+    "inventoryChanges":{"add":["silver_2","dryfood_4","item_medicine_quinine","item_talisman"]},
+    "nextNodeId":"ch_end_chapter1"
+},
+{
+    "id":"ch4_settle_f0_m7",
+    "type":"narration",
+    "content":"【离别武昌结算】\n父亲：家信值0‑3，银元2块，无特殊文书。\n母亲：牵挂值7‑9，干粮×3，金疮药、平安扣布囊。\n【永久状态解锁：父母的牵挂】",
+    "effects": [
+        {
+            "type":"setFlag",
+            "flag":"flag_parent_care",
+            "value":true
+        }
+    ],
+    "inventoryChanges":{"add":["silver_2","dryfood_3","item_medicine_gold","item_safe_pouch"]},
+    "nextNodeId":"ch_end_chapter1"
+},
+{
+    "id":"ch4_settle_f0_m4",
+    "type":"narration",
+    "content":"【离别武昌结算】\n父亲：家信值0‑3，银元2块，无特殊文书。\n母亲：牵挂值4‑6，干粮×3，金疮药。\n【永久状态解锁：父母的牵挂】",
+    "effects": [
+        {
+            "type":"setFlag",
+            "flag":"flag_parent_care",
+            "value":true
+        }
+    ],
+    "inventoryChanges":{"add":["silver_2","dryfood_3","item_medicine_gold"]},
+    "nextNodeId":"ch_end_chapter1"
+},
+{
+    "id":"ch4_settle_f0_m0",
+    "type":"narration",
+    "content":"【离别武昌结算】\n父亲：家信值0‑3，银元2块，无特殊文书。\n母亲：牵挂值0‑4，干粮×2。\n【永久状态解锁：父母的牵挂】",
+    "effects": [
+        {
+            "type":"setFlag",
+            "flag":"flag_parent_care",
+            "value":true
+        }
+    ],
+    "inventoryChanges":{"add":["silver_2","dryfood_2"]},
+    "nextNodeId":"ch_end_chapter1"
+},
+
+
+{
+    "id":"ch_end_chapter1",
+    "type":"ending",
+    "endingType":"chapter_complete",
+    "endingDescription":"第一回·烽火骤起·失联完成，轮船驶向长沙临时大学。"
+}
+
+
+
                                  ]
                    }
                ]

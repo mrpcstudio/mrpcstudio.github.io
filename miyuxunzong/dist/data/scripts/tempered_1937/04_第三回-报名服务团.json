@@ -1,0 +1,11 @@
+{
+  "id": "chapter3",
+  "title": "第三回·报名服务团·伪装身份",
+  "scenes": [{ "id": "ch3_scene", "bgLabel": "", "nodes": [
+    { "id": "ch3_intro", "type": "narration", "content": "服务团报名点人声嘈杂，你需要填写一份新的身份资料。", "nextNodeId": "ch3_choice" },
+    { "id": "ch3_choice", "type": "choice", "content": "你如何填写报名经历？", "choices": [
+      { "text": "如实填写求学经历", "effects": [{ "stat": "conviction", "change": 1 }], "nextNodeId": "ch3_end" },
+      { "text": "只保留普通信息", "effects": [{ "stat": "suspicion", "change": -1 }], "nextNodeId": "ch3_end" }] },
+    { "id": "ch3_end", "type": "ending", "endingType": "chapter_complete", "endingDescription": "模板章节结束：你的服务团身份等待后续剧情接续。" }
+  ]}]
+}

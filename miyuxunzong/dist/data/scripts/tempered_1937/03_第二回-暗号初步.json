@@ -1,0 +1,391 @@
+{
+  "id": "chapter2",
+  "title": "第二回·闲棋初布·长沙临时大学",
+  "scenes": [
+    {
+      "id": "r2_s1_campus",
+      "bgLabel": "scene1_university_gate",
+      "nodes": [
+        {
+          "id": "r2s1_arrive",
+          "type": "narration",
+          "content": "【长沙韭菜园·圣经学院旧址——长沙临时大学校舍】\n深秋，落叶满地。学生三三两两走过，脸上带着流亡的疲惫和求学的渴望。你提着箱子，走进这所由流亡三校拼成的临时大学。",
+          "nextNodeId": "r2s1_monologue"
+        },
+        {
+          "id": "r2s1_monologue",
+          "type": "narration",
+          "content": "内心独白：\n我终于到了长沙。校园里人来人往，有清华的同学，有北大的、南开的……可每一个熟悉的面孔看过去，都不是“自己人”。组织在哪里？蒋南翔同志在哪里？我像一个走散的兵，找不到队伍。",
+          "nextNodeId": "r2s1_search"
+        },
+        {
+          "id": "r2s1_search",
+          "type": "narration",
+          "content": "你在校园里转了一圈又一圈，熟悉的、陌生的面孔都见过了。没有人认识你，没有人找你。你第一次感到：失去组织，比失去家更让人心慌。\n【系统提示：夜幕降临。你坐在临时宿舍的床板上，周围是陌生的室友——有人在叹气，有人在写信，有人沉默地看着窗外。】",
+          "nextNodeId": "r2s1_choice"
+        },
+        {
+          "id": "r2s1_choice",
+          "type": "choice",
+          "content": "夜色中，你的内心独白是——",
+          "choices": [
+            {
+              "text": "“难道组织忘记我了？”",
+              "effects": [
+                { "stat": "conviction", "change": -2 }
+              ],
+              "nextNodeId": "r2s1_a"
+            },
+            {
+              "text": "“不，一定有办法。蒋南翔同志说过，种子要耐得住寂寞。”",
+              "effects": [
+                { "stat": "conviction", "change": 2 }
+              ],
+              "nextNodeId": "r2s1_b"
+            },
+            {
+              "text": "什么也不想，直接躺下睡觉。",
+              "effects": [],
+              "nextNodeId": "r2s1_c"
+            }
+          ]
+        },
+        {
+          "id": "r2s1_a",
+          "type": "narration",
+          "content": "你感到一阵前所未有的孤独和迷茫。失去联系的日子像一潭死水，你几乎要怀疑，那场在煤油灯下举起的右拳，是不是一场梦。",
+          "nextNodeId": "r2s1_after"
+        },
+        {
+          "id": "r2s1_b",
+          "type": "narration",
+          "content": "你握紧拳头，重新振作起来。种子要耐得住寂寞——你想起蒋南翔说过的每一句话，把它们在心里又默念了一遍。",
+          "nextNodeId": "r2s1_after"
+        },
+        {
+          "id": "r2s1_c",
+          "type": "narration",
+          "content": "你什么也不想，拉过被子蒙住头。你告诉自己：明天，还要继续找。",
+          "nextNodeId": "r2s1_after"
+        },
+        {
+          "id": "r2s1_after",
+          "type": "narration",
+          "content": "此后一个多月，你白天上课、跑图书馆，晚上在宿舍听同学议论时局。南京一天比一天吃紧，你始终不动声色，只在心里反复核对暗号与联络方式。\n直到那年冬天，一个闭馆后的夜晚……",
+          "nextNodeId": "r2s2_open"
+        }
+      ]
+    },
+    {
+      "id": "r2_s2_library",
+      "bgLabel": "scene1_nightroom",
+      "nodes": [
+        {
+          "id": "r2s2_open",
+          "type": "narration",
+          "content": "【1937年12月13日前·某夜】\n图书馆闭馆后的走廊，光线昏暗，只有尽头一盏灯还亮着。你抱着书从阅览室出来，经过转角时，一个穿蓝色棉袍的女生正靠在窗边，似乎在等人。",
+          "nextNodeId": "r2s2_meet"
+        },
+        {
+          "id": "r2s2_meet",
+          "type": "dialogue",
+          "speaker": "郭见恩",
+          "figure": { "id": "guo_jianen", "position": "center" },
+          "content": "（极低的声音，没有看你）你是清华37届的吧？我叫郭见恩。组织让我跟你接上关系。",
+          "nextNodeId": "r2s2_code"
+        },
+        {
+          "id": "r2s2_code",
+          "type": "dialogue",
+          "speaker": "郭见恩",
+          "figure": { "id": "guo_jianen", "position": "center" },
+          "content": "（与你并肩往前走了几步，步子没有停）你的代号是“渡鸦”。蒋南翔同志提过你。",
+          "nextNodeId": "r2s2_player"
+        },
+        {
+          "id": "r2s2_player",
+          "type": "dialogue",
+          "speaker": "你",
+          "figure": { "id": "player", "position": "center" },
+          "content": "是的。我一直在等组织的人。",
+          "nextNodeId": "r2s2_guo1"
+        },
+        {
+          "id": "r2s2_guo1",
+          "type": "dialogue",
+          "speaker": "郭见恩",
+          "figure": { "id": "guo_jianen", "position": "center" },
+          "content": "（走到操场边缘无人的树荫下，她停住脚步，转过身来）蒋南翔同志已经撤出北平，目前行踪不定。目前由我负责联系你。听说……你想北上？",
+          "nextNodeId": "r2s2_player2"
+        },
+        {
+          "id": "r2s2_player2",
+          "type": "narration",
+          "content": "你心跳漏了一拍。沉默两秒，你压低声音回答——\n“是的。”",
+          "nextNodeId": "r2s2_guo2"
+        },
+        {
+          "id": "r2s2_guo2",
+          "type": "dialogue",
+          "speaker": "郭见恩",
+          "figure": { "id": "guo_jianen", "position": "center" },
+          "content": "延安需要人，但还有其他地方也需要人。你的请求我会汇报。等通知。\n（她从袖口抽出一张纸条递过来，上面写着一个地址）这是我的联络方式。记住后烧掉。",
+          "nextNodeId": "r2s2_rule"
+        },
+        {
+          "id": "r2s2_rule",
+          "type": "narration",
+          "content": "【紧急联络规则】\n一、紧急情况下寄信到这里，信的末尾画一个三角形。\n二、如果联系不上我——南门外老渡口茶馆，二楼靠窗，点一壶龙井，别喝，等人来给你续水。\n三、如果收到一封只有白纸的信，是平安信号。\n四、如果收到画了十字的纸——立刻撤离，不要回住处。\n【记忆档案解锁：紧急联络规则（白纸平安，十字撤离）】",
+          "nextNodeId": "r2s2_player3",
+          "inventoryChanges": {
+            "add": ["mem_emergency_rule"]
+          }
+        },
+        {
+          "id": "r2s2_player3",
+          "type": "dialogue",
+          "speaker": "你",
+          "figure": { "id": "player", "position": "center" },
+          "content": "白纸平安，十字撤离。我记下了。",
+          "nextNodeId": "r2s2_guo3"
+        },
+        {
+          "id": "r2s2_guo3",
+          "type": "dialogue",
+          "speaker": "郭见恩",
+          "figure": { "id": "guo_jianen", "position": "center" },
+          "content": "记住，我们没见过。\n（她转身走了，消失在夜色里）",
+          "nextNodeId": "r2s2_end"
+        },
+        {
+          "id": "r2s2_end",
+          "type": "narration",
+          "content": "【接头成功】\n你提出了去延安的请求。\n【组织尚未给出最终答复。你只能等待。】",
+          "nextNodeId": "r2s3_broadcast"
+        }
+      ]
+    },
+    {
+      "id": "r2_s3_teahouse",
+      "bgLabel": "",
+      "nodes": [
+        {
+          "id": "r2s3_broadcast",
+          "type": "narration",
+          "content": "【1937年12月13日】\n南京陷落。广播里传来播音员哽咽的声音：“国军……撤退……日军入城……”街头巷尾，有人痛哭，有人沉默，有人低声咒骂。你站在人群里，攥紧了口袋里的纸条。",
+          "nextNodeId": "r2s3_note"
+        },
+        {
+          "id": "r2s3_note",
+          "type": "narration",
+          "content": "几天后。你在枕头下发现一张纸条：“龙井新到。”\n你循着提示，前往长沙南门外的老渡口茶馆。天色阴沉，细雨如针，远处偶尔传来汽车的喇叭声和军警的哨子声。",
+          "nextNodeId": "r2s3_arrive"
+        },
+        {
+          "id": "r2s3_arrive",
+          "type": "narration",
+          "content": "【老渡口茶馆】\n你推开茶馆木门，铜铃“叮”地响了一声。店里弥漫着陈年茶香和潮湿的木料气味：一楼散座坐着两三桌客人，两个穿长衫的商人在低声交谈，一个老头靠在角落里打盹，柜台后的店小二正用抹布擦着白瓷茶杯。",
+          "nextNodeId": "r2s3_cond"
+        },
+        {
+          "id": "r2s3_cond",
+          "type": "condition",
+          "condition": {
+            "stat": "suspicion",
+            "operator": "<=",
+            "value": 10,
+            "passNodeId": "r2s3_peace_intro",
+            "failNodeId": "r2s3_tail_intro"
+          }
+        },
+        {
+          "id": "r2s3_peace_intro",
+          "type": "narration",
+          "content": "你目光迅速扫过全店——没有人注意你。店小二迎上来：“先生几位？楼上雅座，临街看景——”\n【系统提示：你没有被跟踪。】",
+          "nextNodeId": "r2s3_upstairs"
+        },
+        {
+          "id": "r2s3_tail_intro",
+          "type": "narration",
+          "content": "【系统警告：你被跟踪了！】\n你余光瞥见——街对面那个戴礼帽的男人，在你进门后合上了手中的报纸，站起来，朝这边走来。\n店小二抬起头，笑脸迎上来：“先生几位？楼上雅座，临街看景——”\n他话音未落，你已经感觉到后颈一阵发紧，像有人用针尖抵住。你还有大约15-20秒的时间决定：上楼见郭见恩，还是先解决这个尾巴？",
+          "nextNodeId": "r2s3_tail_choice"
+        },
+        {
+          "id": "r2s3_tail_choice",
+          "type": "choice",
+          "content": "你立即选择——",
+          "choices": [
+            {
+              "text": "径直走向柜台：“有后门吗？我约了人，不想从正门进。”",
+              "effects": [
+                { "stat": "suspicion", "change": -1 }
+              ],
+              "nextNodeId": "r2s3_tailA"
+            },
+            {
+              "text": "在楼梯口突然停步，转身走向厕所，翻窗而出。",
+              "effects": [],
+              "nextNodeId": "r2s3_tailB1"
+            },
+            {
+              "text": "微微一笑：“二楼靠窗，一壶龙井。”迈步上楼，不回头。",
+              "effects": [],
+              "nextNodeId": "r2s3_tailC1"
+            },
+            {
+              "text": "“算了，换一家。”你转身出门，离开茶馆。",
+              "effects": [
+                { "stat": "insight", "change": -3 },
+                { "stat": "suspicion", "change": -2 }
+              ],
+              "nextNodeId": "r2s3_tailD"
+            }
+          ]
+        },
+        {
+          "id": "r2s3_tailA",
+          "type": "narration",
+          "content": "你压低声音，对店小二说：“有后门吗？我约了人，不想从正门进。”\n店小二愣了一下，目光在你脸上停了一瞬，随即恢复了职业笑容：“有，先生。后巷通着隔壁街，清净。”他朝柜台后面努了努嘴。\n你快步绕进柜台后的窄廊，穿过堆满茶叶篓子的过道，推开一扇吱呀作响的木门，贴着墙根走了十几步，从巷口拐出，绕到茶馆侧面——那里有一扇通往二楼的铁梯。\n（你从后巷离开时，余光瞥见那个戴礼帽的男人正站在茶馆门口张望。他没有看见你。）\n【系统提示：你已成功甩开便衣跟踪】",
+          "nextNodeId": "r2s3_upstairs"
+        },
+        {
+          "id": "r2s3_tailB1",
+          "type": "narration",
+          "content": "你踩着马桶盖攀上窗台，用力一推——窗户纹丝不动。漆太厚，卡死了。你跳下来，还没站稳，厕所门已经被推开。\n戴礼帽的男人站在门口，目光从你脸上移到马桶盖上，又移回来，笑了笑：“先生，这厕所……风景不错？”",
+          "nextNodeId": "r2s3_tailB_end"
+        },
+        {
+          "id": "r2s3_tailB_end",
+          "type": "ending",
+          "endingType": "failure",
+          "failure": true,
+          "endingDescription": "【结局：小楼失足】\n你被他们押着走出茶馆。外面正在下雨，戴礼帽的男人跟在你身后，手搭在你胳膊上，不紧不松，刚好让你无法挣脱。街对面的黑色轿车还停在那里，你回头看了看茶馆二楼——郭见恩坐在窗边，端着茶杯，目光望着窗外，像在等人。她没有看你。\n你被推进轿车后座时，听见其中一个人对司机说：“回局里。跟郭小姐的人继续盯，别断。”\n你在长沙失去的，不只是自由。那是你第一次真正意识到：在这个时代，一次回头，就可能是一生。"
+        },
+        {
+          "id": "r2s3_tailC1",
+          "type": "narration",
+          "content": "你微微一笑，对店小二说：“二楼靠窗，一壶龙井。”\n你迈步上楼，脚步不急不缓。木楼梯在你脚下吱呀作响。二楼靠窗的位置，郭见恩已经等在那里，面前摊着一本书。尾随者在隔壁桌坐下，要了一壶茶，翻开一张报纸。\n你端起茶杯，抿了一口。茶是凉的。郭见恩说：“南京的事，你都知道了……”\n话刚出口，隔壁桌站起来一个人。戴礼帽的男人走到你们桌边，从兜里掏出一张证件，展开：“两位，劳驾，跟我走一趟。”",
+          "nextNodeId": "r2s3_tailC_end"
+        },
+        {
+          "id": "r2s3_tailC_end",
+          "type": "ending",
+          "endingType": "failure",
+          "failure": true,
+          "endingDescription": "【结局：渡口落网】\n你永远不知道那天郭见恩本来要告诉你什么。你只知道，走出茶馆的时候，街对面停了辆黑色的车。\n一次公开的接头，把两个潜伏者一起送进了敌人的视野。种下的闲棋，尚未落子，便已出局。"
+        },
+        {
+          "id": "r2s3_tailD",
+          "type": "narration",
+          "content": "你在门口站了一秒。铜铃还在晃，尾巴离你大约二十步。你转身，推开门，走了出去。\n街对面，尾巴看见你出来了，脚步顿了一下。你往左拐，钻进一条巷子，七拐八绕，确认身后无人后，才停下来喘了口气。\n那天晚上，你回到住处。枕头底下压着一张纸条，只有四个字：“明日听雨轩茶馆·备用联络点。”",
+          "nextNodeId": "r2s3_tailD2"
+        },
+        {
+          "id": "r2s3_tailD2",
+          "type": "narration",
+          "content": "次日，你在听雨轩见到了郭见恩。\n“你放弃了那次接头，也放弃了茶馆里可能存在的风险。你安全了。但有些信息，你晚了一整天才拿到。”\n【获取状态：听雨轩备用联络点已激活】\n你花了3点洞察值买了一个教训——也买了一个更安全的备选项。在长沙，你知道有两扇门可以敲了。",
+          "nextNodeId": "r2s3_upstairs",
+          "inventoryChanges": {
+            "add": ["item_backup_teahouse"]
+          }
+        },
+        {
+          "id": "r2s3_upstairs",
+          "type": "narration",
+          "content": "【茶馆二楼·靠窗雅座】\n你坐下时，郭见恩已经坐在那里，面前摆着两杯茶，像是等朋友叙旧。她穿一件旧蓝布棉袍，围巾搭在椅背上，看起来像任何一个来躲雨的女学生。\n她替你斟了一杯茶，没有寒暄。",
+          "nextNodeId": "r2s3_guo1"
+        },
+        {
+          "id": "r2s3_guo1",
+          "type": "dialogue",
+          "speaker": "郭见恩",
+          "figure": { "id": "guo_jianen", "position": "center" },
+          "content": "南京的事，你都知道了。",
+          "nextNodeId": "r2s3_nod"
+        },
+        {
+          "id": "r2s3_nod",
+          "type": "narration",
+          "content": "你沉默地点头。",
+          "nextNodeId": "r2s3_guo2"
+        },
+        {
+          "id": "r2s3_guo2",
+          "type": "dialogue",
+          "speaker": "郭见恩",
+          "figure": { "id": "guo_jianen", "position": "center" },
+          "content": "你之前提出想去延安，组织认真考虑了。\n（她放下茶壶，看着你，目光定定的）最终的决定是——你不去延安。",
+          "nextNodeId": "r2s3_shock"
+        },
+        {
+          "id": "r2s3_shock",
+          "type": "narration",
+          "content": "你怔了一下。",
+          "nextNodeId": "r2s3_guo3"
+        },
+        {
+          "id": "r2s3_guo3",
+          "type": "dialogue",
+          "speaker": "郭见恩",
+          "figure": { "id": "guo_jianen", "position": "center" },
+          "content": "你有别的任务。\n（她从袖口抽出一张折叠过的纸条，压在茶杯底下推到你面前，但没有让你立刻看）湖南青年战地服务团，国民党组织的，要上前线做救护和宣传。你以普通学生身份报名参加。等服务团路过武汉，你去八路军办事处找蒋南翔同志。他会告诉你下一步。",
+          "nextNodeId": "r2s3_player_ask"
+        },
+        {
+          "id": "r2s3_player_ask",
+          "type": "dialogue",
+          "speaker": "你",
+          "figure": { "id": "player", "position": "center" },
+          "content": "去胡宗南的部队？",
+          "nextNodeId": "r2s3_guo4"
+        },
+        {
+          "id": "r2s3_guo4",
+          "type": "dialogue",
+          "speaker": "郭见恩",
+          "figure": { "id": "guo_jianen", "position": "center" },
+          "content": "周恩来同志亲自定的线。他说——这叫“布闲棋，下冷子”。现在用不上，将来也许能起大作用。纸条上是八办的路线。暗号——\n“请问这里有《群众》周刊吗？”——“你要哪一期的？”——“创刊号那期。”记住后烧掉。",
+          "nextNodeId": "r2s3_guo5"
+        },
+        {
+          "id": "r2s3_guo5",
+          "type": "dialogue",
+          "speaker": "郭见恩",
+          "figure": { "id": "guo_jianen", "position": "center" },
+          "content": "（她站起身，把围巾重新围好，临走前又补了一句）保重。潜伏，就是你现在最重要的事。\n（她拿起伞，走向楼梯口，回头看了你一眼，然后撑伞走进雨里，很快消失在水汽弥漫的巷口）",
+          "nextNodeId": "r2s3_sit"
+        },
+        {
+          "id": "r2s3_sit",
+          "type": "narration",
+          "content": "你坐在窗边，看着雨打在玻璃上，将那张纸条收进衣袋。\n【记忆档案解锁：八办接头暗号】\n【获得道具：八办路线图】\n【获得状态：闲棋冷子——与组织关系为隐蔽待命】",
+          "nextNodeId": "r2s3_sit2",
+          "effects": [
+            { "stat": "conviction", "change": 5 }
+          ],
+          "inventoryChanges": {
+            "add": ["item_baban_route", "mem_baban_code", "item_idle_piece"]
+          }
+        },
+        {
+          "id": "r2s3_sit2",
+          "type": "narration",
+          "content": "【衔接】\n你去延安的请求被明确否决——组织对你另有任用。新的任务已下达：以非党员身份加入湖南青年战地服务团，途经武汉时前往八路军办事处。\n下一步：等待服务团招募。",
+          "nextNodeId": "r2s3_settle"
+        },
+        {
+          "id": "r2s3_settle",
+          "type": "narration",
+          "content": "【结算节点4｜长沙接头完成】\n信念值：{conviction}｜洞察值：{insight}｜怀疑值：{suspicion}｜牵挂值：{worry}\n背包道具：武昌联络纸条（若序幕曾获得）、八办路线图\n记忆档案：紧急联络规则、八办接头暗号（已存入档案可随时查阅）\n永久状态：闲棋冷子 已激活",
+          "nextNodeId": "r2s3_end"
+        },
+        {
+          "id": "r2s3_end",
+          "type": "ending",
+          "endingType": "chapter_complete",
+          "endingDescription": "第二回·闲棋初布·长沙临时大学 完成。\n长沙的暗号已经种下。接下来，你将走向湖南青年战地服务团的报名点，开始一段新的伪装。"
+        }
+      ]
+    }
+  ]
+}
