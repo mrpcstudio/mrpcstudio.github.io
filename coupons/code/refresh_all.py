@@ -5,14 +5,38 @@
 - 自动合并、去重、导出
 - 生成可直接打开的HTML浏览页面
 """
-import json, csv, time, random, os, sqlite3
-from concurrent.futures import ThreadPoolExecutor, as_completed
+import argparse
+import json, csv, time, random, os, sqlite3, sys
 from playwright.sync_api import sync_playwright
 
 # ==================== 配置 ====================
-BRAND_THREADS = 8          # 品牌类目爬取线程数
+BRAND_BATCH_SIZE = 5       # 每批最多尝试的品牌数，批间会暂停
 HUODONG_URL = "https://www.szlcsc.com/huodong.html"
 USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+BRAND_URL = "https://list.szlcsc.com/brand/{}.html"
+
+
+def load_historical_data():
+    """读取历史结果，供反爬或单个品牌请求失败时回退。"""
+    for path in ("brand_catalog_enhanced.json", "brand_catalog_data.json", os.path.join("coupons", "brand_catalog_data.json")):
+        if os.path.exists(path):
+            try:
+                with open(path, encoding="utf-8") as f:
+                    data = json.load(f)
+                if isinstance(data.get("brands"), list):
+                    print(f"  -> 已加载历史品牌类目: {path}")
+                    return data
+            except (OSError, json.JSONDecodeError):
+                continue
+    return {"brands": [], "categories": []}
+
+
+def historical_catalogs(data):
+    return {
+        str(brand.get("id")): list(dict.fromkeys(brand.get("catalogs") or []))
+        for brand in data.get("brands", [])
+        if brand.get("id") is not None
+    }
 
 # ==================== 第一阶段：爬取优惠券 ====================
 def crawl_all_coupons():
@@ -147,75 +171,64 @@ def analyze_coupons(all_coupons, brand_dict):
     return brand_coupon_info
 
 # ==================== 第三阶段：多线程爬品牌类目 ====================
-def crawl_brand_catalogs_parallel(brand_dict, max_workers=BRAND_THREADS):
-    """多线程并发爬取所有品牌类目（每个线程复用单个浏览器）"""
-    print(f"\n[3/5] 并发爬取品牌类目 ({max_workers} 线程)...")
-    items = list(brand_dict.items())
-    total = len(items)
-    
-    # 将品牌列表分片，每个线程处理一批
-    chunk_size = (total + max_workers - 1) // max_workers
-    chunks = [items[i:i+chunk_size] for i in range(0, total, chunk_size)]
-    
-    brand_catalogs = {}
-    all_catalogs = set()
-    lock = __import__('threading').Lock()
-    
-    def process_chunk(chunk):
-        """单个线程：打开一个浏览器，处理一批品牌"""
-        local_catalogs = {}
-        local_all = set()
+def crawl_brand_catalogs_serial(brand_dict, historical, limit=None, batch_size=BRAND_BATCH_SIZE,
+                                refresh_known=False):
+    """单线程分批请求；检测到验证页后立即停止并保留历史结果。"""
+    print(f"\n[3/5] 单线程分批爬取品牌类目 (每批 {batch_size} 个)...")
+    brand_catalogs = {bid: list(historical.get(bid, [])) for bid in brand_dict}
+    items = [(bid, name) for bid, name in brand_dict.items()
+             if refresh_known or not historical.get(bid)]
+    if limit is not None:
+        items = items[:limit]
+    if not items:
+        print("  -> 所有品牌均使用历史类目（如需强制刷新请传入 --refresh-known）")
+        return brand_catalogs, sorted({c for cats in brand_catalogs.values() for c in cats})
+
+    blocked = False
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=True)
+        page = browser.new_context(user_agent=USER_AGENT).new_page()
         try:
-            with sync_playwright() as p:
-                browser = p.chromium.launch(headless=True)
-                ctx = browser.new_context(user_agent=USER_AGENT)
-                page = ctx.new_page()
-                
-                for bid, bname in chunk:
-                    url = f"https://list.szlcsc.com/brand/{bid}.html"
-                    try:
-                        page.goto(url, wait_until="networkidle", timeout=15000)
-                        page.wait_for_timeout(600)
-                        cats = page.evaluate("""
-                            () => {
-                                try {
-                                    const pp = window.__NEXT_DATA__.props.pageProps;
-                                    const groups = JSON.parse(pp.brandResult.catalogGroupJson || '[]');
-                                    return groups.map(g => g.label);
-                                } catch(e) {
-                                    try {
-                                        const pp = window.__NEXT_DATA__.props.pageProps;
-                                        return (pp.catalog || '').split('\u3001').filter(c => c.trim());
-                                    } catch(e2) { return []; }
-                                }
-                            }
-                        """)
-                        cats = cats if isinstance(cats, list) else []
-                        local_catalogs[bid] = cats
-                        for c in cats:
-                            local_all.add(c)
-                    except Exception:
-                        local_catalogs[bid] = []
-                    time.sleep(random.uniform(0.15, 0.4))
-                
-                browser.close()
-        except Exception:
-            pass
-        
-        # 合并回全局
-        with lock:
-            brand_catalogs.update(local_catalogs)
-            all_catalogs.update(local_all)
-            completed = len(brand_catalogs)
-            print(f"    进度: {completed}/{total}", flush=True)
-    
-    with ThreadPoolExecutor(max_workers=max_workers) as executor:
-        futures = [executor.submit(process_chunk, ch) for ch in chunks]
-        for f in as_completed(futures):
-            pass
-    
+            for index, (bid, name) in enumerate(items, 1):
+                try:
+                    page.goto(BRAND_URL.format(bid), wait_until="domcontentloaded", timeout=20000)
+                    page.wait_for_timeout(1200)
+                    state = page.evaluate("""() => ({
+                        title: document.title || '',
+                        body: (document.body?.innerText || '').slice(0, 2000),
+                        next: Boolean(window.__NEXT_DATA__)
+                    })""")
+                    text = f"{state['title']} {state['body']}".lower()
+                    if not state["next"] or any(word in text for word in ("验证码", "人机验证", "访问过于频繁", "captcha")):
+                        print(f"  -> {name}: 检测到验证/异常页面，停止继续请求，后续使用历史数据")
+                        blocked = True
+                        break
+                    cats = page.evaluate("""() => {
+                        const pp = window.__NEXT_DATA__?.props?.pageProps || {};
+                        try {
+                            const groups = JSON.parse(pp.brandResult?.catalogGroupJson || '[]');
+                            if (groups.length) return groups.map(g => g.label).filter(Boolean);
+                        } catch (e) {}
+                        return (pp.catalog || '').split('、').map(x => x.trim()).filter(Boolean);
+                    }""")
+                    if cats:
+                        brand_catalogs[bid] = list(dict.fromkeys(cats))
+                    else:
+                        print(f"  [{index}/{len(items)}] {name}: 未取得类目，保留历史数据")
+                    print(f"  [{index}/{len(items)}] {name}: {len(brand_catalogs[bid])} 个类目")
+                except Exception as exc:
+                    print(f"  [{index}/{len(items)}] {name}: 请求失败，保留历史数据 ({type(exc).__name__})")
+                time.sleep(random.uniform(1.2, 2.5))
+                if index % max(1, batch_size) == 0 and index < len(items):
+                    print("  -> 批次完成，暂停 8 秒观察风控...")
+                    time.sleep(8)
+        finally:
+            browser.close()
+    if blocked:
+        print("  -> 已安全停止，未用空结果覆盖历史类目")
+    all_catalogs = sorted({c for cats in brand_catalogs.values() for c in cats})
     print(f"  -> 完成! {len(brand_catalogs)} 个品牌, {len(all_catalogs)} 个类目")
-    return brand_catalogs, sorted(all_catalogs)
+    return brand_catalogs, all_catalogs
 
 # ==================== 第四阶段：合并数据 ====================
 def merge_data(brand_dict, brand_coupon_info, brand_catalogs, all_catalogs):
@@ -358,7 +371,7 @@ def embed_html():
         return
     import subprocess
     result = subprocess.run(
-        ["e:/EE/newspace/.venv/Scripts/python.exe", "generate_html.py"],
+        [sys.executable, "generate_html.py"],
         capture_output=True, text=True
     )
     if result.returncode == 0:
@@ -367,20 +380,45 @@ def embed_html():
         print(f"  HTML生成失败: {result.stderr[:200]}")
 
 # ==================== 主流程 ====================
-def refresh_all():
+def refresh_all(catalog_limit=None, batch_size=BRAND_BATCH_SIZE, refresh_known=False):
     print("=" * 55)
     print("  立创商城 · 全量数据一键刷新")
     print("=" * 55)
     start = time.time()
     
+    # 读取历史类目；即使本次触发风控，也不会丢失已有信息
+    history = load_historical_data()
+    history_catalogs = historical_catalogs(history)
+
     # 第一阶段
-    all_coupons, brand_dict = crawl_all_coupons()
+    try:
+        all_coupons, brand_dict = crawl_all_coupons()
+    except Exception as exc:
+        print(f"  -> 优惠券页面获取失败: {type(exc).__name__}: {exc}")
+        print("  -> 回退到历史品牌和优惠券数据")
+        brand_dict = {
+            str(b["id"]): b.get("name", "") for b in history.get("brands", [])
+            if b.get("id") is not None and b.get("name")
+        }
+        all_coupons = []
+        for brand in history.get("brands", []):
+            for coupon in brand.get("coupons", []):
+                all_coupons.append({
+                    "brandIds": str(brand["id"]), "brandNames": brand.get("name", ""),
+                    "zone": coupon.get("zone", ""), "couponName": coupon.get("desc", ""),
+                    "couponAmount": coupon.get("amount", 0),
+                    "minOrderMoney": coupon.get("min_amount", 0),
+                    "couponType": "", "useCouponLimit": "", "totalCouponNum": 0,
+                    "receiveCustomerNum": 0,
+                })
     
     # 第二阶段
     brand_coupon_info = analyze_coupons(all_coupons, brand_dict)
     
     # 第三阶段 - 品牌类目
-    brand_catalogs, all_catalogs = crawl_brand_catalogs_parallel(brand_dict)
+    brand_catalogs, all_catalogs = crawl_brand_catalogs_serial(
+        brand_dict, history_catalogs, limit=catalog_limit,
+        batch_size=batch_size, refresh_known=refresh_known)
     
     # 第四阶段
     data = merge_data(brand_dict, brand_coupon_info, brand_catalogs, all_catalogs)
@@ -392,4 +430,12 @@ def refresh_all():
     print(f"\n总耗时: {elapsed/60:.1f} 分钟 ({elapsed:.0f} 秒)")
 
 if __name__ == "__main__":
-    refresh_all()
+    parser = argparse.ArgumentParser(description="低频、单线程刷新立创品牌券和类目")
+    parser.add_argument("--catalog-limit", type=int, default=None,
+                        help="本次最多请求多少个需要刷新类目的品牌")
+    parser.add_argument("--batch-size", type=int, default=BRAND_BATCH_SIZE,
+                        help="每批请求数量，批次间暂停")
+    parser.add_argument("--refresh-known", action="store_true",
+                        help="也重新请求已有历史类目的品牌；默认优先复用历史数据")
+    args = parser.parse_args()
+    refresh_all(args.catalog_limit, max(1, args.batch_size), args.refresh_known)

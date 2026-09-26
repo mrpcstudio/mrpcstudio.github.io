@@ -15,17 +15,17 @@
       ],
       "coupons": [
         {
-          "amount": 15,
-          "min_amount": 16,
-          "discount_text": "满16减15",
-          "desc": "<品牌新人>15元千如品牌商品券",
-          "zone": "样品券"
-        },
-        {
           "amount": 30,
           "min_amount": 200,
           "discount_text": "满200减30",
           "desc": "30元千如品牌商品券",
+          "zone": "样品券"
+        },
+        {
+          "amount": 15,
+          "min_amount": 16,
+          "discount_text": "满16减15",
+          "desc": "<品牌新人>15元千如品牌商品券",
           "zone": "样品券"
         }
       ],
@@ -76,50 +76,30 @@
       ],
       "coupons": [
         {
-          "amount": 20,
+          "amount": 25,
           "min_amount": 100,
-          "discount_text": "满100减20",
-          "desc": "20元芯控源品牌商品券",
+          "discount_text": "满100减25",
+          "desc": "25元芯控源品牌商品券",
           "zone": "样品券"
         },
         {
-          "amount": 50,
-          "min_amount": 500,
-          "discount_text": "满500减50",
-          "desc": "50元芯控源品牌商品券",
+          "amount": 15,
+          "min_amount": 50,
+          "discount_text": "满50减15",
+          "desc": "15元芯控源品牌商品券",
+          "zone": "样品券"
+        },
+        {
+          "amount": 150,
+          "min_amount": 1000,
+          "discount_text": "满1000减150",
+          "desc": "150元芯控源品牌商品券",
           "zone": "样品券"
         }
       ],
       "discount_types": [],
       "user_types": [],
-      "max_discount": 50
-    },
-    {
-      "id": "11913",
-      "name": "AKER(安碁科技)",
-      "catalog_count": 6,
-      "catalogs": [
-        "无源晶振",
-        "有源晶振",
-        "温度补偿晶体振荡器(TCXO)",
-        "扩频振荡器",
-        "压控晶体振荡器(VCXO)",
-        "陶瓷谐振器(无源)"
-      ],
-      "coupons": [
-        {
-          "amount": 15,
-          "min_amount": 16,
-          "discount_text": "满16减15",
-          "desc": "15元安碁科技品牌商品券",
-          "zone": "样品券"
-        }
-      ],
-      "discount_types": [
-        "满16减15"
-      ],
-      "user_types": [],
-      "max_discount": 15
+      "max_discount": 150
     },
     {
       "id": "1029",
@@ -200,17 +180,17 @@
       ],
       "coupons": [
         {
-          "amount": 15,
-          "min_amount": 16,
-          "discount_text": "满16减15",
-          "desc": "15元安邦品牌商品券",
-          "zone": "样品券"
-        },
-        {
           "amount": 30,
           "min_amount": 200,
           "discount_text": "满200减30",
           "desc": "30元安邦品牌商品券",
+          "zone": "样品券"
+        },
+        {
+          "amount": 15,
+          "min_amount": 16,
+          "discount_text": "满16减15",
+          "desc": "15元安邦品牌商品券",
           "zone": "样品券"
         }
       ],
@@ -273,17 +253,17 @@
       ],
       "coupons": [
         {
-          "amount": 15,
-          "min_amount": 16,
-          "discount_text": "满16减15",
-          "desc": "15元先进光品牌商品券",
-          "zone": "样品券"
-        },
-        {
           "amount": 30,
           "min_amount": 100,
           "discount_text": "满100减30",
           "desc": "30元先进光品牌商品券",
+          "zone": "样品券"
+        },
+        {
+          "amount": 15,
+          "min_amount": 16,
+          "discount_text": "满16减15",
+          "desc": "15元先进光品牌商品券",
           "zone": "样品券"
         }
       ],
@@ -325,18 +305,10 @@
           "discount_text": "满300减100",
           "desc": "100元爱普微品牌商品券",
           "zone": "样品券"
-        },
-        {
-          "amount": 20,
-          "min_amount": 21,
-          "discount_text": "满21减20",
-          "desc": "<爱普微>20元PLUS专属券",
-          "zone": "PLUS"
         }
       ],
       "discount_types": [
-        "满16减15",
-        "满21减20"
+        "满16减15"
       ],
       "user_types": [],
       "max_discount": 100
@@ -358,6 +330,13 @@
           "min_amount": 16,
           "discount_text": "满16减15",
           "desc": "15元方舟微品牌商品券",
+          "zone": "样品券"
+        },
+        {
+          "amount": 0,
+          "min_amount": 500,
+          "discount_text": "0元券",
+          "desc": "方舟微品牌9.5折折扣券",
           "zone": "样品券"
         }
       ],
@@ -476,10 +455,10 @@
           "zone": "样品券"
         },
         {
-          "amount": 50,
-          "min_amount": 500,
-          "discount_text": "满500减50",
-          "desc": "50元佰宏品牌商品券",
+          "amount": 30,
+          "min_amount": 200,
+          "discount_text": "满200减30",
+          "desc": "30元佰宏品牌商品券",
           "zone": "样品券"
         }
       ],
@@ -487,7 +466,7 @@
         "满16减15"
       ],
       "user_types": [],
-      "max_discount": 50
+      "max_discount": 30
     },
     {
       "id": "12606",
@@ -501,7 +480,7 @@
           "amount": 20,
           "min_amount": 21,
           "discount_text": "满21减20",
-          "desc": "<品牌新人>20元比诺星品牌商品券",
+          "desc": "20元比诺星品牌商品券",
           "zone": "样品券"
         },
         {
@@ -515,9 +494,7 @@
       "discount_types": [
         "满21减20"
       ],
-      "user_types": [
-        "品牌新人"
-      ],
+      "user_types": [],
       "max_discount": 50
     },
     {
@@ -620,6 +597,13 @@
           "discount_text": "满500减50",
           "desc": "50元博锡品牌商品券",
           "zone": "样品券"
+        },
+        {
+          "amount": 0,
+          "min_amount": 1,
+          "discount_text": "0元券",
+          "desc": "<博锡>9.5折PLUS专属券",
+          "zone": "PLUS"
         }
       ],
       "discount_types": [
@@ -665,6 +649,13 @@
       ],
       "coupons": [
         {
+          "amount": 20,
+          "min_amount": 200,
+          "discount_text": "满200减20",
+          "desc": "20元宝讯品牌商品券",
+          "zone": "样品券"
+        },
+        {
           "amount": 15,
           "min_amount": 16,
           "discount_text": "满16减15",
@@ -672,17 +663,10 @@
           "zone": "样品券"
         },
         {
-          "amount": 7,
+          "amount": 8,
           "min_amount": 100,
-          "discount_text": "满100减7",
-          "desc": "7元宝讯品牌运费券",
-          "zone": "样品券"
-        },
-        {
-          "amount": 30,
-          "min_amount": 200,
-          "discount_text": "满200减30",
-          "desc": "30元宝讯品牌商品券",
+          "discount_text": "满100减8",
+          "desc": "8元宝讯品牌运费券",
           "zone": "样品券"
         }
       ],
@@ -690,7 +674,7 @@
         "满16减15"
       ],
       "user_types": [],
-      "max_discount": 30
+      "max_discount": 20
     },
     {
       "id": "12737",
@@ -705,18 +689,16 @@
       ],
       "coupons": [
         {
-          "amount": 15,
-          "min_amount": 16,
-          "discount_text": "满16减15",
-          "desc": "15元博众电气品牌商品券",
+          "amount": 20,
+          "min_amount": 100,
+          "discount_text": "满100减20",
+          "desc": "20元博众电气品牌商品券",
           "zone": "样品券"
         }
       ],
-      "discount_types": [
-        "满16减15"
-      ],
+      "discount_types": [],
       "user_types": [],
-      "max_discount": 15
+      "max_discount": 20
     },
     {
       "id": "12474",
@@ -736,6 +718,13 @@
       ],
       "coupons": [
         {
+          "amount": 9,
+          "min_amount": 10,
+          "discount_text": "满10减9",
+          "desc": "<品牌新人>9元博众新材品牌工业品券",
+          "zone": "工业品"
+        },
+        {
           "amount": 5,
           "min_amount": 50,
           "discount_text": "满50减5",
@@ -751,8 +740,10 @@
         }
       ],
       "discount_types": [],
-      "user_types": [],
-      "max_discount": 5
+      "user_types": [
+        "品牌新人"
+      ],
+      "max_discount": 9
     },
     {
       "id": "15964",
@@ -796,6 +787,31 @@
       ],
       "user_types": [],
       "max_discount": 20
+    },
+    {
+      "id": "25059",
+      "name": "Cansec Wireless(加安电子)",
+      "catalog_count": 4,
+      "catalogs": [
+        "蓝牙模块",
+        "射频模块",
+        "LoRa模块",
+        "转换器"
+      ],
+      "coupons": [
+        {
+          "amount": 15,
+          "min_amount": 16,
+          "discount_text": "满16减15",
+          "desc": "15元加安电子品牌商品券",
+          "zone": "样品券"
+        }
+      ],
+      "discount_types": [
+        "满16减15"
+      ],
+      "user_types": [],
+      "max_discount": 15
     },
     {
       "id": "12353",
@@ -863,13 +879,6 @@
       ],
       "coupons": [
         {
-          "amount": 30,
-          "min_amount": 200,
-          "discount_text": "满200减30",
-          "desc": "30元正成品牌商品券",
-          "zone": "样品券"
-        },
-        {
           "amount": 20,
           "min_amount": 21,
           "discount_text": "满21减20",
@@ -880,7 +889,7 @@
           "amount": 0,
           "min_amount": 1,
           "discount_text": "0元券",
-          "desc": "<正成>9.5折PLUS专属券",
+          "desc": "<正成>9折PLUS专属券",
           "zone": "PLUS"
         }
       ],
@@ -888,52 +897,7 @@
         "满21减20"
       ],
       "user_types": [],
-      "max_discount": 30
-    },
-    {
-      "id": "12689",
-      "name": "CBI(创基)",
-      "catalog_count": 15,
-      "catalogs": [
-        "稳压二极管",
-        "三极管(BJT)",
-        "肖特基二极管",
-        "开关二极管",
-        "数字晶体管",
-        "场效应管(MOSFET)",
-        "静电和浪涌保护(TVS/ESD)",
-        "线性稳压器(LDO)",
-        "通用二极管",
-        "快恢复/高效率二极管",
-        "电压基准芯片",
-        "达林顿管",
-        "晶闸管(可控硅)/模块",
-        "整流桥",
-        "PIN二极管"
-      ],
-      "coupons": [
-        {
-          "amount": 20,
-          "min_amount": 21,
-          "discount_text": "满21减20",
-          "desc": "<品牌新人>20元创基品牌商品券",
-          "zone": "样品券"
-        },
-        {
-          "amount": 100,
-          "min_amount": 1000,
-          "discount_text": "满1000减100",
-          "desc": "100元创基品牌商品券",
-          "zone": "样品券"
-        }
-      ],
-      "discount_types": [
-        "满21减20"
-      ],
-      "user_types": [
-        "品牌新人"
-      ],
-      "max_discount": 100
+      "max_discount": 20
     },
     {
       "id": "24412",
@@ -973,17 +937,17 @@
       ],
       "coupons": [
         {
-          "amount": 15,
-          "min_amount": 16,
-          "discount_text": "满16减15",
-          "desc": "<品牌新人>15元柯爱亚品牌指定类目商品券",
-          "zone": "样品券"
-        },
-        {
           "amount": 30,
           "min_amount": 300,
           "discount_text": "满300减30",
           "desc": "30元柯爱亚品牌商品券",
+          "zone": "样品券"
+        },
+        {
+          "amount": 15,
+          "min_amount": 16,
+          "discount_text": "满16减15",
+          "desc": "<品牌新人>15元柯爱亚品牌商品券",
           "zone": "样品券"
         }
       ],
@@ -1007,17 +971,17 @@
       ],
       "coupons": [
         {
-          "amount": 15,
-          "min_amount": 20,
-          "discount_text": "满20减15",
-          "desc": "15元岑科品牌商品券",
-          "zone": "样品券"
-        },
-        {
           "amount": 30,
           "min_amount": 100,
           "discount_text": "满100减30",
           "desc": "30元岑科品牌商品券",
+          "zone": "样品券"
+        },
+        {
+          "amount": 15,
+          "min_amount": 20,
+          "discount_text": "满20减15",
+          "desc": "15元岑科品牌商品券",
           "zone": "样品券"
         }
       ],
@@ -1093,23 +1057,23 @@
       ],
       "coupons": [
         {
-          "amount": 35,
-          "min_amount": 100,
-          "discount_text": "满100减35",
-          "desc": "35元诚韬品牌商品券",
-          "zone": "样品券"
-        },
-        {
           "amount": 25,
           "min_amount": 26,
           "discount_text": "满26减25",
           "desc": "25元诚韬品牌商品券",
           "zone": "样品券"
+        },
+        {
+          "amount": 80,
+          "min_amount": 300,
+          "discount_text": "满300减80",
+          "desc": "80元诚韬品牌商品券",
+          "zone": "样品券"
         }
       ],
       "discount_types": [],
       "user_types": [],
-      "max_discount": 35
+      "max_discount": 80
     },
     {
       "id": "15372",
@@ -1155,7 +1119,7 @@
           "amount": 15,
           "min_amount": 16,
           "discount_text": "满16减15",
-          "desc": "<商城新人>15元华瓷品牌商品券",
+          "desc": "<品牌新人>15元华瓷品牌商品券",
           "zone": "样品券"
         }
       ],
@@ -1163,7 +1127,7 @@
         "满16减15"
       ],
       "user_types": [
-        "商城新人"
+        "品牌新人"
       ],
       "max_discount": 15
     },
@@ -1180,6 +1144,50 @@
           "min_amount": 16,
           "discount_text": "满16减15",
           "desc": "15元芯涛微品牌商品券",
+          "zone": "样品券"
+        }
+      ],
+      "discount_types": [
+        "满16减15"
+      ],
+      "user_types": [],
+      "max_discount": 15
+    },
+    {
+      "id": "27307",
+      "name": "ChipNext(芯创意)",
+      "catalog_count": 2,
+      "catalogs": [
+        "运算放大器",
+        "精密运放"
+      ],
+      "coupons": [
+        {
+          "amount": 0,
+          "min_amount": 100,
+          "discount_text": "0元券",
+          "desc": "芯创意品牌9折折扣券",
+          "zone": "样品券"
+        }
+      ],
+      "discount_types": [],
+      "user_types": [],
+      "max_discount": 0
+    },
+    {
+      "id": "27055",
+      "name": "CHK(今凯)",
+      "catalog_count": 2,
+      "catalogs": [
+        "功率电感",
+        "贴片电感"
+      ],
+      "coupons": [
+        {
+          "amount": 15,
+          "min_amount": 16,
+          "discount_text": "满16减15",
+          "desc": "15元今凯品牌商品券",
           "zone": "样品券"
         }
       ],
@@ -1213,6 +1221,13 @@
           "discount_text": "满1000减150",
           "desc": "150元长江微电品牌商品券",
           "zone": "样品券"
+        },
+        {
+          "amount": 0,
+          "min_amount": 1,
+          "discount_text": "0元券",
+          "desc": "<长江微电>9.5折PLUS专属券",
+          "zone": "PLUS"
         }
       ],
       "discount_types": [
@@ -1371,10 +1386,10 @@
       ],
       "coupons": [
         {
-          "amount": 15,
-          "min_amount": 16,
-          "discount_text": "满16减15",
-          "desc": "15元磁联达品牌商品券",
+          "amount": 20,
+          "min_amount": 21,
+          "discount_text": "满21减20",
+          "desc": "20元磁联达品牌商品券",
           "zone": "样品券"
         },
         {
@@ -1383,10 +1398,17 @@
           "discount_text": "满1000减100",
           "desc": "100元磁联达品牌商品券",
           "zone": "样品券"
+        },
+        {
+          "amount": 75,
+          "min_amount": 500,
+          "discount_text": "满500减75",
+          "desc": "<磁联达>75元PLUS专属券",
+          "zone": "PLUS"
         }
       ],
       "discount_types": [
-        "满16减15"
+        "满21减20"
       ],
       "user_types": [],
       "max_discount": 100
@@ -1530,27 +1552,25 @@
       "max_discount": 15
     },
     {
-      "id": "12341",
-      "name": "CRC(创容)",
+      "id": "12587",
+      "name": "CS(创世)",
       "catalog_count": 4,
       "catalogs": [
-        "安规电容",
-        "聚丙烯膜电容(CBB)",
-        "薄膜电容",
-        "直插瓷片电容"
+        "NAND FLASH",
+        "开发板",
+        "仿真器/烧录器",
+        "存储器控制器"
       ],
       "coupons": [
         {
           "amount": 15,
-          "min_amount": 16,
-          "discount_text": "满16减15",
-          "desc": "15元创容品牌商品券",
+          "min_amount": 100,
+          "discount_text": "满100减15",
+          "desc": "15元创世品牌商品券",
           "zone": "样品券"
         }
       ],
-      "discount_types": [
-        "满16减15"
-      ],
+      "discount_types": [],
       "user_types": [],
       "max_discount": 15
     },
@@ -1569,8 +1589,8 @@
       "coupons": [
         {
           "amount": 15,
-          "min_amount": 30,
-          "discount_text": "满30减15",
+          "min_amount": 20,
+          "discount_text": "满20减15",
           "desc": "<品牌新人>15元长泰尔电子品牌商品券",
           "zone": "样品券"
         }
@@ -1591,17 +1611,47 @@
       ],
       "coupons": [
         {
-          "amount": 20,
-          "min_amount": 30,
-          "discount_text": "满30减20",
-          "desc": "20元长兴品牌商品券",
+          "amount": 30,
+          "min_amount": 60,
+          "discount_text": "满60减30",
+          "desc": "30元长兴品牌商品券",
           "zone": "样品券"
         },
         {
           "amount": 15,
+          "min_amount": 25,
+          "discount_text": "满25减15",
+          "desc": "15元长兴品牌商品券",
+          "zone": "样品券"
+        }
+      ],
+      "discount_types": [],
+      "user_types": [],
+      "max_discount": 30
+    },
+    {
+      "id": "1186",
+      "name": "CYT(长运通)",
+      "catalog_count": 4,
+      "catalogs": [
+        "DC-DC电源芯片",
+        "DC-DC电源模块",
+        "AC-DC控制器和稳压器",
+        "专业电源管理(PMIC)"
+      ],
+      "coupons": [
+        {
+          "amount": 15,
           "min_amount": 16,
           "discount_text": "满16减15",
-          "desc": "15元长兴品牌商品券",
+          "desc": "15元长运通品牌商品券",
+          "zone": "样品券"
+        },
+        {
+          "amount": 50,
+          "min_amount": 500,
+          "discount_text": "满500减50",
+          "desc": "50元长运通品牌商品券",
           "zone": "样品券"
         }
       ],
@@ -1609,60 +1659,7 @@
         "满16减15"
       ],
       "user_types": [],
-      "max_discount": 20
-    },
-    {
-      "id": "24095",
-      "name": "DDF(鼎德丰)",
-      "catalog_count": 27,
-      "catalogs": [
-        "三极管(BJT)",
-        "整流桥",
-        "晶闸管(可控硅)/模块",
-        "肖特基二极管",
-        "线性稳压器(LDO)",
-        "碳化硅二极管",
-        "达林顿管",
-        "电压基准芯片",
-        "晶体管输出光耦",
-        "运算放大器",
-        "通用二极管",
-        "快恢复/高效率二极管",
-        "达林顿晶体管阵列",
-        "模拟开关/多路复用器",
-        "音频功率放大器",
-        "LED驱动",
-        "移位寄存器",
-        "线性霍尔传感器",
-        "V/F和F/V转换芯片",
-        "反相器",
-        "555定时器/计时器",
-        "稳压二极管",
-        "开关二极管",
-        "AC-DC控制器和稳压器",
-        "实时时钟(RTC)",
-        "精密运放",
-        "电池管理"
-      ],
-      "coupons": [
-        {
-          "amount": 100,
-          "min_amount": 1000,
-          "discount_text": "满1000减100",
-          "desc": "100元鼎德丰品牌商品券",
-          "zone": "样品券"
-        },
-        {
-          "amount": 50,
-          "min_amount": 500,
-          "discount_text": "满500减50",
-          "desc": "50元鼎德丰品牌商品券",
-          "zone": "样品券"
-        }
-      ],
-      "discount_types": [],
-      "user_types": [],
-      "max_discount": 100
+      "max_discount": 50
     },
     {
       "id": "13141",
@@ -1679,7 +1676,7 @@
           "amount": 50,
           "min_amount": 300,
           "discount_text": "满300减50",
-          "desc": "50元德立品牌商品券",
+          "desc": "50元德立品牌指定类目商品券",
           "zone": "样品券"
         }
       ],
@@ -1874,22 +1871,22 @@
       "coupons": [
         {
           "amount": 15,
-          "min_amount": 20,
-          "discount_text": "满20减15",
+          "min_amount": 30,
+          "discount_text": "满30减15",
           "desc": "15元德利品牌商品券",
           "zone": "样品券"
         },
         {
-          "amount": 100,
-          "min_amount": 1000,
-          "discount_text": "满1000减100",
-          "desc": "100元德利品牌商品券",
+          "amount": 50,
+          "min_amount": 300,
+          "discount_text": "满300减50",
+          "desc": "50元德利品牌商品券",
           "zone": "样品券"
         }
       ],
       "discount_types": [],
       "user_types": [],
-      "max_discount": 100
+      "max_discount": 50
     },
     {
       "id": "12498",
@@ -1987,28 +1984,6 @@
       "discount_types": [
         "满16减15"
       ],
-      "user_types": [],
-      "max_discount": 50
-    },
-    {
-      "id": "12229",
-      "name": "dosinconn(德索五金)",
-      "catalog_count": 3,
-      "catalogs": [
-        "RF射频同轴连接器",
-        "圆形(线缆)连接器",
-        "射频连接线"
-      ],
-      "coupons": [
-        {
-          "amount": 50,
-          "min_amount": 500,
-          "discount_text": "满500减50",
-          "desc": "50元德索五金品牌商品券",
-          "zone": "样品券"
-        }
-      ],
-      "discount_types": [],
       "user_types": [],
       "max_discount": 50
     },
@@ -2123,37 +2098,6 @@
       "max_discount": 10
     },
     {
-      "id": "943",
-      "name": "ECE(百容)",
-      "catalog_count": 12,
-      "catalogs": [
-        "拨码开关",
-        "功率继电器",
-        "固态继电器(MOS输出)",
-        "滑动开关",
-        "旋转编码器",
-        "自恢复保险丝",
-        "插拔式接线端子",
-        "信号继电器",
-        "行程开关",
-        "簧片继电器",
-        "按键开关",
-        "弹簧式接线端子"
-      ],
-      "coupons": [
-        {
-          "amount": 15,
-          "min_amount": 30,
-          "discount_text": "满30减15",
-          "desc": "15元百容品牌商品券",
-          "zone": "样品券"
-        }
-      ],
-      "discount_types": [],
-      "user_types": [],
-      "max_discount": 15
-    },
-    {
       "id": "18256",
       "name": "Econd(米朗电子)",
       "catalog_count": 4,
@@ -2218,16 +2162,14 @@
           "amount": 15,
           "min_amount": 16,
           "discount_text": "满16减15",
-          "desc": "<商城新人>15元屹晶微品牌商品券",
+          "desc": "15元屹晶微品牌商品券",
           "zone": "样品券"
         }
       ],
       "discount_types": [
         "满16减15"
       ],
-      "user_types": [
-        "商城新人"
-      ],
+      "user_types": [],
       "max_discount": 15
     },
     {
@@ -2276,6 +2218,37 @@
       "max_discount": 50
     },
     {
+      "id": "27274",
+      "name": "ES(恩盛)",
+      "catalog_count": 3,
+      "catalogs": [
+        "线对板针座",
+        "轻触开关",
+        "FFC/FPC连接器"
+      ],
+      "coupons": [
+        {
+          "amount": 15,
+          "min_amount": 16,
+          "discount_text": "满16减15",
+          "desc": "15元恩盛品牌商品券",
+          "zone": "样品券"
+        },
+        {
+          "amount": 50,
+          "min_amount": 500,
+          "discount_text": "满500减50",
+          "desc": "50元恩盛品牌商品券",
+          "zone": "样品券"
+        }
+      ],
+      "discount_types": [
+        "满16减15"
+      ],
+      "user_types": [],
+      "max_discount": 50
+    },
+    {
       "id": "1207",
       "name": "everanalog(申风)",
       "catalog_count": 7,
@@ -2290,17 +2263,17 @@
       ],
       "coupons": [
         {
-          "amount": 15,
-          "min_amount": 16,
-          "discount_text": "满16减15",
-          "desc": "<品牌新人>15元申风品牌商品券",
-          "zone": "样品券"
-        },
-        {
           "amount": 30,
           "min_amount": 200,
           "discount_text": "满200减30",
           "desc": "30元申风品牌商品券",
+          "zone": "样品券"
+        },
+        {
+          "amount": 15,
+          "min_amount": 16,
+          "discount_text": "满16减15",
+          "desc": "<品牌新人>15元申风品牌商品券",
           "zone": "样品券"
         }
       ],
@@ -2310,35 +2283,6 @@
       "user_types": [
         "品牌新人"
       ],
-      "max_discount": 30
-    },
-    {
-      "id": "13455",
-      "name": "EVERCOM(恒连)",
-      "catalog_count": 1,
-      "catalogs": [
-        "以太网连接器(RJ45 RJ11)"
-      ],
-      "coupons": [
-        {
-          "amount": 15,
-          "min_amount": 16,
-          "discount_text": "满16减15",
-          "desc": "15元恒连品牌商品券",
-          "zone": "样品券"
-        },
-        {
-          "amount": 30,
-          "min_amount": 200,
-          "discount_text": "满200减30",
-          "desc": "30元恒连品牌商品券",
-          "zone": "样品券"
-        }
-      ],
-      "discount_types": [
-        "满16减15"
-      ],
-      "user_types": [],
       "max_discount": 30
     },
     {
@@ -2356,17 +2300,17 @@
       ],
       "coupons": [
         {
-          "amount": 35,
-          "min_amount": 500,
-          "discount_text": "满500减35",
-          "desc": "35元易成品牌商品券",
-          "zone": "样品券"
-        },
-        {
           "amount": 20,
           "min_amount": 21,
           "discount_text": "满21减20",
           "desc": "20元易成品牌商品券",
+          "zone": "样品券"
+        },
+        {
+          "amount": 35,
+          "min_amount": 500,
+          "discount_text": "满500减35",
+          "desc": "35元易成品牌商品券",
           "zone": "样品券"
         }
       ],
@@ -2413,32 +2357,32 @@
       ],
       "coupons": [
         {
-          "amount": 15,
-          "min_amount": 16,
-          "discount_text": "满16减15",
-          "desc": "15元高芯电子品牌商品券",
+          "amount": 20,
+          "min_amount": 21,
+          "discount_text": "满21减20",
+          "desc": "20元高芯电子品牌商品券",
           "zone": "样品券"
         },
         {
-          "amount": 50,
-          "min_amount": 200,
-          "discount_text": "满200减50",
-          "desc": "50元高芯电子品牌商品券",
+          "amount": 80,
+          "min_amount": 300,
+          "discount_text": "满300减80",
+          "desc": "80元高芯电子品牌商品券",
           "zone": "样品券"
         },
         {
-          "amount": 25,
-          "min_amount": 50,
-          "discount_text": "满50减25",
-          "desc": "25元高芯电子品牌商品券",
+          "amount": 40,
+          "min_amount": 100,
+          "discount_text": "满100减40",
+          "desc": "40元高芯电子品牌商品券",
           "zone": "样品券"
         }
       ],
       "discount_types": [
-        "满16减15"
+        "满21减20"
       ],
       "user_types": [],
-      "max_discount": 50
+      "max_discount": 80
     },
     {
       "id": "13136",
@@ -2657,20 +2601,13 @@
           "discount_text": "满16减15",
           "desc": "15元福芯微品牌商品券",
           "zone": "样品券"
-        },
-        {
-          "amount": 100,
-          "min_amount": 1000,
-          "discount_text": "满1000减100",
-          "desc": "100元福芯微品牌商品券",
-          "zone": "样品券"
         }
       ],
       "discount_types": [
         "满16减15"
       ],
       "user_types": [],
-      "max_discount": 100
+      "max_discount": 15
     },
     {
       "id": "13045",
@@ -2957,6 +2894,13 @@
       ],
       "coupons": [
         {
+          "amount": 30,
+          "min_amount": 200,
+          "discount_text": "满200减30",
+          "desc": "30元绿微品牌商品券",
+          "zone": "样品券"
+        },
+        {
           "amount": 15,
           "min_amount": 16,
           "discount_text": "满16减15",
@@ -2969,27 +2913,13 @@
           "discount_text": "满50减9",
           "desc": "9元绿微品牌运费券",
           "zone": "样品券"
-        },
-        {
-          "amount": 50,
-          "min_amount": 500,
-          "discount_text": "满500减50",
-          "desc": "50元绿微品牌商品券",
-          "zone": "样品券"
-        },
-        {
-          "amount": 30,
-          "min_amount": 200,
-          "discount_text": "满200减30",
-          "desc": "30元绿微品牌商品券",
-          "zone": "样品券"
         }
       ],
       "discount_types": [
         "满16减15"
       ],
       "user_types": [],
-      "max_discount": 50
+      "max_discount": 30
     },
     {
       "id": "11681",
@@ -3186,17 +3116,17 @@
       ],
       "coupons": [
         {
+          "amount": 30,
+          "min_amount": 300,
+          "discount_text": "满300减30",
+          "desc": "30元国睿品牌商品券",
+          "zone": "样品券"
+        },
+        {
           "amount": 15,
           "min_amount": 16,
           "discount_text": "满16减15",
           "desc": "15元国睿品牌商品券",
-          "zone": "样品券"
-        },
-        {
-          "amount": 40,
-          "min_amount": 400,
-          "discount_text": "满400减40",
-          "desc": "40元国睿品牌商品券",
           "zone": "样品券"
         }
       ],
@@ -3204,7 +3134,7 @@
         "满16减15"
       ],
       "user_types": [],
-      "max_discount": 40
+      "max_discount": 30
     },
     {
       "id": "11739",
@@ -3257,6 +3187,39 @@
       "max_discount": 15
     },
     {
+      "id": "18661",
+      "name": "GUDIAN(固电)",
+      "catalog_count": 5,
+      "catalogs": [
+        "功率电感",
+        "一体成型电感",
+        "磁珠",
+        "贴片电感",
+        "网口变压器"
+      ],
+      "coupons": [
+        {
+          "amount": 20,
+          "min_amount": 100,
+          "discount_text": "满100减20",
+          "desc": "20元固电品牌商品券",
+          "zone": "样品券"
+        },
+        {
+          "amount": 15,
+          "min_amount": 16,
+          "discount_text": "满16减15",
+          "desc": "15元固电品牌商品券",
+          "zone": "样品券"
+        }
+      ],
+      "discount_types": [
+        "满16减15"
+      ],
+      "user_types": [],
+      "max_discount": 20
+    },
+    {
       "id": "24911",
       "name": "Guiguang light(桂光光电)",
       "catalog_count": 5,
@@ -3269,6 +3232,13 @@
       ],
       "coupons": [
         {
+          "amount": 30,
+          "min_amount": 200,
+          "discount_text": "满200减30",
+          "desc": "30元桂光光电品牌商品券",
+          "zone": "样品券"
+        },
+        {
           "amount": 15,
           "min_amount": 16,
           "discount_text": "满16减15",
@@ -3280,7 +3250,7 @@
         "满16减15"
       ],
       "user_types": [],
-      "max_discount": 15
+      "max_discount": 30
     },
     {
       "id": "24427",
@@ -3293,13 +3263,6 @@
       ],
       "coupons": [
         {
-          "amount": 15,
-          "min_amount": 16,
-          "discount_text": "满16减15",
-          "desc": "15元国连品牌商品券",
-          "zone": "样品券"
-        },
-        {
           "amount": 50,
           "min_amount": 500,
           "discount_text": "满500减50",
@@ -3307,9 +3270,7 @@
           "zone": "样品券"
         }
       ],
-      "discount_types": [
-        "满16减15"
-      ],
+      "discount_types": [],
       "user_types": [],
       "max_discount": 50
     },
@@ -3502,13 +3463,6 @@
       ],
       "coupons": [
         {
-          "amount": 20,
-          "min_amount": 100,
-          "discount_text": "满100减20",
-          "desc": "20元航昱微品牌商品券",
-          "zone": "样品券"
-        },
-        {
           "amount": 15,
           "min_amount": 16,
           "discount_text": "满16减15",
@@ -3520,7 +3474,7 @@
         "满16减15"
       ],
       "user_types": [],
-      "max_discount": 20
+      "max_discount": 15
     },
     {
       "id": "14053",
@@ -3588,6 +3542,35 @@
       "max_discount": 30
     },
     {
+      "id": "27277",
+      "name": "HAOSWITCH(皓通)",
+      "catalog_count": 3,
+      "catalogs": [
+        "滑动开关",
+        "专用开关",
+        "开关配件/盖帽"
+      ],
+      "coupons": [
+        {
+          "amount": 30,
+          "min_amount": 100,
+          "discount_text": "满100减30",
+          "desc": "30元皓通品牌商品券",
+          "zone": "样品券"
+        },
+        {
+          "amount": 25,
+          "min_amount": 26,
+          "discount_text": "满26减25",
+          "desc": "25元皓通品牌商品券",
+          "zone": "样品券"
+        }
+      ],
+      "discount_types": [],
+      "user_types": [],
+      "max_discount": 30
+    },
+    {
       "id": "26942",
       "name": "HC(华橙熊猫)",
       "catalog_count": 1,
@@ -3599,14 +3582,7 @@
           "amount": 15,
           "min_amount": 30,
           "discount_text": "满30减15",
-          "desc": "15元华橙熊猫品牌指定类目商品券",
-          "zone": "样品券"
-        },
-        {
-          "amount": 6,
-          "min_amount": 50,
-          "discount_text": "满50减6",
-          "desc": "6元华橙熊猫品牌运费券",
+          "desc": "15元华橙熊猫品牌商品券",
           "zone": "样品券"
         }
       ],
@@ -3640,17 +3616,17 @@
       ],
       "coupons": [
         {
-          "amount": 200,
-          "min_amount": 1000,
-          "discount_text": "满1000减200",
-          "desc": "200元虹成电子品牌商品券",
-          "zone": "样品券"
-        },
-        {
           "amount": 20,
           "min_amount": 21,
           "discount_text": "满21减20",
           "desc": "20元虹成电子品牌商品券",
+          "zone": "样品券"
+        },
+        {
+          "amount": 200,
+          "min_amount": 1000,
+          "discount_text": "满1000减200",
+          "desc": "200元虹成电子品牌商品券",
           "zone": "样品券"
         }
       ],
@@ -3680,17 +3656,17 @@
       ],
       "coupons": [
         {
-          "amount": 15,
-          "min_amount": 16,
-          "discount_text": "满16减15",
-          "desc": "15元杭晶品牌商品券",
-          "zone": "样品券"
-        },
-        {
           "amount": 30,
           "min_amount": 300,
           "discount_text": "满300减30",
           "desc": "30元杭晶品牌商品券",
+          "zone": "样品券"
+        },
+        {
+          "amount": 15,
+          "min_amount": 16,
+          "discount_text": "满16减15",
+          "desc": "15元杭晶品牌商品券",
           "zone": "样品券"
         }
       ],
@@ -3861,6 +3837,35 @@
       "max_discount": 50
     },
     {
+      "id": "27312",
+      "name": "HEGA(和佳)",
+      "catalog_count": 1,
+      "catalogs": [
+        "超级电容器"
+      ],
+      "coupons": [
+        {
+          "amount": 20,
+          "min_amount": 100,
+          "discount_text": "满100减20",
+          "desc": "20元和佳品牌商品券",
+          "zone": "样品券"
+        },
+        {
+          "amount": 15,
+          "min_amount": 16,
+          "discount_text": "满16减15",
+          "desc": "15元和佳品牌商品券",
+          "zone": "样品券"
+        }
+      ],
+      "discount_types": [
+        "满16减15"
+      ],
+      "user_types": [],
+      "max_discount": 20
+    },
+    {
       "id": "16616",
       "name": "Hengtuo(恒拓电子)",
       "catalog_count": 5,
@@ -3890,6 +3895,42 @@
       "discount_types": [],
       "user_types": [],
       "max_discount": 50
+    },
+    {
+      "id": "11566",
+      "name": "HENIPER(恒浦)",
+      "catalog_count": 8,
+      "catalogs": [
+        "隔离电源模块",
+        "DC-DC电源模块",
+        "RS485总线模块",
+        "AC-DC电源模块",
+        "CAN总线模块",
+        "隔离式RS-232收发器(带电源)",
+        "RS232总线模块",
+        "浪涌保护器"
+      ],
+      "coupons": [
+        {
+          "amount": 15,
+          "min_amount": 16,
+          "discount_text": "满16减15",
+          "desc": "15元恒浦品牌商品券",
+          "zone": "样品券"
+        },
+        {
+          "amount": 0,
+          "min_amount": 500,
+          "discount_text": "0元券",
+          "desc": "恒浦品牌9折折扣券",
+          "zone": "样品券"
+        }
+      ],
+      "discount_types": [
+        "满16减15"
+      ],
+      "user_types": [],
+      "max_discount": 15
     },
     {
       "id": "15271",
@@ -3948,17 +3989,17 @@
       ],
       "coupons": [
         {
+          "amount": 30,
+          "min_amount": 300,
+          "discount_text": "满300减30",
+          "desc": "30元禾芯微品牌商品券",
+          "zone": "样品券"
+        },
+        {
           "amount": 15,
           "min_amount": 16,
           "discount_text": "满16减15",
           "desc": "<品牌新人>15元禾芯微品牌商品券",
-          "zone": "样品券"
-        },
-        {
-          "amount": 50,
-          "min_amount": 500,
-          "discount_text": "满500减50",
-          "desc": "50元禾芯微品牌商品券",
           "zone": "样品券"
         }
       ],
@@ -3968,95 +4009,7 @@
       "user_types": [
         "品牌新人"
       ],
-      "max_discount": 50
-    },
-    {
-      "id": "15359",
-      "name": "HeYangTek(扬贺扬)",
-      "catalog_count": 3,
-      "catalogs": [
-        "NAND FLASH",
-        "DDR SDRAM",
-        "eMMC"
-      ],
-      "coupons": [
-        {
-          "amount": 100,
-          "min_amount": 1000,
-          "discount_text": "满1000减100",
-          "desc": "100元扬贺扬品牌商品券",
-          "zone": "样品券"
-        },
-        {
-          "amount": 30,
-          "min_amount": 300,
-          "discount_text": "满300减30",
-          "desc": "30元扬贺扬品牌商品券",
-          "zone": "样品券"
-        }
-      ],
-      "discount_types": [],
-      "user_types": [],
-      "max_discount": 100
-    },
-    {
-      "id": "13175",
-      "name": "HGC(深圳汉芯)",
-      "catalog_count": 38,
-      "catalogs": [
-        "线性稳压器(LDO)",
-        "DC-DC电源芯片",
-        "运算放大器",
-        "EEPROM",
-        "RS-485/RS-422芯片",
-        "监控和复位芯片",
-        "模拟开关/多路复用器",
-        "电压基准芯片",
-        "逻辑门",
-        "比较器",
-        "AC-DC控制器和稳压器",
-        "实时时钟(RTC)",
-        "反相器",
-        "音频功率放大器",
-        "精密运放",
-        "计数器/分频器",
-        "达林顿晶体管阵列",
-        "555定时器/计时器",
-        "步进电机驱动芯片",
-        "移位寄存器",
-        "V/F和F/V转换芯片",
-        "触发器",
-        "缓冲器/驱动器/收发器",
-        "LED驱动",
-        "差分运放",
-        "模数转换芯片ADC",
-        "信号开关/编解码器/多路复用器",
-        "RS232芯片",
-        "特殊功能放大器",
-        "电信接口IC",
-        "I/O扩展器",
-        "CAN收发器",
-        "人体感应传感器",
-        "数码管驱动",
-        "音频接口芯片",
-        "定时器/计时器",
-        "有刷直流电机驱动芯片",
-        "NOR FLASH"
-      ],
-      "coupons": [
-        {
-          "amount": 15,
-          "min_amount": 16,
-          "discount_text": "满16减15",
-          "desc": "15元深圳汉芯品牌商品券",
-          "zone": "样品券"
-        }
-      ],
-      "discount_types": [
-        "满16减15"
-      ],
-      "user_types": [],
-      "max_discount": 15
+      "max_discount": 30
     },
     {
       "id": "18884",
@@ -4110,6 +4063,44 @@
       "max_discount": 15
     },
     {
+      "id": "832",
+      "name": "HK(航顺)",
+      "catalog_count": 8,
+      "catalogs": [
+        "单片机(MCU/MPU/SOC)",
+        "线性稳压器(LDO)",
+        "EEPROM",
+        "监控和复位芯片",
+        "开发板",
+        "NOR FLASH",
+        "运算放大器",
+        "LCD驱动"
+      ],
+      "coupons": [
+        {
+          "amount": 15,
+          "min_amount": 16,
+          "discount_text": "满16减15",
+          "desc": "<品牌新人>15元航顺品牌商品券",
+          "zone": "样品券"
+        },
+        {
+          "amount": 100,
+          "min_amount": 1000,
+          "discount_text": "满1000减100",
+          "desc": "100元航顺品牌商品券",
+          "zone": "样品券"
+        }
+      ],
+      "discount_types": [
+        "满16减15"
+      ],
+      "user_types": [
+        "品牌新人"
+      ],
+      "max_discount": 100
+    },
+    {
       "id": "11439",
       "name": "HKT(合科泰)",
       "catalog_count": 13,
@@ -4130,17 +4121,17 @@
       ],
       "coupons": [
         {
+          "amount": 20,
+          "min_amount": 200,
+          "discount_text": "满200减20",
+          "desc": "20元合科泰品牌商品券",
+          "zone": "样品券"
+        },
+        {
           "amount": 15,
           "min_amount": 16,
           "discount_text": "满16减15",
           "desc": "15元合科泰品牌商品券",
-          "zone": "样品券"
-        },
-        {
-          "amount": 50,
-          "min_amount": 500,
-          "discount_text": "满500减50",
-          "desc": "50元合科泰品牌商品券",
           "zone": "样品券"
         }
       ],
@@ -4148,7 +4139,7 @@
         "满16减15"
       ],
       "user_types": [],
-      "max_discount": 50
+      "max_discount": 20
     },
     {
       "id": "17129",
@@ -4177,6 +4168,13 @@
       ],
       "coupons": [
         {
+          "amount": 25,
+          "min_amount": 100,
+          "discount_text": "满100减25",
+          "desc": "25元华明通品牌商品券",
+          "zone": "样品券"
+        },
+        {
           "amount": 15,
           "min_amount": 16,
           "discount_text": "满16减15",
@@ -4188,13 +4186,6 @@
           "min_amount": 88,
           "discount_text": "满88减8",
           "desc": "8元华明通品牌运费券",
-          "zone": "样品券"
-        },
-        {
-          "amount": 25,
-          "min_amount": 100,
-          "discount_text": "满100减25",
-          "desc": "25元华明通品牌商品券",
           "zone": "样品券"
         }
       ],
@@ -4280,33 +4271,6 @@
       "max_discount": 60
     },
     {
-      "id": "12257",
-      "name": "Hongda(泓达)",
-      "catalog_count": 8,
-      "catalogs": [
-        "一次性保险丝",
-        "插件电阻",
-        "贴片电阻",
-        "温控开关",
-        "熔断器/电流保护器",
-        "温度保险丝(TCO)",
-        "铝壳/瓷管电阻",
-        "可调电阻/电位器"
-      ],
-      "coupons": [
-        {
-          "amount": 15,
-          "min_amount": 30,
-          "discount_text": "满30减15",
-          "desc": "15元泓达品牌商品券",
-          "zone": "样品券"
-        }
-      ],
-      "discount_types": [],
-      "user_types": [],
-      "max_discount": 15
-    },
-    {
       "id": "991",
       "name": "HONOR(荣誉)",
       "catalog_count": 4,
@@ -4367,13 +4331,6 @@
       ],
       "coupons": [
         {
-          "amount": 150,
-          "min_amount": 500,
-          "discount_text": "满500减150",
-          "desc": "150元皓宇电子品牌商品券",
-          "zone": "样品券"
-        },
-        {
           "amount": 25,
           "min_amount": 50,
           "discount_text": "满50减25",
@@ -4383,7 +4340,27 @@
       ],
       "discount_types": [],
       "user_types": [],
-      "max_discount": 150
+      "max_discount": 25
+    },
+    {
+      "id": "13390",
+      "name": "HRE(芯声)",
+      "catalog_count": 1,
+      "catalogs": [
+        "贴片电容(MLCC)"
+      ],
+      "coupons": [
+        {
+          "amount": 50,
+          "min_amount": 5000,
+          "discount_text": "满5000减50",
+          "desc": "50元芯声品牌商品券",
+          "zone": "样品券"
+        }
+      ],
+      "discount_types": [],
+      "user_types": [],
+      "max_discount": 50
     },
     {
       "id": "13168",
@@ -4398,16 +4375,14 @@
           "amount": 15,
           "min_amount": 16,
           "discount_text": "满16减15",
-          "desc": "<品牌新人>15元鸿瑞凯电子品牌商品券",
+          "desc": "15元鸿瑞凯电子品牌商品券",
           "zone": "样品券"
         }
       ],
       "discount_types": [
         "满16减15"
       ],
-      "user_types": [
-        "品牌新人"
-      ],
+      "user_types": [],
       "max_discount": 15
     },
     {
@@ -4430,6 +4405,13 @@
       ],
       "coupons": [
         {
+          "amount": 20,
+          "min_amount": 100,
+          "discount_text": "满100减20",
+          "desc": "20元金誉品牌商品券",
+          "zone": "样品券"
+        },
+        {
           "amount": 15,
           "min_amount": 16,
           "discount_text": "满16减15",
@@ -4443,7 +4425,7 @@
       "user_types": [
         "商城新人"
       ],
-      "max_discount": 15
+      "max_discount": 20
     },
     {
       "id": "12706",
@@ -4522,17 +4504,17 @@
       ],
       "coupons": [
         {
-          "amount": 15,
-          "min_amount": 16,
-          "discount_text": "满16减15",
-          "desc": "15元海天芯品牌商品券",
-          "zone": "样品券"
-        },
-        {
           "amount": 20,
           "min_amount": 100,
           "discount_text": "满100减20",
           "desc": "20元海天芯品牌商品券",
+          "zone": "样品券"
+        },
+        {
+          "amount": 15,
+          "min_amount": 16,
+          "discount_text": "满16减15",
+          "desc": "15元海天芯品牌商品券",
           "zone": "样品券"
         }
       ],
@@ -4600,10 +4582,10 @@
           "zone": "样品券"
         },
         {
-          "amount": 20,
-          "min_amount": 100,
-          "discount_text": "满100减20",
-          "desc": "20元慧芯品牌商品券",
+          "amount": 30,
+          "min_amount": 200,
+          "discount_text": "满200减30",
+          "desc": "30元慧芯品牌商品券",
           "zone": "样品券"
         }
       ],
@@ -4613,7 +4595,7 @@
       "user_types": [
         "品牌新人"
       ],
-      "max_discount": 20
+      "max_discount": 30
     },
     {
       "id": "25019",
@@ -4733,6 +4715,13 @@
       ],
       "coupons": [
         {
+          "amount": 20,
+          "min_amount": 21,
+          "discount_text": "满21减20",
+          "desc": "20元华轩阳电子品牌商品券",
+          "zone": "样品券"
+        },
+        {
           "amount": 8,
           "min_amount": 88,
           "discount_text": "满88减8",
@@ -4747,17 +4736,10 @@
           "zone": "样品券"
         },
         {
-          "amount": 20,
-          "min_amount": 21,
-          "discount_text": "满21减20",
-          "desc": "20元华轩阳电子品牌商品券",
-          "zone": "样品券"
-        },
-        {
           "amount": 0,
           "min_amount": 1,
           "discount_text": "0元券",
-          "desc": "<华轩阳>9.5折PLUS专属券",
+          "desc": "<华轩阳电子>9.5折PLUS专属券",
           "zone": "PLUS"
         }
       ],
@@ -4840,17 +4822,10 @@
       ],
       "coupons": [
         {
-          "amount": 20,
-          "min_amount": 500,
-          "discount_text": "满500减20",
-          "desc": "20元鸿源精密品牌商品券",
-          "zone": "样品券"
-        },
-        {
           "amount": 15,
           "min_amount": 16,
           "discount_text": "满16减15",
-          "desc": "<商城新人>15元鸿源精密品牌商品券",
+          "desc": "<品牌新人>15元鸿源精密品牌商品券",
           "zone": "样品券"
         }
       ],
@@ -4858,9 +4833,9 @@
         "满16减15"
       ],
       "user_types": [
-        "商城新人"
+        "品牌新人"
       ],
-      "max_discount": 20
+      "max_discount": 15
     },
     {
       "id": "11537",
@@ -4886,9 +4861,9 @@
         },
         {
           "amount": 0,
-          "min_amount": 500,
+          "min_amount": 1000,
           "discount_text": "0元券",
-          "desc": "赢海品牌9.5折折扣券",
+          "desc": "赢海品牌折扣券",
           "zone": "样品券"
         }
       ],
@@ -4917,6 +4892,13 @@
       ],
       "coupons": [
         {
+          "amount": 30,
+          "min_amount": 500,
+          "discount_text": "满500减30",
+          "desc": "30元安芯微半导体品牌商品券",
+          "zone": "样品券"
+        },
+        {
           "amount": 15,
           "min_amount": 16,
           "discount_text": "满16减15",
@@ -4928,7 +4910,48 @@
         "满16减15"
       ],
       "user_types": [],
-      "max_discount": 15
+      "max_discount": 30
+    },
+    {
+      "id": "27125",
+      "name": "JAN(捷安)",
+      "catalog_count": 1,
+      "catalogs": [
+        "线路板保护剂"
+      ],
+      "coupons": [
+        {
+          "amount": 300,
+          "min_amount": 2000,
+          "discount_text": "满2000减300",
+          "desc": "300元捷安品牌工业品券",
+          "zone": "工业品"
+        },
+        {
+          "amount": 100,
+          "min_amount": 1000,
+          "discount_text": "满1000减100",
+          "desc": "100元捷安品牌工业品券",
+          "zone": "工业品"
+        },
+        {
+          "amount": 50,
+          "min_amount": 500,
+          "discount_text": "满500减50",
+          "desc": "50元捷安品牌工业品券",
+          "zone": "工业品"
+        },
+        {
+          "amount": 20,
+          "min_amount": 200,
+          "discount_text": "满200减20",
+          "desc": "20元捷安品牌工业品券",
+          "zone": "工业品"
+        }
+      ],
+      "discount_types": [],
+      "user_types": [],
+      "max_discount": 300
     },
     {
       "id": "13495",
@@ -4939,27 +4962,25 @@
       ],
       "coupons": [
         {
-          "amount": 20,
-          "min_amount": 200,
-          "discount_text": "满200减20",
-          "desc": "20元伽盛品牌商品券",
-          "zone": "样品券"
-        },
-        {
           "amount": 15,
           "min_amount": 16,
           "discount_text": "满16减15",
-          "desc": "<品牌新人>15元伽盛品牌商品券",
+          "desc": "15元伽盛品牌商品券",
+          "zone": "样品券"
+        },
+        {
+          "amount": 40,
+          "min_amount": 100,
+          "discount_text": "满100减40",
+          "desc": "40元伽盛品牌商品券",
           "zone": "样品券"
         }
       ],
       "discount_types": [
         "满16减15"
       ],
-      "user_types": [
-        "品牌新人"
-      ],
-      "max_discount": 20
+      "user_types": [],
+      "max_discount": 40
     },
     {
       "id": "16697",
@@ -4973,14 +4994,18 @@
       "coupons": [
         {
           "amount": 15,
-          "min_amount": 30,
-          "discount_text": "满30减15",
-          "desc": "15元金比莱品牌商品券",
+          "min_amount": 16,
+          "discount_text": "满16减15",
+          "desc": "<品牌新人>15元金比莱品牌商品券",
           "zone": "样品券"
         }
       ],
-      "discount_types": [],
-      "user_types": [],
+      "discount_types": [
+        "满16减15"
+      ],
+      "user_types": [
+        "品牌新人"
+      ],
       "max_discount": 15
     },
     {
@@ -5090,17 +5115,17 @@
       ],
       "coupons": [
         {
+          "amount": 30,
+          "min_amount": 300,
+          "discount_text": "满300减30",
+          "desc": "30元晶光华品牌商品券",
+          "zone": "样品券"
+        },
+        {
           "amount": 15,
           "min_amount": 16,
           "discount_text": "满16减15",
           "desc": "<品牌新人>15元晶光华品牌商品券",
-          "zone": "样品券"
-        },
-        {
-          "amount": 50,
-          "min_amount": 500,
-          "discount_text": "满500减50",
-          "desc": "50元晶光华品牌商品券",
           "zone": "样品券"
         }
       ],
@@ -5110,7 +5135,7 @@
       "user_types": [
         "品牌新人"
       ],
-      "max_discount": 50
+      "max_discount": 30
     },
     {
       "id": "18604",
@@ -5206,13 +5231,6 @@
       ],
       "coupons": [
         {
-          "amount": 15,
-          "min_amount": 16,
-          "discount_text": "满16减15",
-          "desc": "15元捷而瑞品牌商品券",
-          "zone": "精选"
-        },
-        {
           "amount": 100,
           "min_amount": 1000,
           "discount_text": "满1000减100",
@@ -5227,9 +5245,7 @@
           "zone": "样品券"
         }
       ],
-      "discount_types": [
-        "满16减15"
-      ],
+      "discount_types": [],
       "user_types": [],
       "max_discount": 100
     },
@@ -5357,16 +5373,25 @@
       ],
       "coupons": [
         {
-          "amount": 20,
-          "min_amount": 100,
-          "discount_text": "满100减20",
-          "desc": "20元文章济美品牌商品券",
+          "amount": 30,
+          "min_amount": 200,
+          "discount_text": "满200减30",
+          "desc": "30元文章济美品牌商品券",
+          "zone": "样品券"
+        },
+        {
+          "amount": 15,
+          "min_amount": 16,
+          "discount_text": "满16减15",
+          "desc": "15元文章济美品牌商品券",
           "zone": "样品券"
         }
       ],
-      "discount_types": [],
+      "discount_types": [
+        "满16减15"
+      ],
       "user_types": [],
-      "max_discount": 20
+      "max_discount": 30
     },
     {
       "id": "15459",
@@ -5392,10 +5417,10 @@
           "zone": "样品券"
         },
         {
-          "amount": 80,
-          "min_amount": 1000,
-          "discount_text": "满1000减80",
-          "desc": "80元强生光电品牌商品券",
+          "amount": 50,
+          "min_amount": 500,
+          "discount_text": "满500减50",
+          "desc": "50元强生光电品牌商品券",
           "zone": "样品券"
         }
       ],
@@ -5403,7 +5428,7 @@
         "满16减15"
       ],
       "user_types": [],
-      "max_discount": 80
+      "max_discount": 50
     },
     {
       "id": "349",
@@ -5424,10 +5449,10 @@
           "zone": "样品券"
         },
         {
-          "amount": 120,
+          "amount": 100,
           "min_amount": 1000,
-          "discount_text": "满1000减120",
-          "desc": "120元钜硕电子品牌商品券",
+          "discount_text": "满1000减100",
+          "desc": "100元钜硕电子品牌商品券",
           "zone": "样品券"
         }
       ],
@@ -5435,7 +5460,7 @@
         "满16减15"
       ],
       "user_types": [],
-      "max_discount": 120
+      "max_discount": 100
     },
     {
       "id": "12313",
@@ -5514,13 +5539,6 @@
       ],
       "coupons": [
         {
-          "amount": 15,
-          "min_amount": 16,
-          "discount_text": "满16减15",
-          "desc": "15元杰盛微品牌商品券",
-          "zone": "样品券"
-        },
-        {
           "amount": 100,
           "min_amount": 1000,
           "discount_text": "满1000减100",
@@ -5528,9 +5546,7 @@
           "zone": "样品券"
         }
       ],
-      "discount_types": [
-        "满16减15"
-      ],
+      "discount_types": [],
       "user_types": [],
       "max_discount": 100
     },
@@ -5675,10 +5691,10 @@
       ],
       "coupons": [
         {
-          "amount": 20,
+          "amount": 25,
           "min_amount": 100,
-          "discount_text": "满100减20",
-          "desc": "20元聚兴泰品牌商品券",
+          "discount_text": "满100减25",
+          "desc": "25元聚兴泰品牌商品券",
           "zone": "样品券"
         },
         {
@@ -5689,10 +5705,10 @@
           "zone": "样品券"
         },
         {
-          "amount": 6,
-          "min_amount": 50,
-          "discount_text": "满50减6",
-          "desc": "6元聚兴泰品牌运费券",
+          "amount": 12,
+          "min_amount": 500,
+          "discount_text": "满500减12",
+          "desc": "12元聚兴泰品牌运费券",
           "zone": "样品券"
         },
         {
@@ -5730,15 +5746,13 @@
       "coupons": [
         {
           "amount": 15,
-          "min_amount": 16,
-          "discount_text": "满16减15",
+          "min_amount": 20,
+          "discount_text": "满20减15",
           "desc": "15元晶友嘉品牌商品券",
           "zone": "样品券"
         }
       ],
-      "discount_types": [
-        "满16减15"
-      ],
+      "discount_types": [],
       "user_types": [],
       "max_discount": 15
     },
@@ -5757,7 +5771,7 @@
           "amount": 15,
           "min_amount": 16,
           "discount_text": "满16减15",
-          "desc": "<品牌新人>15元康奈克斯电气品牌指定类目商品券",
+          "desc": "<品牌新人>15元康奈克斯电气品牌商品券",
           "zone": "样品券"
         },
         {
@@ -5901,8 +5915,8 @@
       "coupons": [
         {
           "amount": 15,
-          "min_amount": 20,
-          "discount_text": "满20减15",
+          "min_amount": 16,
+          "discount_text": "满16减15",
           "desc": "15元金航标品牌商品券",
           "zone": "样品券"
         },
@@ -5921,8 +5935,59 @@
           "zone": "样品券"
         }
       ],
-      "discount_types": [],
+      "discount_types": [
+        "满16减15"
+      ],
       "user_types": [],
+      "max_discount": 100
+    },
+    {
+      "id": "12108",
+      "name": "KNSCHA(科尼盛)",
+      "catalog_count": 19,
+      "catalogs": [
+        "直插铝电解电容",
+        "贴片型铝电解电容",
+        "聚丙烯膜电容(CBB)",
+        "牛角型电解电容",
+        "薄膜电容",
+        "安规电容",
+        "固态电容",
+        "压敏电阻",
+        "固液混合铝电解电容器",
+        "NTC热敏电阻",
+        "超级电容器",
+        "螺栓型铝电解电容",
+        "钽电容",
+        "锂离子电容",
+        "碳化硅二极管",
+        "直插独石电容(MLCC)",
+        "直插瓷片电容",
+        "碳化硅场效应管(MOSFET)",
+        "锂离子柱状电池"
+      ],
+      "coupons": [
+        {
+          "amount": 15,
+          "min_amount": 16,
+          "discount_text": "满16减15",
+          "desc": "<品牌新人>15元科尼盛品牌商品券",
+          "zone": "样品券"
+        },
+        {
+          "amount": 100,
+          "min_amount": 1000,
+          "discount_text": "满1000减100",
+          "desc": "100元科尼盛品牌商品券",
+          "zone": "样品券"
+        }
+      ],
+      "discount_types": [
+        "满16减15"
+      ],
+      "user_types": [
+        "品牌新人"
+      ],
       "max_discount": 100
     },
     {
@@ -6030,27 +6095,50 @@
       ],
       "coupons": [
         {
-          "amount": 15,
-          "min_amount": 16,
-          "discount_text": "满16减15",
-          "desc": "<品牌新人>15元KUU品牌商品券",
+          "amount": 20,
+          "min_amount": 200,
+          "discount_text": "满200减20",
+          "desc": "20元KUU品牌商品券",
           "zone": "样品券"
         },
         {
-          "amount": 25,
-          "min_amount": 200,
-          "discount_text": "满200减25",
-          "desc": "25元KUU品牌商品券",
+          "amount": 15,
+          "min_amount": 16,
+          "discount_text": "满16减15",
+          "desc": "15元KUU品牌商品券",
           "zone": "样品券"
         }
       ],
       "discount_types": [
         "满16减15"
       ],
-      "user_types": [
-        "品牌新人"
+      "user_types": [],
+      "max_discount": 20
+    },
+    {
+      "id": "11973",
+      "name": "KYET(科雅)",
+      "catalog_count": 4,
+      "catalogs": [
+        "聚丙烯膜电容(CBB)",
+        "薄膜电容",
+        "安规电容",
+        "直插独石电容(MLCC)"
       ],
-      "max_discount": 25
+      "coupons": [
+        {
+          "amount": 15,
+          "min_amount": 16,
+          "discount_text": "满16减15",
+          "desc": "15元科雅品牌商品券",
+          "zone": "样品券"
+        }
+      ],
+      "discount_types": [
+        "满16减15"
+      ],
+      "user_types": [],
+      "max_discount": 15
     },
     {
       "id": "11898",
@@ -6066,25 +6154,68 @@
       ],
       "coupons": [
         {
-          "amount": 15,
-          "min_amount": 16,
-          "discount_text": "满16减15",
-          "desc": "15元凯越翔品牌商品券",
-          "zone": "样品券"
-        },
-        {
           "amount": 25,
           "min_amount": 50,
           "discount_text": "满50减25",
           "desc": "25元凯越翔品牌商品券",
           "zone": "样品券"
+        },
+        {
+          "amount": 20,
+          "min_amount": 21,
+          "discount_text": "满21减20",
+          "desc": "20元凯越翔品牌商品券",
+          "zone": "样品券"
+        },
+        {
+          "amount": 10,
+          "min_amount": 100,
+          "discount_text": "满100减10",
+          "desc": "10元凯越翔品牌运费券",
+          "zone": "样品券"
         }
       ],
       "discount_types": [
-        "满16减15"
+        "满21减20"
       ],
       "user_types": [],
       "max_discount": 25
+    },
+    {
+      "id": "26882",
+      "name": "LAILAN(莱联)",
+      "catalog_count": 15,
+      "catalogs": [
+        "FFC/FPC连接器",
+        "排针",
+        "USB连接器",
+        "线对板针座",
+        "插拔式接线端子",
+        "排母",
+        "以太网连接器(RJ45 RJ11)",
+        "IDC刺破式连接器(牛角/简牛)",
+        "纽扣与条形电池连接器",
+        "DC电源连接器",
+        "RF射频同轴连接器",
+        "SIM卡连接器",
+        "SD卡/存储卡连接器",
+        "HDMI连接器",
+        "D-Sub/VGA连接器"
+      ],
+      "coupons": [
+        {
+          "amount": 20,
+          "min_amount": 21,
+          "discount_text": "满21减20",
+          "desc": "20元莱联品牌商品券",
+          "zone": "样品券"
+        }
+      ],
+      "discount_types": [
+        "满21减20"
+      ],
+      "user_types": [],
+      "max_discount": 20
     },
     {
       "id": "14041",
@@ -6102,20 +6233,13 @@
           "discount_text": "满16减15",
           "desc": "15元蓝图微电品牌商品券",
           "zone": "样品券"
-        },
-        {
-          "amount": 30,
-          "min_amount": 200,
-          "discount_text": "满200减30",
-          "desc": "30元蓝图微电品牌商品券",
-          "zone": "样品券"
         }
       ],
       "discount_types": [
         "满16减15"
       ],
       "user_types": [],
-      "max_discount": 30
+      "max_discount": 15
     },
     {
       "id": "23848",
@@ -6167,6 +6291,13 @@
           "discount_text": "满16减15",
           "desc": "<品牌新人>15元立得品牌商品券",
           "zone": "样品券"
+        },
+        {
+          "amount": 6,
+          "min_amount": 20,
+          "discount_text": "满20减6",
+          "desc": "6元立得品牌运费券",
+          "zone": "样品券"
         }
       ],
       "discount_types": [
@@ -6203,13 +6334,6 @@
       ],
       "coupons": [
         {
-          "amount": 150,
-          "min_amount": 500,
-          "discount_text": "满500减150",
-          "desc": "150元六钧品牌商品券",
-          "zone": "样品券"
-        },
-        {
           "amount": 20,
           "min_amount": 30,
           "discount_text": "满30减20",
@@ -6219,7 +6343,7 @@
       ],
       "discount_types": [],
       "user_types": [],
-      "max_discount": 150
+      "max_discount": 20
     },
     {
       "id": "11948",
@@ -6278,20 +6402,13 @@
           "discount_text": "满16减15",
           "desc": "15元乐瓦微电子品牌商品券",
           "zone": "样品券"
-        },
-        {
-          "amount": 30,
-          "min_amount": 200,
-          "discount_text": "满200减30",
-          "desc": "30元乐瓦微电子品牌商品券",
-          "zone": "样品券"
         }
       ],
       "discount_types": [
         "满16减15"
       ],
       "user_types": [],
-      "max_discount": 30
+      "max_discount": 15
     },
     {
       "id": "11743",
@@ -6342,6 +6459,40 @@
       ],
       "user_types": [],
       "max_discount": 35
+    },
+    {
+      "id": "15265",
+      "name": "LIGHT(莱特)",
+      "catalog_count": 13,
+      "catalogs": [
+        "红外发射管",
+        "发光二极管/LED",
+        "激光二极管",
+        "紫外线LED(UVLED)",
+        "槽型光电开关(光电晶体管输出)",
+        "光电晶体管",
+        "传感器模块",
+        "红外遥控接收头(IRM)",
+        "光电二极管",
+        "接近传感器",
+        "液位传感器",
+        "专用传感器",
+        "反射式光电开关"
+      ],
+      "coupons": [
+        {
+          "amount": 15,
+          "min_amount": 16,
+          "discount_text": "满16减15",
+          "desc": "15元莱特品牌商品券",
+          "zone": "样品券"
+        }
+      ],
+      "discount_types": [
+        "满16减15"
+      ],
+      "user_types": [],
+      "max_discount": 15
     },
     {
       "id": "12754",
@@ -6411,6 +6562,30 @@
       "max_discount": 30
     },
     {
+      "id": "16314",
+      "name": "LINKEYCON(联盈控)",
+      "catalog_count": 3,
+      "catalogs": [
+        "牛角型电解电容",
+        "贴片型铝电解电容",
+        "螺栓型铝电解电容"
+      ],
+      "coupons": [
+        {
+          "amount": 20,
+          "min_amount": 21,
+          "discount_text": "满21减20",
+          "desc": "20元联盈控品牌商品券",
+          "zone": "样品券"
+        }
+      ],
+      "discount_types": [
+        "满21减20"
+      ],
+      "user_types": [],
+      "max_discount": 20
+    },
+    {
       "id": "15302",
       "name": "LinkMems(聆麦声学)",
       "catalog_count": 2,
@@ -6420,17 +6595,17 @@
       ],
       "coupons": [
         {
+          "amount": 30,
+          "min_amount": 200,
+          "discount_text": "满200减30",
+          "desc": "30元聆麦声学品牌商品券",
+          "zone": "样品券"
+        },
+        {
           "amount": 15,
           "min_amount": 16,
           "discount_text": "满16减15",
           "desc": "<品牌新人>15元聆麦声学品牌商品券",
-          "zone": "样品券"
-        },
-        {
-          "amount": 30,
-          "min_amount": 300,
-          "discount_text": "满300减30",
-          "desc": "30元聆麦声学品牌商品券",
           "zone": "样品券"
         }
       ],
@@ -6564,24 +6739,22 @@
           "amount": 15,
           "min_amount": 16,
           "discount_text": "满16减15",
-          "desc": "<品牌新人>15元蓝晶品牌商品券",
+          "desc": "15元蓝晶品牌商品券",
           "zone": "样品券"
         },
         {
-          "amount": 25,
+          "amount": 6,
           "min_amount": 50,
-          "discount_text": "满50减25",
-          "desc": "<品牌新人>25元蓝晶品牌商品券",
+          "discount_text": "满50减6",
+          "desc": "6元蓝晶品牌运费券",
           "zone": "样品券"
         }
       ],
       "discount_types": [
         "满16减15"
       ],
-      "user_types": [
-        "品牌新人"
-      ],
-      "max_discount": 25
+      "user_types": [],
+      "max_discount": 15
     },
     {
       "id": "18832",
@@ -6608,23 +6781,25 @@
       ],
       "coupons": [
         {
-          "amount": 15,
-          "min_amount": 30,
-          "discount_text": "满30减15",
-          "desc": "15元鲁晶品牌商品券",
+          "amount": 20,
+          "min_amount": 100,
+          "discount_text": "满100减20",
+          "desc": "20元鲁晶品牌商品券",
           "zone": "样品券"
         },
         {
-          "amount": 30,
-          "min_amount": 300,
-          "discount_text": "满300减30",
-          "desc": "30元鲁晶品牌商品券",
+          "amount": 15,
+          "min_amount": 16,
+          "discount_text": "满16减15",
+          "desc": "15元鲁晶品牌商品券",
           "zone": "样品券"
         }
       ],
-      "discount_types": [],
+      "discount_types": [
+        "满16减15"
+      ],
       "user_types": [],
-      "max_discount": 30
+      "max_discount": 20
     },
     {
       "id": "15464",
@@ -6655,13 +6830,6 @@
           "discount_text": "满200减50",
           "desc": "50元陆特品牌商品券",
           "zone": "样品券"
-        },
-        {
-          "amount": 0,
-          "min_amount": 1,
-          "discount_text": "0元券",
-          "desc": "<陆特>9.5折PLUS专属券",
-          "zone": "PLUS"
         }
       ],
       "discount_types": [
@@ -6720,6 +6888,13 @@
       ],
       "coupons": [
         {
+          "amount": 20,
+          "min_amount": 200,
+          "discount_text": "满200减20",
+          "desc": "20元灵星芯微品牌商品券",
+          "zone": "样品券"
+        },
+        {
           "amount": 15,
           "min_amount": 16,
           "discount_text": "满16减15",
@@ -6727,10 +6902,10 @@
           "zone": "样品券"
         },
         {
-          "amount": 30,
-          "min_amount": 200,
-          "discount_text": "满200减30",
-          "desc": "30元灵星芯微品牌商品券",
+          "amount": 6,
+          "min_amount": 50,
+          "discount_text": "满50减6",
+          "desc": "6元灵星芯微品牌运费券",
           "zone": "样品券"
         }
       ],
@@ -6738,7 +6913,7 @@
         "满16减15"
       ],
       "user_types": [],
-      "max_discount": 30
+      "max_discount": 20
     },
     {
       "id": "15466",
@@ -6785,17 +6960,17 @@
       ],
       "coupons": [
         {
-          "amount": 15,
-          "min_amount": 16,
-          "discount_text": "满16减15",
-          "desc": "<品牌新人>15元连欣科技品牌商品券",
-          "zone": "样品券"
-        },
-        {
           "amount": 30,
           "min_amount": 300,
           "discount_text": "满300减30",
           "desc": "30元连欣科技品牌商品券",
+          "zone": "样品券"
+        },
+        {
+          "amount": 15,
+          "min_amount": 16,
+          "discount_text": "满16减15",
+          "desc": "<品牌新人>15元连欣科技品牌商品券",
           "zone": "样品券"
         }
       ],
@@ -6805,6 +6980,35 @@
       "user_types": [
         "品牌新人"
       ],
+      "max_discount": 30
+    },
+    {
+      "id": "11956",
+      "name": "LX(连线电子)",
+      "catalog_count": 1,
+      "catalogs": [
+        "FFC连接线(柔性扁平线缆)"
+      ],
+      "coupons": [
+        {
+          "amount": 20,
+          "min_amount": 21,
+          "discount_text": "满21减20",
+          "desc": "20元连线电子品牌商品券",
+          "zone": "样品券"
+        },
+        {
+          "amount": 30,
+          "min_amount": 200,
+          "discount_text": "满200减30",
+          "desc": "30元连线电子品牌商品券",
+          "zone": "样品券"
+        }
+      ],
+      "discount_types": [
+        "满21减20"
+      ],
+      "user_types": [],
       "max_discount": 30
     },
     {
@@ -6847,22 +7051,14 @@
         },
         {
           "amount": 30,
-          "min_amount": 200,
-          "discount_text": "满200减30",
+          "min_amount": 300,
+          "discount_text": "满300减30",
           "desc": "30元连兴旺电子品牌商品券",
           "zone": "样品券"
-        },
-        {
-          "amount": 20,
-          "min_amount": 21,
-          "discount_text": "满21减20",
-          "desc": "<连兴旺电子>20元PLUS专属券",
-          "zone": "PLUS"
         }
       ],
       "discount_types": [
-        "满16减15",
-        "满21减20"
+        "满16减15"
       ],
       "user_types": [],
       "max_discount": 30
@@ -6901,22 +7097,22 @@
       ],
       "coupons": [
         {
-          "amount": 15,
-          "min_amount": 16,
-          "discount_text": "满16减15",
-          "desc": "<商城新人>15元元磁品牌商品券",
-          "zone": "样品券"
-        },
-        {
           "amount": 30,
           "min_amount": 200,
           "discount_text": "满200减30",
           "desc": "30元元磁品牌商品券",
           "zone": "样品券"
+        },
+        {
+          "amount": 20,
+          "min_amount": 21,
+          "discount_text": "满21减20",
+          "desc": "<商城新人>20元元磁品牌商品券",
+          "zone": "样品券"
         }
       ],
       "discount_types": [
-        "满16减15"
+        "满21减20"
       ],
       "user_types": [
         "商城新人"
@@ -7005,6 +7201,13 @@
           "discount_text": "满500减50",
           "desc": "50元MDD品牌商品券",
           "zone": "样品券"
+        },
+        {
+          "amount": 80,
+          "min_amount": 1000,
+          "discount_text": "满1000减80",
+          "desc": "<MDD>80元PLUS专属券",
+          "zone": "PLUS"
         }
       ],
       "discount_types": [
@@ -7013,32 +7216,31 @@
       "user_types": [
         "品牌新人"
       ],
-      "max_discount": 50
+      "max_discount": 80
     },
     {
-      "id": "15922",
-      "name": "Megain(美佳音)",
-      "catalog_count": 6,
+      "id": "25382",
+      "name": "MDM(中晶微)",
+      "catalog_count": 3,
       "catalogs": [
-        "线性稳压器(LDO)",
-        "场效应管(MOSFET)",
-        "霍尔开关",
-        "碳化硅场效应管(MOSFET)",
-        "无刷直流(BLDC)电机驱动芯片",
-        "功率电子开关"
+        "静电和浪涌保护(TVS/ESD)",
+        "快恢复/高效率二极管",
+        "通用二极管"
       ],
       "coupons": [
         {
-          "amount": 100,
-          "min_amount": 2000,
-          "discount_text": "满2000减100",
-          "desc": "100元美佳音品牌商品券",
+          "amount": 15,
+          "min_amount": 16,
+          "discount_text": "满16减15",
+          "desc": "15元中晶微品牌商品券",
           "zone": "样品券"
         }
       ],
-      "discount_types": [],
+      "discount_types": [
+        "满16减15"
+      ],
       "user_types": [],
-      "max_discount": 100
+      "max_discount": 15
     },
     {
       "id": "15340",
@@ -7135,16 +7337,52 @@
           "zone": "样品券"
         },
         {
-          "amount": 30,
-          "min_amount": 300,
-          "discount_text": "满300减30",
-          "desc": "30元兆讯品牌商品券",
+          "amount": 50,
+          "min_amount": 500,
+          "discount_text": "满500减50",
+          "desc": "50元兆讯品牌商品券",
           "zone": "样品券"
         }
       ],
       "discount_types": [],
       "user_types": [],
-      "max_discount": 30
+      "max_discount": 50
+    },
+    {
+      "id": "11965",
+      "name": "MEIHUA(美华)",
+      "catalog_count": 8,
+      "catalogs": [
+        "发光二极管/LED",
+        "RGB LED",
+        "红外发射管",
+        "LED数码管",
+        "光电晶体管",
+        "光电二极管",
+        "RGB LED(内置IC)",
+        "紫外线LED(UVLED)"
+      ],
+      "coupons": [
+        {
+          "amount": 20,
+          "min_amount": 200,
+          "discount_text": "满200减20",
+          "desc": "20元美华品牌商品券",
+          "zone": "样品券"
+        },
+        {
+          "amount": 15,
+          "min_amount": 16,
+          "discount_text": "满16减15",
+          "desc": "15元美华品牌商品券",
+          "zone": "样品券"
+        }
+      ],
+      "discount_types": [
+        "满16减15"
+      ],
+      "user_types": [],
+      "max_discount": 20
     },
     {
       "id": "365",
@@ -7160,10 +7398,17 @@
       ],
       "coupons": [
         {
-          "amount": 15,
-          "min_amount": 16,
-          "discount_text": "满16减15",
-          "desc": "<商城新人>15元美铼品牌商品券",
+          "amount": 20,
+          "min_amount": 21,
+          "discount_text": "满21减20",
+          "desc": "20元美铼品牌商品券",
+          "zone": "样品券"
+        },
+        {
+          "amount": 7,
+          "min_amount": 100,
+          "discount_text": "满100减7",
+          "desc": "7元美铼品牌运费券",
           "zone": "样品券"
         },
         {
@@ -7175,11 +7420,9 @@
         }
       ],
       "discount_types": [
-        "满16减15"
+        "满21减20"
       ],
-      "user_types": [
-        "商城新人"
-      ],
+      "user_types": [],
       "max_discount": 30
     },
     {
@@ -7253,7 +7496,7 @@
           "amount": 15,
           "min_amount": 16,
           "discount_text": "满16减15",
-          "desc": "<品牌新人>15元毫欧品牌商品券",
+          "desc": "15元毫欧品牌商品券",
           "zone": "样品券"
         },
         {
@@ -7267,9 +7510,7 @@
       "discount_types": [
         "满16减15"
       ],
-      "user_types": [
-        "品牌新人"
-      ],
+      "user_types": [],
       "max_discount": 50
     },
     {
@@ -7298,9 +7539,18 @@
           "discount_text": "满50减25",
           "desc": "25元迈诺斯品牌商品券",
           "zone": "样品券"
+        },
+        {
+          "amount": 15,
+          "min_amount": 16,
+          "discount_text": "满16减15",
+          "desc": "15元迈诺斯品牌商品券",
+          "zone": "样品券"
         }
       ],
-      "discount_types": [],
+      "discount_types": [
+        "满16减15"
+      ],
       "user_types": [],
       "max_discount": 25
     },
@@ -7387,13 +7637,6 @@
       ],
       "coupons": [
         {
-          "amount": 40,
-          "min_amount": 600,
-          "discount_text": "满600减40",
-          "desc": "40元米客方德品牌商品券",
-          "zone": "样品券"
-        },
-        {
           "amount": 25,
           "min_amount": 26,
           "discount_text": "满26减25",
@@ -7401,10 +7644,17 @@
           "zone": "样品券"
         },
         {
-          "amount": 30,
-          "min_amount": 500,
-          "discount_text": "满500减30",
-          "desc": "30元米客方德品牌工业品券",
+          "amount": 40,
+          "min_amount": 600,
+          "discount_text": "满600减40",
+          "desc": "40元米客方德品牌商品券",
+          "zone": "样品券"
+        },
+        {
+          "amount": 40,
+          "min_amount": 300,
+          "discount_text": "满300减40",
+          "desc": "40元米客方德品牌工业品券",
           "zone": "工业品"
         },
         {
@@ -7480,6 +7730,95 @@
       "max_discount": 15
     },
     {
+      "id": "283",
+      "name": "MPS(芯源)",
+      "catalog_count": 52,
+      "catalogs": [
+        "DC-DC电源芯片",
+        "LED驱动",
+        "线性稳压器(LDO)",
+        "AC-DC控制器和稳压器",
+        "功率电子开关",
+        "电池管理",
+        "栅极驱动芯片",
+        "功率电感",
+        "DC-DC电源模块",
+        "一体成型电感",
+        "无刷直流(BLDC)电机驱动芯片",
+        "专业电源管理(PMIC)",
+        "专用传感器",
+        "电流传感器",
+        "步进电机驱动芯片",
+        "监控和复位芯片",
+        "位置传感器",
+        "音频功率放大器",
+        "有刷直流电机驱动芯片",
+        "以太网供电(PoE)控制器",
+        "同步整流控制器",
+        "快充协议芯片",
+        "开发板",
+        "智能功率模块(IPM)",
+        "浪涌保护器",
+        "电流感应放大器",
+        "模拟开关/多路复用器",
+        "其他模块",
+        "电荷泵",
+        "运算放大器",
+        "磁性角度传感器",
+        "电源模块/电源供应器",
+        "隔离式DC/DC转换器",
+        "继电器/线圈驱动芯片",
+        "功率因数校正(PFC)控制器",
+        "理想二极管/ORing控制器",
+        "贴片电感",
+        "电压基准芯片",
+        "电机驱动芯片",
+        "转换器/电平移位器",
+        "其他接口",
+        "照明驱动",
+        "模拟开关-特殊用途",
+        "LED保护",
+        "电流传感器/磁传感器",
+        "浪涌保护器/防雷器",
+        "变压器驱动器",
+        "隔离电源模块",
+        "3D磁传感器",
+        "场效应管(MOSFET)",
+        "数字隔离器",
+        "模数转换芯片ADC"
+      ],
+      "coupons": [
+        {
+          "amount": 20,
+          "min_amount": 100,
+          "discount_text": "满100减20",
+          "desc": "20元MPS品牌商品券",
+          "zone": "样品券"
+        },
+        {
+          "amount": 20,
+          "min_amount": 25,
+          "discount_text": "满25减20",
+          "desc": "MPS机器人指定物料优惠券",
+          "zone": "样品券"
+        },
+        {
+          "amount": 15,
+          "min_amount": 16,
+          "discount_text": "满16减15",
+          "desc": "<品牌新人>15元MPS品牌商品券",
+          "zone": "样品券"
+        }
+      ],
+      "discount_types": [
+        "满16减15"
+      ],
+      "user_types": [
+        "品牌新人"
+      ],
+      "max_discount": 20
+    },
+    {
       "id": "12667",
       "name": "MSKSEMI(美森科)",
       "catalog_count": 51,
@@ -7538,17 +7877,17 @@
       ],
       "coupons": [
         {
+          "amount": 20,
+          "min_amount": 200,
+          "discount_text": "满200减20",
+          "desc": "20元美森科品牌商品券",
+          "zone": "样品券"
+        },
+        {
           "amount": 15,
           "min_amount": 16,
           "discount_text": "满16减15",
           "desc": "15元美森科品牌商品券",
-          "zone": "样品券"
-        },
-        {
-          "amount": 50,
-          "min_amount": 500,
-          "discount_text": "满500减50",
-          "desc": "50元美森科品牌商品券",
           "zone": "样品券"
         }
       ],
@@ -7556,7 +7895,7 @@
         "满16减15"
       ],
       "user_types": [],
-      "max_discount": 50
+      "max_discount": 20
     },
     {
       "id": "16013",
@@ -7576,6 +7915,13 @@
       ],
       "coupons": [
         {
+          "amount": 30,
+          "min_amount": 300,
+          "discount_text": "满300减30",
+          "desc": "30元摩天射频品牌商品券",
+          "zone": "样品券"
+        },
+        {
           "amount": 15,
           "min_amount": 16,
           "discount_text": "满16减15",
@@ -7583,34 +7929,32 @@
           "zone": "样品券"
         },
         {
-          "amount": 100,
+          "amount": 200,
           "min_amount": 1000,
-          "discount_text": "满1000减100",
-          "desc": "100元摩天射频品牌商品券",
-          "zone": "样品券"
+          "discount_text": "满1000减200",
+          "desc": "200元摩天射频品牌工业品券",
+          "zone": "工业品"
         },
         {
-          "amount": 100,
-          "min_amount": 1000,
-          "discount_text": "满1000减100",
-          "desc": "100元摩天射频品牌工业品券",
+          "amount": 30,
+          "min_amount": 300,
+          "discount_text": "满300减30",
+          "desc": "30元摩天射频品牌工业品券",
           "zone": "工业品"
         },
         {
           "amount": 15,
           "min_amount": 16,
           "discount_text": "满16减15",
-          "desc": "<品牌新人>15元摩天射频品牌工业品券",
+          "desc": "15元摩天射频品牌工业品券",
           "zone": "工业品"
         }
       ],
       "discount_types": [
         "满16减15"
       ],
-      "user_types": [
-        "品牌新人"
-      ],
-      "max_discount": 100
+      "user_types": [],
+      "max_discount": 200
     },
     {
       "id": "12472",
@@ -7679,46 +8023,6 @@
       "max_discount": 15
     },
     {
-      "id": "12677",
-      "name": "NDST(诺德斯特)",
-      "catalog_count": 7,
-      "catalogs": [
-        "导热片",
-        "导热胶",
-        "密封条",
-        "导热帽",
-        "导热管",
-        "开关配件/盖帽",
-        "RTV胶"
-      ],
-      "coupons": [
-        {
-          "amount": 10,
-          "min_amount": 100,
-          "discount_text": "满100减10",
-          "desc": "10元诺德斯特品牌工业品券",
-          "zone": "工业品"
-        },
-        {
-          "amount": 8,
-          "min_amount": 50,
-          "discount_text": "满50减8",
-          "desc": "8元诺德斯特品牌工业品券",
-          "zone": "工业品"
-        },
-        {
-          "amount": 5,
-          "min_amount": 30,
-          "discount_text": "满30减5",
-          "desc": "5元诺德斯特品牌工业品券",
-          "zone": "工业品"
-        }
-      ],
-      "discount_types": [],
-      "user_types": [],
-      "max_discount": 10
-    },
-    {
       "id": "15356",
       "name": "NH(纽航)",
       "catalog_count": 13,
@@ -7770,22 +8074,24 @@
       ],
       "coupons": [
         {
-          "amount": 15,
-          "min_amount": 20,
-          "discount_text": "满20减15",
-          "desc": "15元南京国微品牌商品券",
-          "zone": "样品券"
-        },
-        {
           "amount": 30,
           "min_amount": 200,
           "discount_text": "满200减30",
           "desc": "30元南京国微品牌商品券",
           "zone": "样品券"
+        },
+        {
+          "amount": 15,
+          "min_amount": 20,
+          "discount_text": "满20减15",
+          "desc": "<商城新人>15元南京国微品牌商品券",
+          "zone": "样品券"
         }
       ],
       "discount_types": [],
-      "user_types": [],
+      "user_types": [
+        "商城新人"
+      ],
       "max_discount": 30
     },
     {
@@ -8077,6 +8383,13 @@
       ],
       "coupons": [
         {
+          "amount": 20,
+          "min_amount": 500,
+          "discount_text": "满500减20",
+          "desc": "20元正芯半导体品牌商品券",
+          "zone": "样品券"
+        },
+        {
           "amount": 15,
           "min_amount": 16,
           "discount_text": "满16减15",
@@ -8090,7 +8403,7 @@
       "user_types": [
         "品牌新人"
       ],
-      "max_discount": 15
+      "max_discount": 20
     },
     {
       "id": "15297",
@@ -8166,10 +8479,10 @@
       ],
       "coupons": [
         {
-          "amount": 100,
-          "min_amount": 1000,
-          "discount_text": "满1000减100",
-          "desc": "100元开步睿思品牌商品券",
+          "amount": 15,
+          "min_amount": 16,
+          "discount_text": "满16减15",
+          "desc": "15元开步睿思品牌指定类目商品券",
           "zone": "样品券"
         },
         {
@@ -8180,9 +8493,11 @@
           "zone": "样品券"
         }
       ],
-      "discount_types": [],
+      "discount_types": [
+        "满16减15"
+      ],
       "user_types": [],
-      "max_discount": 100
+      "max_discount": 50
     },
     {
       "id": "15768",
@@ -8194,17 +8509,17 @@
       ],
       "coupons": [
         {
+          "amount": 20,
+          "min_amount": 60,
+          "discount_text": "满60减20",
+          "desc": "20元瑞鑫品牌商品券",
+          "zone": "样品券"
+        },
+        {
           "amount": 15,
           "min_amount": 16,
           "discount_text": "满16减15",
           "desc": "15元瑞鑫品牌商品券",
-          "zone": "样品券"
-        },
-        {
-          "amount": 30,
-          "min_amount": 100,
-          "discount_text": "满100减30",
-          "desc": "30元瑞鑫品牌商品券",
           "zone": "样品券"
         }
       ],
@@ -8212,7 +8527,7 @@
         "满16减15"
       ],
       "user_types": [],
-      "max_discount": 30
+      "max_discount": 20
     },
     {
       "id": "12574",
@@ -8238,13 +8553,6 @@
           "min_amount": 16,
           "discount_text": "满16减15",
           "desc": "15元台普品牌商品券",
-          "zone": "样品券"
-        },
-        {
-          "amount": 8,
-          "min_amount": 58,
-          "discount_text": "满58减8",
-          "desc": "8元台普品牌运费券",
           "zone": "样品券"
         },
         {
@@ -8343,23 +8651,23 @@
       ],
       "coupons": [
         {
+          "amount": 20,
+          "min_amount": 200,
+          "discount_text": "满200减20",
+          "desc": "20元瑞申电子品牌商品券",
+          "zone": "样品券"
+        },
+        {
           "amount": 15,
           "min_amount": 30,
           "discount_text": "满30减15",
           "desc": "15元瑞申电子品牌商品券",
           "zone": "样品券"
-        },
-        {
-          "amount": 30,
-          "min_amount": 200,
-          "discount_text": "满200减30",
-          "desc": "30元瑞申电子品牌商品券",
-          "zone": "样品券"
         }
       ],
       "discount_types": [],
       "user_types": [],
-      "max_discount": 30
+      "max_discount": 20
     },
     {
       "id": "11883",
@@ -8371,16 +8679,20 @@
       ],
       "coupons": [
         {
-          "amount": 50,
-          "min_amount": 1000,
-          "discount_text": "满1000减50",
-          "desc": "50元海旭品牌商品券",
+          "amount": 15,
+          "min_amount": 16,
+          "discount_text": "满16减15",
+          "desc": "<品牌新人>15元海旭品牌商品券",
           "zone": "样品券"
         }
       ],
-      "discount_types": [],
-      "user_types": [],
-      "max_discount": 50
+      "discount_types": [
+        "满16减15"
+      ],
+      "user_types": [
+        "品牌新人"
+      ],
+      "max_discount": 15
     },
     {
       "id": "13293",
@@ -8405,16 +8717,9 @@
       "coupons": [
         {
           "amount": 15,
-          "min_amount": 30,
-          "discount_text": "满30减15",
+          "min_amount": 20,
+          "discount_text": "满20减15",
           "desc": "15元赛亚品牌商品券",
-          "zone": "样品券"
-        },
-        {
-          "amount": 10,
-          "min_amount": 100,
-          "discount_text": "满100减10",
-          "desc": "10元赛亚品牌运费券",
           "zone": "样品券"
         }
       ],
@@ -8460,17 +8765,17 @@
       ],
       "coupons": [
         {
-          "amount": 15,
-          "min_amount": 16,
-          "discount_text": "满16减15",
-          "desc": "15元三佐品牌商品券",
-          "zone": "样品券"
-        },
-        {
           "amount": 25,
           "min_amount": 100,
           "discount_text": "满100减25",
           "desc": "25元三佐品牌商品券",
+          "zone": "样品券"
+        },
+        {
+          "amount": 15,
+          "min_amount": 16,
+          "discount_text": "满16减15",
+          "desc": "15元三佐品牌商品券",
           "zone": "样品券"
         }
       ],
@@ -8555,18 +8860,9 @@
           "discount_text": "满200减30",
           "desc": "30元信德品牌工业品券",
           "zone": "工业品"
-        },
-        {
-          "amount": 15,
-          "min_amount": 16,
-          "discount_text": "满16减15",
-          "desc": "15元信德品牌工业品券",
-          "zone": "工业品"
         }
       ],
-      "discount_types": [
-        "满16减15"
-      ],
+      "discount_types": [],
       "user_types": [],
       "max_discount": 30
     },
@@ -8601,30 +8897,6 @@
       "discount_types": [],
       "user_types": [],
       "max_discount": 15
-    },
-    {
-      "id": "13431",
-      "name": "Sencoch(芯感智)",
-      "catalog_count": 5,
-      "catalogs": [
-        "压力传感器",
-        "电流传感器",
-        "流量传感器",
-        "气体传感器",
-        "温度传感器"
-      ],
-      "coupons": [
-        {
-          "amount": 80,
-          "min_amount": 500,
-          "discount_text": "满500减80",
-          "desc": "80元芯感智品牌商品券",
-          "zone": "样品券"
-        }
-      ],
-      "discount_types": [],
-      "user_types": [],
-      "max_discount": 80
     },
     {
       "id": "17425",
@@ -8789,18 +9061,9 @@
           "discount_text": "满500减30",
           "desc": "30元首韩品牌商品券",
           "zone": "样品券"
-        },
-        {
-          "amount": 20,
-          "min_amount": 21,
-          "discount_text": "满21减20",
-          "desc": "20元首韩品牌商品券",
-          "zone": "样品券"
         }
       ],
-      "discount_types": [
-        "满21减20"
-      ],
+      "discount_types": [],
       "user_types": [],
       "max_discount": 30
     },
@@ -8921,23 +9184,23 @@
       ],
       "coupons": [
         {
-          "amount": 100,
-          "min_amount": 1000,
-          "discount_text": "满1000减100",
-          "desc": "100元芯联创展品牌商品券",
+          "amount": 30,
+          "min_amount": 100,
+          "discount_text": "满100减30",
+          "desc": "30元芯联创展品牌商品券",
           "zone": "样品券"
         },
         {
-          "amount": 30,
+          "amount": 50,
           "min_amount": 300,
-          "discount_text": "满300减30",
-          "desc": "30元芯联创展品牌商品券",
+          "discount_text": "满300减50",
+          "desc": "50元芯联创展品牌商品券",
           "zone": "样品券"
         }
       ],
       "discount_types": [],
       "user_types": [],
-      "max_discount": 100
+      "max_discount": 50
     },
     {
       "id": "15945",
@@ -8960,23 +9223,25 @@
       ],
       "coupons": [
         {
-          "amount": 100,
-          "min_amount": 1000,
-          "discount_text": "满1000减100",
-          "desc": "100元矽普品牌商品券",
+          "amount": 15,
+          "min_amount": 16,
+          "discount_text": "满16减15",
+          "desc": "15元矽普品牌商品券",
           "zone": "样品券"
         },
         {
-          "amount": 30,
+          "amount": 50,
           "min_amount": 500,
-          "discount_text": "满500减30",
-          "desc": "30元矽普品牌商品券",
+          "discount_text": "满500减50",
+          "desc": "50元矽普品牌商品券",
           "zone": "样品券"
         }
       ],
-      "discount_types": [],
+      "discount_types": [
+        "满16减15"
+      ],
       "user_types": [],
-      "max_discount": 100
+      "max_discount": 50
     },
     {
       "id": "12705",
@@ -9048,100 +9313,6 @@
       "max_discount": 15
     },
     {
-      "id": "11608",
-      "name": "Slkor(萨科微)",
-      "catalog_count": 68,
-      "catalogs": [
-        "静电和浪涌保护(TVS/ESD)",
-        "稳压二极管",
-        "场效应管(MOSFET)",
-        "三极管(BJT)",
-        "线性稳压器(LDO)",
-        "肖特基二极管",
-        "霍尔开关",
-        "快恢复/高效率二极管",
-        "整流桥",
-        "无源晶振",
-        "开关二极管",
-        "运算放大器",
-        "DC-DC电源芯片",
-        "数字晶体管",
-        "半导体放电管(TSS)",
-        "通用二极管",
-        "模数转换芯片ADC",
-        "线性霍尔传感器",
-        "晶闸管(可控硅)/模块",
-        "晶体管输出光耦",
-        "栅极驱动芯片",
-        "电池管理",
-        "IGBT管/模块",
-        "逻辑门",
-        "逻辑输出光耦",
-        "达林顿管",
-        "实时时钟(RTC)",
-        "EEPROM",
-        "精密运放",
-        "AC-DC控制器和稳压器",
-        "电压基准芯片",
-        "CAN收发器",
-        "电流传感器",
-        "达林顿晶体管阵列",
-        "RS-485/RS-422芯片",
-        "模拟开关/多路复用器",
-        "环境光传感器",
-        "比较器",
-        "音频功率放大器",
-        "监控和复位芯片",
-        "功率电子开关",
-        "移位寄存器",
-        "碳化硅场效应管(MOSFET)",
-        "RS232芯片",
-        "温度传感器",
-        "RF放大器",
-        "传感器模块",
-        "转换器/电平移位器",
-        "缓冲器/驱动器/收发器",
-        "反相器",
-        "555定时器/计时器",
-        "隔离式栅极驱动器",
-        "继电器/线圈驱动芯片",
-        "同步整流控制器",
-        "触发二极管",
-        "LED驱动",
-        "固态继电器(MOS输出)",
-        "可控硅输出光耦",
-        "触摸屏控制器",
-        "光纤/激光传感器",
-        "触发器",
-        "信号开关/编解码器/多路复用器",
-        "接近传感器",
-        "V/F和F/V转换芯片",
-        "栅极驱动光耦",
-        "无刷直流(BLDC)电机驱动芯片",
-        "有刷直流电机驱动芯片",
-        "视频接口芯片"
-      ],
-      "coupons": [
-        {
-          "amount": 15,
-          "min_amount": 20,
-          "discount_text": "满20减15",
-          "desc": "15元萨科微品牌商品券",
-          "zone": "样品券"
-        },
-        {
-          "amount": 100,
-          "min_amount": 1000,
-          "discount_text": "满1000减100",
-          "desc": "100元萨科微品牌商品券",
-          "zone": "样品券"
-        }
-      ],
-      "discount_types": [],
-      "user_types": [],
-      "max_discount": 100
-    },
-    {
       "id": "12572",
       "name": "SM Switch",
       "catalog_count": 6,
@@ -9155,17 +9326,17 @@
       ],
       "coupons": [
         {
-          "amount": 15,
-          "min_amount": 16,
-          "discount_text": "满16减15",
-          "desc": "15元SM Switch品牌商品券",
-          "zone": "样品券"
-        },
-        {
           "amount": 30,
           "min_amount": 200,
           "discount_text": "满200减30",
           "desc": "30元SM Switch品牌商品券",
+          "zone": "样品券"
+        },
+        {
+          "amount": 15,
+          "min_amount": 16,
+          "discount_text": "满16减15",
+          "desc": "15元SM Switch品牌商品券",
           "zone": "样品券"
         }
       ],
@@ -9262,17 +9433,46 @@
       "coupons": [
         {
           "amount": 15,
-          "min_amount": 30,
-          "discount_text": "满30减15",
-          "desc": "<商城新人>15元索斯特品牌指定类目商品券",
+          "min_amount": 16,
+          "discount_text": "满16减15",
+          "desc": "<品牌新人>15元索斯特品牌商品券",
+          "zone": "样品券"
+        }
+      ],
+      "discount_types": [
+        "满16减15"
+      ],
+      "user_types": [
+        "品牌新人"
+      ],
+      "max_discount": 15
+    },
+    {
+      "id": "24071",
+      "name": "SPEIPM(吉林华微斯帕克)",
+      "catalog_count": 1,
+      "catalogs": [
+        "智能功率模块(IPM)"
+      ],
+      "coupons": [
+        {
+          "amount": 15,
+          "min_amount": 20,
+          "discount_text": "满20减15",
+          "desc": "15元吉林华微斯帕克品牌商品券",
+          "zone": "样品券"
+        },
+        {
+          "amount": 50,
+          "min_amount": 200,
+          "discount_text": "满200减50",
+          "desc": "50元吉林华微斯帕克品牌商品券",
           "zone": "样品券"
         }
       ],
       "discount_types": [],
-      "user_types": [
-        "商城新人"
-      ],
-      "max_discount": 15
+      "user_types": [],
+      "max_discount": 50
     },
     {
       "id": "12137",
@@ -9288,10 +9488,10 @@
       ],
       "coupons": [
         {
-          "amount": 15,
-          "min_amount": 20,
-          "discount_text": "满20减15",
-          "desc": "15元深圳质超品牌商品券",
+          "amount": 25,
+          "min_amount": 50,
+          "discount_text": "满50减25",
+          "desc": "25元深圳质超品牌商品券",
           "zone": "样品券"
         },
         {
@@ -9491,36 +9691,6 @@
       "max_discount": 15
     },
     {
-      "id": "11540",
-      "name": "SUNLIGHT(光华)",
-      "catalog_count": 2,
-      "catalogs": [
-        "LED数码管",
-        "LED点阵屏"
-      ],
-      "coupons": [
-        {
-          "amount": 15,
-          "min_amount": 16,
-          "discount_text": "满16减15",
-          "desc": "15元光华品牌商品券",
-          "zone": "样品券"
-        },
-        {
-          "amount": 30,
-          "min_amount": 100,
-          "discount_text": "满100减30",
-          "desc": "30元光华品牌商品券",
-          "zone": "样品券"
-        }
-      ],
-      "discount_types": [
-        "满16减15"
-      ],
-      "user_types": [],
-      "max_discount": 30
-    },
-    {
       "id": "11440",
       "name": "Sunltech(顺磁)",
       "catalog_count": 13,
@@ -9541,25 +9711,27 @@
       ],
       "coupons": [
         {
-          "amount": 15,
-          "min_amount": 16,
-          "discount_text": "满16减15",
-          "desc": "15元顺磁品牌商品券",
+          "amount": 30,
+          "min_amount": 500,
+          "discount_text": "满500减30",
+          "desc": "30元顺磁品牌商品券",
           "zone": "样品券"
         },
         {
-          "amount": 80,
-          "min_amount": 1000,
-          "discount_text": "满1000减80",
-          "desc": "80元顺磁品牌商品券",
+          "amount": 15,
+          "min_amount": 16,
+          "discount_text": "满16减15",
+          "desc": "<品牌新人>15元顺磁品牌商品券",
           "zone": "样品券"
         }
       ],
       "discount_types": [
         "满16减15"
       ],
-      "user_types": [],
-      "max_discount": 80
+      "user_types": [
+        "品牌新人"
+      ],
+      "max_discount": 30
     },
     {
       "id": "1195",
@@ -9699,10 +9871,10 @@
           "zone": "样品券"
         },
         {
-          "amount": 50,
-          "min_amount": 500,
-          "discount_text": "满500减50",
-          "desc": "50元绍鑫品牌商品券",
+          "amount": 30,
+          "min_amount": 200,
+          "discount_text": "满200减30",
+          "desc": "30元绍鑫品牌商品券",
           "zone": "样品券"
         }
       ],
@@ -9710,7 +9882,7 @@
         "满16减15"
       ],
       "user_types": [],
-      "max_discount": 50
+      "max_discount": 30
     },
     {
       "id": "11353",
@@ -9738,13 +9910,6 @@
           "discount_text": "满1000减100",
           "desc": "100元顺翔诺品牌商品券",
           "zone": "样品券"
-        },
-        {
-          "amount": 0,
-          "min_amount": 1,
-          "discount_text": "0元券",
-          "desc": "<顺翔诺>9.5折PLUS专属券",
-          "zone": "PLUS"
         }
       ],
       "discount_types": [
@@ -9820,29 +9985,32 @@
       "max_discount": 35
     },
     {
-      "id": "12270",
-      "name": "TDPOWER(腾达电源)",
+      "id": "27056",
+      "name": "TDO(冠显光电)",
       "catalog_count": 2,
       "catalogs": [
-        "隔离电源模块",
-        "AC-DC电源模块"
+        "LCD显示屏",
+        "OLED显示屏"
       ],
       "coupons": [
         {
           "amount": 15,
-          "min_amount": 16,
-          "discount_text": "满16减15",
-          "desc": "<商城新人>15元腾达电源品牌商品券",
+          "min_amount": 100,
+          "discount_text": "满100减15",
+          "desc": "15元冠显光电品牌商品券",
+          "zone": "样品券"
+        },
+        {
+          "amount": 30,
+          "min_amount": 200,
+          "discount_text": "满200减30",
+          "desc": "30元冠显光电品牌商品券",
           "zone": "样品券"
         }
       ],
-      "discount_types": [
-        "满16减15"
-      ],
-      "user_types": [
-        "商城新人"
-      ],
-      "max_discount": 15
+      "discount_types": [],
+      "user_types": [],
+      "max_discount": 30
     },
     {
       "id": "16094",
@@ -10027,17 +10195,17 @@
       ],
       "coupons": [
         {
-          "amount": 40,
-          "min_amount": 60,
-          "discount_text": "满60减40",
-          "desc": "40元技象科技品牌商品券",
-          "zone": "样品券"
-        },
-        {
           "amount": 25,
           "min_amount": 26,
           "discount_text": "满26减25",
           "desc": "25元技象科技品牌商品券",
+          "zone": "样品券"
+        },
+        {
+          "amount": 40,
+          "min_amount": 60,
+          "discount_text": "满60减40",
+          "desc": "40元技象科技品牌商品券",
           "zone": "样品券"
         }
       ],
@@ -10123,6 +10291,32 @@
       "max_discount": 50
     },
     {
+      "id": "11401",
+      "name": "TOPAZCON(黄宝石)",
+      "catalog_count": 5,
+      "catalogs": [
+        "直插铝电解电容",
+        "贴片型铝电解电容",
+        "固态电容",
+        "贴片电容(MLCC)",
+        "牛角型电解电容"
+      ],
+      "coupons": [
+        {
+          "amount": 15,
+          "min_amount": 16,
+          "discount_text": "满16减15",
+          "desc": "15元黄宝石品牌商品券",
+          "zone": "样品券"
+        }
+      ],
+      "discount_types": [
+        "满16减15"
+      ],
+      "user_types": [],
+      "max_discount": 15
+    },
+    {
       "id": "11941",
       "name": "TPOWER(天源)",
       "catalog_count": 5,
@@ -10149,6 +10343,29 @@
       "max_discount": 15
     },
     {
+      "id": "17397",
+      "name": "TRELIN(创联)",
+      "catalog_count": 4,
+      "catalogs": [
+        "机壳式开关电源",
+        "开放式开关电源",
+        "导轨开关电源",
+        "开关电源"
+      ],
+      "coupons": [
+        {
+          "amount": 5,
+          "min_amount": 10,
+          "discount_text": "满10减5",
+          "desc": "5元创联品牌工业品券",
+          "zone": "工业品"
+        }
+      ],
+      "discount_types": [],
+      "user_types": [],
+      "max_discount": 5
+    },
+    {
       "id": "12546",
       "name": "TROQ(创捷)",
       "catalog_count": 2,
@@ -10170,6 +10387,37 @@
       ],
       "user_types": [],
       "max_discount": 15
+    },
+    {
+      "id": "11939",
+      "name": "Truesemi(信安)",
+      "catalog_count": 1,
+      "catalogs": [
+        "场效应管(MOSFET)"
+      ],
+      "coupons": [
+        {
+          "amount": 25,
+          "min_amount": 100,
+          "discount_text": "满100减25",
+          "desc": "25元信安品牌商品券",
+          "zone": "样品券"
+        },
+        {
+          "amount": 15,
+          "min_amount": 16,
+          "discount_text": "满16减15",
+          "desc": "<品牌新人>15元信安品牌商品券",
+          "zone": "样品券"
+        }
+      ],
+      "discount_types": [
+        "满16减15"
+      ],
+      "user_types": [
+        "品牌新人"
+      ],
+      "max_discount": 25
     },
     {
       "id": "16038",
@@ -10286,17 +10534,17 @@
       ],
       "coupons": [
         {
+          "amount": 30,
+          "min_amount": 200,
+          "discount_text": "满200减30",
+          "desc": "30元迪嘉品牌商品券",
+          "zone": "样品券"
+        },
+        {
           "amount": 15,
           "min_amount": 16,
           "discount_text": "满16减15",
           "desc": "15元迪嘉品牌商品券",
-          "zone": "样品券"
-        },
-        {
-          "amount": 50,
-          "min_amount": 300,
-          "discount_text": "满300减50",
-          "desc": "50元迪嘉品牌商品券",
           "zone": "样品券"
         }
       ],
@@ -10304,7 +10552,7 @@
         "满16减15"
       ],
       "user_types": [],
-      "max_discount": 50
+      "max_discount": 30
     },
     {
       "id": "12006",
@@ -10328,13 +10576,20 @@
           "discount_text": "满16减15",
           "desc": "15元友贸品牌商品券",
           "zone": "样品券"
+        },
+        {
+          "amount": 30,
+          "min_amount": 500,
+          "discount_text": "满500减30",
+          "desc": "30元友贸品牌商品券",
+          "zone": "样品券"
         }
       ],
       "discount_types": [
         "满16减15"
       ],
       "user_types": [],
-      "max_discount": 15
+      "max_discount": 30
     },
     {
       "id": "11853",
@@ -10385,17 +10640,17 @@
       ],
       "coupons": [
         {
-          "amount": 15,
-          "min_amount": 16,
-          "discount_text": "满16减15",
-          "desc": "15元友台半导体品牌商品券",
-          "zone": "样品券"
-        },
-        {
           "amount": 30,
           "min_amount": 500,
           "discount_text": "满500减30",
           "desc": "30元友台半导体品牌商品券",
+          "zone": "样品券"
+        },
+        {
+          "amount": 15,
+          "min_amount": 16,
+          "discount_text": "满16减15",
+          "desc": "15元友台半导体品牌商品券",
           "zone": "样品券"
         }
       ],
@@ -10462,60 +10717,6 @@
       "discount_types": [],
       "user_types": [],
       "max_discount": 10
-    },
-    {
-      "id": "12164",
-      "name": "USAKRO(美韩)",
-      "catalog_count": 13,
-      "catalogs": [
-        "轻触开关",
-        "拨码开关",
-        "以太网连接器(RJ45 RJ11)",
-        "线对板针座",
-        "网口变压器",
-        "滑动开关",
-        "行程开关",
-        "按键开关",
-        "USB连接器",
-        "DC电源连接器",
-        "旋转开关",
-        "共模滤波器",
-        "音频连接器(耳机)"
-      ],
-      "coupons": [
-        {
-          "amount": 20,
-          "min_amount": 200,
-          "discount_text": "满200减20",
-          "desc": "20元美韩品牌商品券",
-          "zone": "样品券"
-        }
-      ],
-      "discount_types": [],
-      "user_types": [],
-      "max_discount": 20
-    },
-    {
-      "id": "24933",
-      "name": "vanxoak(万象奥科)",
-      "catalog_count": 1,
-      "catalogs": [
-        "开发板"
-      ],
-      "coupons": [
-        {
-          "amount": 100,
-          "min_amount": 500,
-          "discount_text": "满500减100",
-          "desc": "<品牌新人>100元万象奥科品牌商品券",
-          "zone": "样品券"
-        }
-      ],
-      "discount_types": [],
-      "user_types": [
-        "品牌新人"
-      ],
-      "max_discount": 100
     },
     {
       "id": "12425",
@@ -10688,25 +10889,59 @@
       ],
       "coupons": [
         {
-          "amount": 20,
-          "min_amount": 200,
-          "discount_text": "满200减20",
-          "desc": "20元万盛品牌商品券",
-          "zone": "样品券"
-        },
-        {
           "amount": 15,
           "min_amount": 16,
           "discount_text": "满16减15",
-          "desc": "15元万盛品牌商品券",
+          "desc": "<品牌新人>15元万盛品牌商品券",
           "zone": "样品券"
         }
       ],
       "discount_types": [
         "满16减15"
       ],
+      "user_types": [
+        "品牌新人"
+      ],
+      "max_discount": 15
+    },
+    {
+      "id": "26991",
+      "name": "WDWL(万德)",
+      "catalog_count": 6,
+      "catalogs": [
+        "手指套",
+        "防静电手套",
+        "涂层手套",
+        "一次性手套",
+        "清洁手套",
+        "通用工作手套"
+      ],
+      "coupons": [
+        {
+          "amount": 80,
+          "min_amount": 1000,
+          "discount_text": "满1000减80",
+          "desc": "80元万德品牌工业品券",
+          "zone": "工业品"
+        },
+        {
+          "amount": 30,
+          "min_amount": 500,
+          "discount_text": "满500减30",
+          "desc": "30元万德品牌工业品券",
+          "zone": "工业品"
+        },
+        {
+          "amount": 20,
+          "min_amount": 200,
+          "discount_text": "满200减20",
+          "desc": "20元万德品牌工业品券",
+          "zone": "工业品"
+        }
+      ],
+      "discount_types": [],
       "user_types": [],
-      "max_discount": 20
+      "max_discount": 80
     },
     {
       "id": "12761",
@@ -10726,10 +10961,10 @@
           "zone": "样品券"
         },
         {
-          "amount": 50,
-          "min_amount": 300,
-          "discount_text": "满300减50",
-          "desc": "50元伟烽品牌商品券",
+          "amount": 30,
+          "min_amount": 200,
+          "discount_text": "满200减30",
+          "desc": "30元伟烽品牌商品券",
           "zone": "样品券"
         }
       ],
@@ -10737,7 +10972,7 @@
         "满16减15"
       ],
       "user_types": [],
-      "max_discount": 50
+      "max_discount": 30
     },
     {
       "id": "12362",
@@ -10897,6 +11132,13 @@
       ],
       "coupons": [
         {
+          "amount": 30,
+          "min_amount": 300,
+          "discount_text": "满300减30",
+          "desc": "30元国硅集成品牌商品券",
+          "zone": "样品券"
+        },
+        {
           "amount": 15,
           "min_amount": 16,
           "discount_text": "满16减15",
@@ -10908,7 +11150,7 @@
         "满16减15"
       ],
       "user_types": [],
-      "max_discount": 15
+      "max_discount": 30
     },
     {
       "id": "15584",
@@ -10979,59 +11221,21 @@
           "discount_text": "满500减50",
           "desc": "50元芯伯乐品牌商品券",
           "zone": "样品券"
+        },
+        {
+          "amount": 20,
+          "min_amount": 21,
+          "discount_text": "满21减20",
+          "desc": "<芯伯乐>20元PLUS专属券",
+          "zone": "PLUS"
         }
       ],
       "discount_types": [
-        "满16减15"
+        "满16减15",
+        "满21减20"
       ],
       "user_types": [],
       "max_discount": 50
-    },
-    {
-      "id": "13273",
-      "name": "XCH(旭昌辉)",
-      "catalog_count": 18,
-      "catalogs": [
-        "稳压二极管",
-        "静电和浪涌保护(TVS/ESD)",
-        "肖特基二极管",
-        "快恢复/高效率二极管",
-        "三极管(BJT)",
-        "通用二极管",
-        "整流桥",
-        "场效应管(MOSFET)",
-        "晶闸管(可控硅)/模块",
-        "开关二极管",
-        "雪崩二极管",
-        "线性稳压器(LDO)",
-        "触发二极管",
-        "气体放电管(GDT)",
-        "碳化硅二极管",
-        "半导体放电管(TSS)",
-        "晶体管输出光耦",
-        "电压基准芯片"
-      ],
-      "coupons": [
-        {
-          "amount": 15,
-          "min_amount": 16,
-          "discount_text": "满16减15",
-          "desc": "15元旭昌辉品牌商品券",
-          "zone": "样品券"
-        },
-        {
-          "amount": 30,
-          "min_amount": 200,
-          "discount_text": "满200减30",
-          "desc": "30元旭昌辉品牌商品券",
-          "zone": "样品券"
-        }
-      ],
-      "discount_types": [
-        "满16减15"
-      ],
-      "user_types": [],
-      "max_discount": 30
     },
     {
       "id": "11758",
@@ -11188,6 +11392,32 @@
       "max_discount": 50
     },
     {
+      "id": "18771",
+      "name": "XHXDZ(兴华鑫)",
+      "catalog_count": 3,
+      "catalogs": [
+        "扬声器/喇叭",
+        "蜂鸣器",
+        "咪头/麦克风"
+      ],
+      "coupons": [
+        {
+          "amount": 15,
+          "min_amount": 16,
+          "discount_text": "满16减15",
+          "desc": "<品牌新人>15元兴华鑫品牌商品券",
+          "zone": "样品券"
+        }
+      ],
+      "discount_types": [
+        "满16减15"
+      ],
+      "user_types": [
+        "品牌新人"
+      ],
+      "max_discount": 15
+    },
+    {
       "id": "12469",
       "name": "XINGLIGHT(成兴光)",
       "catalog_count": 17,
@@ -11233,18 +11463,25 @@
       "max_discount": 50
     },
     {
-      "id": "18864",
-      "name": "xinyijing technology(鑫亿晶科技)",
-      "catalog_count": 1,
+      "id": "13320",
+      "name": "Xinyangze(鑫扬泽)",
+      "catalog_count": 8,
       "catalogs": [
-        "无源晶振"
+        "Pogo Pin弹簧探针连接器",
+        "连接器附件",
+        "排针",
+        "天线弹片",
+        "排母",
+        "RF射频同轴连接器",
+        "屏蔽夹",
+        "其它五金"
       ],
       "coupons": [
         {
           "amount": 15,
           "min_amount": 16,
           "discount_text": "满16减15",
-          "desc": "15元鑫亿晶科技品牌指定类目商品券",
+          "desc": "15元鑫扬泽品牌商品券",
           "zone": "样品券"
         }
       ],
@@ -11315,17 +11552,22 @@
           "amount": 15,
           "min_amount": 16,
           "discount_text": "满16减15",
-          "desc": "<商城新人>15元中国星坤品牌指定类目商品券",
+          "desc": "15元中国星坤品牌商品券",
+          "zone": "样品券"
+        },
+        {
+          "amount": 100,
+          "min_amount": 500,
+          "discount_text": "满500减100",
+          "desc": "100元中国星坤品牌商品券",
           "zone": "样品券"
         }
       ],
       "discount_types": [
         "满16减15"
       ],
-      "user_types": [
-        "商城新人"
-      ],
-      "max_discount": 15
+      "user_types": [],
+      "max_discount": 100
     },
     {
       "id": "11962",
@@ -11418,13 +11660,6 @@
           "discount_text": "满300减80",
           "desc": "80元祥如品牌商品券",
           "zone": "样品券"
-        },
-        {
-          "amount": 50,
-          "min_amount": 300,
-          "discount_text": "满300减50",
-          "desc": "<祥如>50元PLUS专属券",
-          "zone": "PLUS"
         }
       ],
       "discount_types": [
@@ -11454,39 +11689,6 @@
         "品牌新人"
       ],
       "max_discount": 9
-    },
-    {
-      "id": "12046",
-      "name": "XTALTQ(恒晶科技)",
-      "catalog_count": 3,
-      "catalogs": [
-        "温度补偿晶体振荡器(TCXO)",
-        "恒温晶体振荡器(OCXO)",
-        "压控晶体振荡器(VCXO)"
-      ],
-      "coupons": [
-        {
-          "amount": 15,
-          "min_amount": 16,
-          "discount_text": "满16减15",
-          "desc": "<品牌新人>15元恒晶科技品牌商品券",
-          "zone": "样品券"
-        },
-        {
-          "amount": 50,
-          "min_amount": 500,
-          "discount_text": "满500减50",
-          "desc": "50元恒晶科技品牌商品券",
-          "zone": "样品券"
-        }
-      ],
-      "discount_types": [
-        "满16减15"
-      ],
-      "user_types": [
-        "品牌新人"
-      ],
-      "max_discount": 50
     },
     {
       "id": "16031",
@@ -11619,25 +11821,18 @@
           "zone": "样品券"
         },
         {
-          "amount": 188,
+          "amount": 100,
           "min_amount": 2000,
-          "discount_text": "满2000减188",
-          "desc": "188元讯普品牌商品券",
+          "discount_text": "满2000减100",
+          "desc": "100元讯普品牌商品券",
           "zone": "样品券"
-        },
-        {
-          "amount": 30,
-          "min_amount": 300,
-          "discount_text": "满300减30",
-          "desc": "<讯普>30元PLUS专属券",
-          "zone": "PLUS"
         }
       ],
       "discount_types": [
         "满16减15"
       ],
       "user_types": [],
-      "max_discount": 188
+      "max_discount": 100
     },
     {
       "id": "15593",
@@ -11678,10 +11873,10 @@
       ],
       "coupons": [
         {
-          "amount": 20,
+          "amount": 25,
           "min_amount": 100,
-          "discount_text": "满100减20",
-          "desc": "20元辛译品牌商品券",
+          "discount_text": "满100减25",
+          "desc": "25元辛译品牌商品券",
           "zone": "样品券"
         },
         {
@@ -11703,7 +11898,7 @@
         "满16减15"
       ],
       "user_types": [],
-      "max_discount": 20
+      "max_discount": 25
     },
     {
       "id": "12113",
@@ -11862,14 +12057,14 @@
           "amount": 15,
           "min_amount": 16,
           "discount_text": "满16减15",
-          "desc": "15元雅晶鑫品牌指定类目商品券",
+          "desc": "15元雅晶鑫品牌商品券",
           "zone": "样品券"
         },
         {
           "amount": 50,
           "min_amount": 500,
           "discount_text": "满500减50",
-          "desc": "50元雅晶鑫品牌指定类目商品券",
+          "desc": "50元雅晶鑫品牌商品券",
           "zone": "样品券"
         }
       ],
@@ -12005,24 +12200,22 @@
           "amount": 15,
           "min_amount": 16,
           "discount_text": "满16减15",
-          "desc": "<品牌新人>15元永裕泰品牌首单商品券",
+          "desc": "15元永裕泰品牌商品券",
           "zone": "样品券"
         },
         {
-          "amount": 25,
+          "amount": 30,
           "min_amount": 300,
-          "discount_text": "满300减25",
-          "desc": "25元永裕泰品牌商品券",
+          "discount_text": "满300减30",
+          "desc": "30元永裕泰品牌商品券",
           "zone": "样品券"
         }
       ],
       "discount_types": [
         "满16减15"
       ],
-      "user_types": [
-        "品牌新人"
-      ],
-      "max_discount": 25
+      "user_types": [],
+      "max_discount": 30
     },
     {
       "id": "18673",
@@ -12034,25 +12227,86 @@
       ],
       "coupons": [
         {
-          "amount": 20,
-          "min_amount": 21,
-          "discount_text": "满21减20",
-          "desc": "20元佑驰品牌商品券",
+          "amount": 30,
+          "min_amount": 100,
+          "discount_text": "满100减30",
+          "desc": "30元佑驰品牌商品券",
           "zone": "样品券"
         },
         {
-          "amount": 35,
-          "min_amount": 100,
-          "discount_text": "满100减35",
-          "desc": "35元佑驰品牌商品券",
+          "amount": 15,
+          "min_amount": 20,
+          "discount_text": "满20减15",
+          "desc": "15元佑驰品牌商品券",
+          "zone": "样品券"
+        }
+      ],
+      "discount_types": [],
+      "user_types": [],
+      "max_discount": 30
+    },
+    {
+      "id": "12342",
+      "name": "YTL(亚特联)",
+      "catalog_count": 40,
+      "catalogs": [
+        "自恢复保险丝",
+        "稳压二极管",
+        "静电和浪涌保护(TVS/ESD)",
+        "可调电阻/电位器",
+        "操纵杆/导航开关",
+        "肖特基二极管",
+        "场效应管(MOSFET)",
+        "三极管(BJT)",
+        "开关二极管",
+        "RF滤波器",
+        "减速电机",
+        "轻触开关",
+        "数字晶体管",
+        "通用二极管",
+        "MEMS麦克风",
+        "直流电机",
+        "OLED显示屏",
+        "蓝牙模块",
+        "开发板",
+        "天线弹片",
+        "消毒器",
+        "旋转编码开关",
+        "USB连接器",
+        "无线收发芯片",
+        "温度传感器",
+        "天线",
+        "压力传感器",
+        "传感器模块",
+        "USB转换模块",
+        "胶壳(线对板/线对线)",
+        "紫外线LED(UVLED)",
+        "通讯设备",
+        "差压传感器",
+        "DC-DC电源模块",
+        "按键开关",
+        "姿态传感器/陀螺仪",
+        "音频连接器(耳机)",
+        "滑动开关",
+        "WiFi模块",
+        "其他模块"
+      ],
+      "coupons": [
+        {
+          "amount": 15,
+          "min_amount": 16,
+          "discount_text": "满16减15",
+          "desc": "<品牌新人>15元亚特联品牌商品券",
           "zone": "样品券"
         }
       ],
       "discount_types": [
-        "满21减20"
+        "满16减15"
       ],
-      "user_types": [],
-      "max_discount": 35
+      "user_types": [
+        "品牌新人"
+      ],
+      "max_discount": 15
     },
     {
       "id": "12165",
@@ -12074,17 +12328,17 @@
       ],
       "coupons": [
         {
-          "amount": 15,
-          "min_amount": 16,
-          "discount_text": "满16减15",
-          "desc": "15元元迪品牌商品券",
-          "zone": "样品券"
-        },
-        {
           "amount": 30,
           "min_amount": 300,
           "discount_text": "满300减30",
           "desc": "30元元迪品牌商品券",
+          "zone": "样品券"
+        },
+        {
+          "amount": 15,
+          "min_amount": 16,
+          "discount_text": "满16减15",
+          "desc": "15元元迪品牌商品券",
           "zone": "样品券"
         }
       ],
@@ -12150,13 +12404,6 @@
           "discount_text": "满16减15",
           "desc": "<商城新人>15元云星品牌商品券",
           "zone": "样品券"
-        },
-        {
-          "amount": 80,
-          "min_amount": 1000,
-          "discount_text": "满1000减80",
-          "desc": "<商城新人>80元云星品牌商品券",
-          "zone": "样品券"
         }
       ],
       "discount_types": [
@@ -12165,7 +12412,7 @@
       "user_types": [
         "商城新人"
       ],
-      "max_discount": 80
+      "max_discount": 15
     },
     {
       "id": "26864",
@@ -12179,17 +12426,17 @@
       ],
       "coupons": [
         {
-          "amount": 30,
-          "min_amount": 200,
-          "discount_text": "满200减30",
-          "desc": "30元宇文发品牌商品券",
-          "zone": "样品券"
-        },
-        {
           "amount": 20,
           "min_amount": 21,
           "discount_text": "满21减20",
           "desc": "20元宇文发品牌商品券",
+          "zone": "样品券"
+        },
+        {
+          "amount": 30,
+          "min_amount": 100,
+          "discount_text": "满100减30",
+          "desc": "30元宇文发品牌商品券",
           "zone": "样品券"
         }
       ],
@@ -12215,17 +12462,17 @@
       ],
       "coupons": [
         {
+          "amount": 30,
+          "min_amount": 600,
+          "discount_text": "满600减30",
+          "desc": "30元扬兴晶振品牌商品券",
+          "zone": "样品券"
+        },
+        {
           "amount": 15,
           "min_amount": 16,
           "discount_text": "满16减15",
           "desc": "<品牌新人>15元扬兴晶振品牌商品券",
-          "zone": "样品券"
-        },
-        {
-          "amount": 30,
-          "min_amount": 1000,
-          "discount_text": "满1000减30",
-          "desc": "30元扬兴晶振品牌商品券",
           "zone": "样品券"
         }
       ],
@@ -12317,25 +12564,25 @@
       ],
       "coupons": [
         {
-          "amount": 20,
-          "min_amount": 21,
-          "discount_text": "满21减20",
-          "desc": "20元温达电子品牌商品券",
+          "amount": 25,
+          "min_amount": 26,
+          "discount_text": "满26减25",
+          "desc": "<品牌新人>25元温达电子品牌商品券",
           "zone": "样品券"
         },
         {
-          "amount": 100,
-          "min_amount": 1000,
-          "discount_text": "满1000减100",
-          "desc": "100元温达电子品牌商品券",
+          "amount": 50,
+          "min_amount": 500,
+          "discount_text": "满500减50",
+          "desc": "50元温达电子品牌商品券",
           "zone": "样品券"
         }
       ],
-      "discount_types": [
-        "满21减20"
+      "discount_types": [],
+      "user_types": [
+        "品牌新人"
       ],
-      "user_types": [],
-      "max_discount": 100
+      "max_discount": 50
     },
     {
       "id": "13493",
@@ -12361,10 +12608,10 @@
           "zone": "样品券"
         },
         {
-          "amount": 30,
+          "amount": 50,
           "min_amount": 300,
-          "discount_text": "满300减30",
-          "desc": "30元正芯品牌商品券",
+          "discount_text": "满300减50",
+          "desc": "50元正芯品牌商品券",
           "zone": "样品券"
         }
       ],
@@ -12372,7 +12619,7 @@
         "满16减15"
       ],
       "user_types": [],
-      "max_discount": 30
+      "max_discount": 50
     },
     {
       "id": "825",
@@ -12428,12 +12675,38 @@
           "discount_text": "满30减15",
           "desc": "15元海芯电子品牌商品券",
           "zone": "样品券"
+        }
+      ],
+      "discount_types": [],
+      "user_types": [],
+      "max_discount": 15
+    },
+    {
+      "id": "12520",
+      "name": "ZHIDE(志得)",
+      "catalog_count": 7,
+      "catalogs": [
+        "静电和浪涌保护(TVS/ESD)",
+        "稳压二极管",
+        "肖特基二极管",
+        "快恢复/高效率二极管",
+        "通用二极管",
+        "触发二极管",
+        "半导体放电管(TSS)"
+      ],
+      "coupons": [
+        {
+          "amount": 15,
+          "min_amount": 20,
+          "discount_text": "满20减15",
+          "desc": "15元志得品牌商品券",
+          "zone": "样品券"
         },
         {
           "amount": 30,
-          "min_amount": 100,
-          "discount_text": "满100减30",
-          "desc": "30元海芯电子品牌商品券",
+          "min_amount": 200,
+          "discount_text": "满200减30",
+          "desc": "30元志得品牌商品券",
           "zone": "样品券"
         }
       ],
@@ -12460,20 +12733,13 @@
           "discount_text": "满16减15",
           "desc": "15元众迪品牌商品券",
           "zone": "样品券"
-        },
-        {
-          "amount": 30,
-          "min_amount": 300,
-          "discount_text": "满300减30",
-          "desc": "30元众迪品牌商品券",
-          "zone": "样品券"
         }
       ],
       "discount_types": [
         "满16减15"
       ],
       "user_types": [],
-      "max_discount": 30
+      "max_discount": 15
     },
     {
       "id": "25253",
@@ -12590,13 +12856,6 @@
           "discount_text": "满100减15",
           "desc": "15元伊万视波品牌工业品券",
           "zone": "工业品"
-        },
-        {
-          "amount": 10,
-          "min_amount": 11,
-          "discount_text": "满11减10",
-          "desc": "10元伊万视波品牌工业品券",
-          "zone": "工业品"
         }
       ],
       "discount_types": [],
@@ -12618,7 +12877,7 @@
           "amount": 15,
           "min_amount": 16,
           "discount_text": "满16减15",
-          "desc": "<品牌新人>15元众驰电子品牌商品券",
+          "desc": "15元众驰电子品牌商品券",
           "zone": "样品券"
         },
         {
@@ -12632,9 +12891,7 @@
       "discount_types": [
         "满16减15"
       ],
-      "user_types": [
-        "品牌新人"
-      ],
+      "user_types": [],
       "max_discount": 50
     },
     {
@@ -12671,18 +12928,18 @@
       ],
       "coupons": [
         {
-          "amount": 15,
-          "min_amount": 16,
-          "discount_text": "满16减15",
-          "desc": "15元台湾陆海品牌商品券",
+          "amount": 20,
+          "min_amount": 21,
+          "discount_text": "满21减20",
+          "desc": "20元台湾陆海品牌商品券",
           "zone": "样品券"
         }
       ],
       "discount_types": [
-        "满16减15"
+        "满21减20"
       ],
       "user_types": [],
-      "max_discount": 15
+      "max_discount": 20
     },
     {
       "id": "16268",
@@ -12728,7 +12985,7 @@
           "amount": 15,
           "min_amount": 16,
           "discount_text": "满16减15",
-          "desc": "<商城新人>15元国星光电品牌商品券",
+          "desc": "<品牌新人>15元国星光电品牌商品券",
           "zone": "样品券"
         },
         {
@@ -12737,13 +12994,20 @@
           "discount_text": "满200减50",
           "desc": "50元国星光电品牌商品券",
           "zone": "样品券"
+        },
+        {
+          "amount": 0,
+          "min_amount": 1,
+          "discount_text": "0元券",
+          "desc": "<国星光电>9.5折PLUS专属券",
+          "zone": "PLUS"
         }
       ],
       "discount_types": [
         "满16减15"
       ],
       "user_types": [
-        "商城新人"
+        "品牌新人"
       ],
       "max_discount": 50
     },
@@ -12762,16 +13026,16 @@
       ],
       "coupons": [
         {
-          "amount": 30,
-          "min_amount": 100,
-          "discount_text": "满100减30",
-          "desc": "30元国芯佳品品牌商品券",
+          "amount": 15,
+          "min_amount": 30,
+          "discount_text": "满30减15",
+          "desc": "15元国芯佳品品牌商品券",
           "zone": "样品券"
         }
       ],
       "discount_types": [],
       "user_types": [],
-      "max_discount": 30
+      "max_discount": 15
     },
     {
       "id": "18504",
@@ -12840,13 +13104,6 @@
       ],
       "coupons": [
         {
-          "amount": 20,
-          "min_amount": 200,
-          "discount_text": "满200减20",
-          "desc": "20元康深品牌商品券",
-          "zone": "样品券"
-        },
-        {
           "amount": 15,
           "min_amount": 16,
           "discount_text": "满16减15",
@@ -12854,10 +13111,10 @@
           "zone": "样品券"
         },
         {
-          "amount": 7,
-          "min_amount": 500,
-          "discount_text": "满500减7",
-          "desc": "7元康深品牌运费券",
+          "amount": 30,
+          "min_amount": 200,
+          "discount_text": "满200减30",
+          "desc": "30元康深品牌商品券",
           "zone": "样品券"
         }
       ],
@@ -12865,7 +13122,7 @@
         "满16减15"
       ],
       "user_types": [],
-      "max_discount": 20
+      "max_discount": 30
     },
     {
       "id": "12581",
@@ -12921,6 +13178,29 @@
       "max_discount": 60
     },
     {
+      "id": "27248",
+      "name": "柯睿",
+      "catalog_count": 2,
+      "catalogs": [
+        "Pogo Pin弹簧探针连接器",
+        "电源线/刹车线/延长线"
+      ],
+      "coupons": [
+        {
+          "amount": 15,
+          "min_amount": 16,
+          "discount_text": "满16减15",
+          "desc": "15元柯睿品牌商品券",
+          "zone": "样品券"
+        }
+      ],
+      "discount_types": [
+        "满16减15"
+      ],
+      "user_types": [],
+      "max_discount": 15
+    },
+    {
       "id": "12580",
       "name": "欧思科光电",
       "catalog_count": 3,
@@ -12936,13 +13216,20 @@
           "discount_text": "满16减15",
           "desc": "15元欧思科光电品牌商品券",
           "zone": "样品券"
+        },
+        {
+          "amount": 100,
+          "min_amount": 1000,
+          "discount_text": "满1000减100",
+          "desc": "100元欧思科光电品牌商品券",
+          "zone": "样品券"
         }
       ],
       "discount_types": [
         "满16减15"
       ],
       "user_types": [],
-      "max_discount": 15
+      "max_discount": 100
     },
     {
       "id": "18751",
@@ -12959,16 +13246,14 @@
           "amount": 15,
           "min_amount": 16,
           "discount_text": "满16减15",
-          "desc": "<品牌新人>15元深海电子品牌商品券",
+          "desc": "15元深海电子品牌商品券",
           "zone": "样品券"
         }
       ],
       "discount_types": [
         "满16减15"
       ],
-      "user_types": [
-        "品牌新人"
-      ],
+      "user_types": [],
       "max_discount": 15
     },
     {
@@ -12993,16 +13278,18 @@
       ],
       "coupons": [
         {
-          "amount": 20,
-          "min_amount": 100,
-          "discount_text": "满100减20",
-          "desc": "20元皇捷品牌商品券",
+          "amount": 15,
+          "min_amount": 16,
+          "discount_text": "满16减15",
+          "desc": "15元皇捷品牌商品券",
           "zone": "样品券"
         }
       ],
-      "discount_types": [],
+      "discount_types": [
+        "满16减15"
+      ],
       "user_types": [],
-      "max_discount": 20
+      "max_discount": 15
     },
     {
       "id": "11735",
@@ -13085,9 +13372,36 @@
       ],
       "user_types": [],
       "max_discount": 60
+    },
+    {
+      "id": "27131",
+      "name": "领晨",
+      "catalog_count": 5,
+      "catalogs": [
+        "静电和浪涌保护(TVS/ESD)",
+        "快恢复/高效率二极管",
+        "肖特基二极管",
+        "通用二极管",
+        "整流桥"
+      ],
+      "coupons": [
+        {
+          "amount": 15,
+          "min_amount": 16,
+          "discount_text": "满16减15",
+          "desc": "15元领晨品牌商品券",
+          "zone": "样品券"
+        }
+      ],
+      "discount_types": [
+        "满16减15"
+      ],
+      "user_types": [],
+      "max_discount": 15
     }
   ],
   "categories": [
+    "3D磁传感器",
     "555定时器/计时器",
     "ABS直通隔离柱",
     "AC-DC控制器和稳压器",
@@ -13122,10 +13436,10 @@
     "IEEE 1394/火线连接器",
     "IGBT管/模块",
     "IrDA红外收发模块",
+    "LCD显示屏",
     "LCD驱动",
     "LED保护",
     "LED数码管",
-    "LED点阵屏",
     "LED隔离柱",
     "LED驱动",
     "LIN收发器",
@@ -13136,6 +13450,7 @@
     "NAND FLASH",
     "NOR FLASH",
     "NTC热敏电阻",
+    "OLED显示屏",
     "PCB焊接端子",
     "PCI/PCIe连接器",
     "PET胶带",
@@ -13147,7 +13462,6 @@
     "RF其它IC和模块",
     "RF功分器/合路器",
     "RF射频同轴连接器",
-    "RF放大器",
     "RF混频器",
     "RF滤波器",
     "RF耦合器",
@@ -13158,7 +13472,6 @@
     "RS232总线模块",
     "RS232芯片",
     "RS485总线模块",
-    "RTV胶",
     "SAW谐振器(无源)",
     "SD卡/存储卡连接器",
     "SD卡适配器",
@@ -13166,6 +13479,7 @@
     "SMT载流铜片",
     "T类磁环",
     "USB电缆",
+    "USB转换模块",
     "USB转换芯片",
     "USB连接器",
     "USB集线器",
@@ -13175,7 +13489,9 @@
     "XLR(卡侬)连接器",
     "ZigBee模块",
     "eMMC",
+    "一体成型电感",
     "一次性保险丝",
+    "一次性手套",
     "万用表",
     "三极管(BJT)",
     "专业电源管理(PMIC)",
@@ -13219,6 +13535,7 @@
     "其它配件/支架",
     "内存条连接器(DDR)",
     "减压阀",
+    "减速电机",
     "刀片/弹片接触电池连接器",
     "功率因数校正(PFC)控制器",
     "功率电子开关",
@@ -13286,15 +13603,13 @@
     "奇偶生成器/校验器",
     "姿态传感器/陀螺仪",
     "存储卡",
+    "存储器控制器",
     "安规测试仪",
     "安规电容",
     "定时器/计时器",
     "实时时钟(RTC)",
-    "密封条",
-    "导热帽",
     "导热泥",
     "导热片",
-    "导热管",
     "导热胶",
     "导轨开关电源",
     "封箱胶带",
@@ -13309,6 +13624,7 @@
     "工直铜花螺母",
     "差分探头",
     "差分运放",
+    "差压传感器",
     "巴伦(balun)",
     "布线快速连接式接线端子",
     "干砂纸",
@@ -13319,15 +13635,16 @@
     "开关配件/盖帽",
     "开发板",
     "开口扳手",
+    "开放式开关电源",
     "弹簧卡扣",
     "弹簧式接线端子",
     "微动开关",
     "快充协议芯片",
     "快恢复/高效率二极管",
     "恒温晶体振荡器(OCXO)",
+    "手指套",
     "打印线",
     "扣式磁环",
-    "扩频振荡器",
     "扬声器/喇叭",
     "拓展坞",
     "拨码开关",
@@ -13377,6 +13694,7 @@
     "智能功率模块(IPM)",
     "有刷直流电机驱动芯片",
     "有源晶振",
+    "机壳式开关电源",
     "机械键盘轴",
     "杜邦线&端子线",
     "杯/壶/瓶",
@@ -13404,15 +13722,17 @@
     "汽车保险丝",
     "汽车继电器",
     "汽车连接器",
-    "流量传感器",
     "流量开关",
     "测试夹",
     "浪涌保护器",
+    "浪涌保护器/防雷器",
     "海绵砂纸",
+    "涂层手套",
+    "消毒器",
     "消音器",
     "液位传感器",
+    "清洁手套",
     "温度传感器",
-    "温度保险丝(TCO)",
     "温度补偿晶体振荡器(TCXO)",
     "温控开关",
     "温湿度传感器",
@@ -13426,13 +13746,13 @@
     "焊接插片端子",
     "焊接端子",
     "照明驱动",
-    "熔断器/电流保护器",
     "牛角型电解电容",
     "特殊功能放大器",
     "特殊逻辑IC",
     "王直铜花螺母",
     "环境光传感器",
     "玻璃放电管",
+    "理想二极管/ORing控制器",
     "电信接口IC",
     "电压基准芯片",
     "电子测试附件",
@@ -13450,6 +13770,7 @@
     "电池盒",
     "电池管理",
     "电流传感器",
+    "电流传感器/磁传感器",
     "电流感应放大器",
     "电流探头",
     "电流源/恒流源",
@@ -13503,6 +13824,7 @@
     "线对板针座",
     "线性稳压器(LDO)",
     "线性霍尔传感器",
+    "线路板保护剂",
     "结型场效应管(JFET)",
     "继电器",
     "继电器/线圈驱动芯片",
@@ -13534,14 +13856,13 @@
     "蜂鸣片",
     "螺旋气管",
     "螺柱&螺杆",
+    "螺栓型铝电解电容",
     "螺钉&螺栓",
     "螺钉式接线端子",
     "行程开关",
-    "视频接口芯片",
     "视频放大器",
     "触发二极管",
     "触发器",
-    "触摸屏控制器",
     "触摸弹簧",
     "触摸芯片",
     "计数器/分频器",
@@ -13566,6 +13887,8 @@
     "连接器附件",
     "逆变器",
     "通用二极管",
+    "通用工作手套",
+    "通讯设备",
     "逻辑分析仪",
     "逻辑输出光耦",
     "逻辑门",
@@ -13591,6 +13914,7 @@
     "锌锰柱状电池",
     "键盘",
     "镍氢纽扣电池",
+    "防静电手套",
     "限位开关/行程开关",
     "陶瓷滤波器",
     "陶瓷谐振器(无源)",
@@ -13598,6 +13922,7 @@
     "隔离式CAN收发器(带电源)",
     "隔离式DC/DC转换器",
     "隔离式I2C",
+    "隔离式RS-232收发器(带电源)",
     "隔离式RS485/422收发器",
     "隔离式RS485/422收发器(带电源)",
     "隔离式放大器",
@@ -13625,6 +13950,6 @@
     "高压探头",
     "鼠标"
   ],
-  "total_brands": 349,
-  "total_categories": 536
+  "total_brands": 362,
+  "total_categories": 548
 }
